@@ -1135,7 +1135,7 @@ function submitName(){
   const v=document.getElementById('nameInput').value.trim();
   if(!v) return;
   currentStudent=v;
-  if(!state.students[v]){ state.students[v]=freshStudentState(); } saveState(); }
+  if(!state.students[v]){ state.students[v]=freshStudentState(); saveState(); }
   renderHome();
 }
 
