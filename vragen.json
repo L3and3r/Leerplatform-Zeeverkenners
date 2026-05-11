@@ -1,0 +1,2503 @@
+{
+  "_uitleg": [
+    "Dit bestand bevat ALLE quizvragen en examenvragen van het leerplatform.",
+    "",
+    "Structuur:",
+    "  roeien.modules.[module-id].quiz  — oefenvragen per roeimodule",
+    "  roeien.examen.deel1 / deel2 / bpr — officiële roei-examenvragen",
+    "  zeilen.[niveau].modules.[module-id].quiz — oefenvragen zeilen",
+    "  zeilen.[niveau].examen             — officiële zeilvragen per niveau",
+    "",
+    "Per vraag:",
+    "  vraag     : vraagtekst  ← hier mag je aanpassen",
+    "  opties    : [A, B, C, D]  ← hier mag je aanpassen",
+    "  correct   : 0=A, 1=B, 2=C, 3=D  ← controleer na aanpassen!",
+    "  uitleg    : toelichting na antwoord  ← hier mag je aanpassen",
+    "  afbeelding / diagram (optioneel) : interne tekenreferentie — NIET wijzigen",
+    "",
+    "Nieuw niveau toevoegen (bv. Zeilen Lichtblauw):",
+    "  Voeg 'lichtblauw': { modules:{}, examen:[] } toe onder 'zeilen'.",
+    "  Voeg ook het niveau toe in modules.json (zelfde sleutel 'lichtblauw').",
+    "  De site herkent het automatisch."
+  ],
+  "roeien": {
+    "modules": {
+      "knopen": {
+        "quiz": [
+          {
+            "vraag": "Welke knoop wordt hieronder afgebeeld?",
+            "opties": [
+              "Achtknoop",
+              "Paalsteek",
+              "Mastworp",
+              "Schootsteek"
+            ],
+            "correct": 1,
+            "uitleg": "Dit is een paalsteek: vaste lus die niet dichttrekt.",
+            "afbeelding": "{{svg:knoopsvg:paal:120}}"
+          },
+          {
+            "vraag": "Wanneer gebruik je een paalsteek?",
+            "opties": [
+              "Als stopknoop",
+              "Twee even dikke lijnen",
+              "Vaste lus die niet dichttrekt",
+              "Snel los trekken"
+            ],
+            "correct": 2,
+            "uitleg": "De paalsteek maakt een vaste lus die niet dichttrekt."
+          },
+          {
+            "vraag": "Twee lijnen, één dik en één dun. Welke knoop?",
+            "opties": [
+              "Platte knoop",
+              "Schootsteek",
+              "Mastworp",
+              "Achtknoop"
+            ],
+            "correct": 1,
+            "uitleg": "Schootsteek = verschillende dikte."
+          },
+          {
+            "vraag": "Welke knoop is een stopknoop op het einde van een lijn?",
+            "opties": [
+              "Mastworp",
+              "Paalsteek",
+              "Achtknoop",
+              "Slipsteek"
+            ],
+            "correct": 2,
+            "uitleg": "De achtknoop zorgt dat een lijn niet door een blok glipt."
+          }
+        ]
+      },
+      "zeiltermen": {
+        "quiz": [
+          {
+            "vraag": "Wat is bakboord?",
+            "opties": [
+              "Rechts",
+              "Links",
+              "Voor",
+              "Achter"
+            ],
+            "correct": 1,
+            "uitleg": "BaKboord = LinKs."
+          },
+          {
+            "vraag": "Aan welke zijde zit het wrikgat?",
+            "opties": [
+              "Bakboord",
+              "Stuurboord",
+              "Midden",
+              "Beide kanten"
+            ],
+            "correct": 1,
+            "uitleg": "Het wrikgat zit aan stuurboord."
+          },
+          {
+            "vraag": "Wat is de hogerwal?",
+            "opties": [
+              "Waar de wind heen waait",
+              "Waar de wind vandaan komt",
+              "De hoogste oever",
+              "Stroomopwaarts"
+            ],
+            "correct": 1,
+            "uitleg": "Hogerwal = de kant waar de wind vandaan komt."
+          }
+        ]
+      },
+      "vlet": {
+        "quiz": [
+          {
+            "vraag": "Welk onderdeel is nummer 54?",
+            "opties": [
+              "Spant",
+              "Dolpot",
+              "Grendelbout",
+              "Riem"
+            ],
+            "correct": 2,
+            "uitleg": "54 = grendelbout, de pen die door de dol gaat.",
+            "afbeelding": "{{svg:vletquizsvg:54}}"
+          },
+          {
+            "vraag": "Welk onderdeel is nummer 57?",
+            "opties": [
+              "Dolpot",
+              "Spant",
+              "Roer",
+              "Helmstok"
+            ],
+            "correct": 0,
+            "uitleg": "57 = dolpot, de houder voor de dol op de boord.",
+            "afbeelding": "{{svg:vletquizsvg:57}}"
+          },
+          {
+            "vraag": "Welk onderdeel is nummer 84?",
+            "opties": [
+              "Grendelbout",
+              "Spant",
+              "Dolpot",
+              "Mast"
+            ],
+            "correct": 1,
+            "uitleg": "84 = spant, een dwarsbalk binnenin de boot.",
+            "afbeelding": "{{svg:vletquizsvg:84}}"
+          }
+        ]
+      },
+      "commandos": {
+        "quiz": [
+          {
+            "vraag": "Wat gebeurt er als stuurboord haalt en bakboord strijkt?",
+            "opties": [
+              "Vlet draait naar stuurboord",
+              "Vlet draait naar bakboord",
+              "Vlet stopt af",
+              "Vlet gaat achteruit"
+            ],
+            "correct": 1,
+            "uitleg": "Stuurboord vooruit + bakboord achteruit → voorkant draait naar bakboord."
+          },
+          {
+            "vraag": "Wat betekent \"Riemen op\"?",
+            "opties": [
+              "Stoppen, riemen iets uit het water",
+              "Riemen verticaal de lucht in",
+              "Riemen in de dol",
+              "Noodstop"
+            ],
+            "correct": 1,
+            "uitleg": "Riemen op = recht omhoog, verticaal. \"Op riemen\" is iets anders."
+          },
+          {
+            "vraag": "Wat is de eerste stap bij aanleggen met de spiegel?",
+            "opties": [
+              "Pikhaak achter",
+              "Beide boorden zetten om",
+              "Beide boorden halen",
+              "Op riemen"
+            ],
+            "correct": 3,
+            "uitleg": "Stap 1 is altijd \"Op riemen\"."
+          }
+        ]
+      },
+      "vastleggen": {
+        "quiz": [
+          {
+            "vraag": "Met hoeveel lijnen leggen we de vlet vast?",
+            "opties": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "correct": 2,
+            "uitleg": "Altijd 3: voorland, achterland en spring."
+          },
+          {
+            "vraag": "Hoe leg je de spring?",
+            "opties": [
+              "Met de wind mee",
+              "Tegen de wind in",
+              "Loodrecht",
+              "Maakt niet uit"
+            ],
+            "correct": 1,
+            "uitleg": "Spring = altijd tegen de wind in."
+          },
+          {
+            "vraag": "Wat is de laatste stap bij aanleggen?",
+            "opties": [
+              "Pikhaak voor",
+              "Op riemen",
+              "Landen vast, spring vast, zwaard op",
+              "Stootwillen uit"
+            ],
+            "correct": 2,
+            "uitleg": "Alles vast, dan zwaard omhoog."
+          }
+        ]
+      },
+      "veiligheid": {
+        "quiz": [
+          {
+            "vraag": "Hoe weet je of je in de dode hoek zit?",
+            "opties": [
+              "Hij toetert",
+              "Boot komt dichterbij",
+              "Je ziet de schipper/stuurhut niet meer",
+              "Je staat in zijn schaduw"
+            ],
+            "correct": 2,
+            "uitleg": "Zie jij de schipper niet → hij ziet jou ook niet."
+          },
+          {
+            "vraag": "Welke situatie hoort NIET bij reddingsvest-plicht?",
+            "opties": [
+              "Bij onweer",
+              "Tijdens sleep",
+              "Harde wind",
+              "Als de zon schijnt"
+            ],
+            "correct": 3,
+            "uitleg": "Zon schijnen is geen verplichting."
+          },
+          {
+            "vraag": "Wat doe je als eerste bij onweer op komst?",
+            "opties": [
+              "Mast strijken",
+              "Zo snel mogelijk naar de kant",
+              "Reddingsvest aan",
+              "Op het hout"
+            ],
+            "correct": 1,
+            "uitleg": "Eerst naar de kant, dan vest, dan mast."
+          },
+          {
+            "vraag": "Mag je met laarzen aan boord?",
+            "opties": [
+              "Nee nooit",
+              "Ja altijd",
+              "Ja, maar dan reddingsvest",
+              "Alleen op zaterdag"
+            ],
+            "correct": 2,
+            "uitleg": "Laarzen lopen vol water — dan moet je een reddingsvest."
+          }
+        ]
+      },
+      "voorrang": {
+        "quiz": [
+          {
+            "vraag": "Wat heeft voorrang: motor of zeil?",
+            "opties": [
+              "Motor",
+              "Zeil",
+              "Geen van beide",
+              "Grootste"
+            ],
+            "correct": 1,
+            "uitleg": "Motor wijkt voor Spier wijkt voor Zeil."
+          },
+          {
+            "vraag": "Twee gelijke schepen komen recht op elkaar af. Wat doen ze?",
+            "opties": [
+              "Beiden naar bakboord",
+              "Beiden naar stuurboord",
+              "Linker wijkt",
+              "Rechter wijkt"
+            ],
+            "correct": 1,
+            "uitleg": "Tegengestelde koers: beiden naar stuurboord."
+          },
+          {
+            "vraag": "Vrachtschip 50m en klein zeilbootje varen kruisend. Wie wijkt?",
+            "opties": [
+              "Zeilbootje",
+              "Vrachtschip",
+              "Geen van beide",
+              "De vlet"
+            ],
+            "correct": 0,
+            "uitleg": "Klein wijkt voor Groot — sterker dan motor/zeil."
+          },
+          {
+            "vraag": "Twee zeilboten: een zeil over bakboord, ander over stuurboord. Wie heeft voorrang?",
+            "opties": [
+              "Zeil over bakboord",
+              "Zeil over stuurboord",
+              "Beiden gelijk",
+              "Grootste"
+            ],
+            "correct": 0,
+            "uitleg": "Zeil over bakboord HEEFT voorrang."
+          }
+        ]
+      },
+      "betonning": {
+        "quiz": [
+          {
+            "vraag": "Welke kleur ton zit aan stuurboord met stroom mee?",
+            "opties": [
+              "Groen",
+              "Rood",
+              "Geel",
+              "Wit"
+            ],
+            "correct": 1,
+            "uitleg": "stRoom mee → Rood stuuRboord."
+          },
+          {
+            "vraag": "Welke vorm heeft een bakboordton?",
+            "opties": [
+              "Stomp",
+              "Spits/kegel omhoog",
+              "Bol",
+              "Vlag"
+            ],
+            "correct": 1,
+            "uitleg": "Bakboord = groen + spits."
+          }
+        ]
+      },
+      "borden": {
+        "quiz": [
+          {
+            "vraag": "Rond bord, rode rand, doorgestreept zeilboot: betekenis?",
+            "opties": [
+              "Verboden motorschepen",
+              "Verboden zeilschepen",
+              "Verboden spierkracht",
+              "Verboden doorvaren"
+            ],
+            "correct": 1,
+            "uitleg": "Doorgestreept zeilbootje = verboden zeilschepen."
+          },
+          {
+            "vraag": "Een roeiboot: welk verbodsbord mag hij negeren?",
+            "opties": [
+              "Verboden spierkracht",
+              "Verboden motorschepen",
+              "Verboden meren",
+              "Verboden doorvaart"
+            ],
+            "correct": 1,
+            "uitleg": "Roeiboot = spierkracht, geen motor."
+          },
+          {
+            "vraag": "Twee gele ruiten boven een brug: betekenis?",
+            "opties": [
+              "Verboden",
+              "Doorvaart, tegenliggers verwachten",
+              "Doorvaart, géén tegenliggers",
+              "Brug gaat open"
+            ],
+            "correct": 2,
+            "uitleg": "2 ruiten = eenrichtingsverkeer."
+          },
+          {
+            "vraag": "Blauw vierkant, witte pijl links: betekenis?",
+            "opties": [
+              "Verboden links",
+              "Verplicht die richting",
+              "Bakboordwal",
+              "Brug links"
+            ],
+            "correct": 1,
+            "uitleg": "Blauw + witte pijl = gebod die richting."
+          },
+          {
+            "vraag": "Blauw bord + P zonder rode streep: wat betekent het?",
+            "opties": [
+              "Verboden meren",
+              "Toestemming meren",
+              "Keerplaats",
+              "Pont"
+            ],
+            "correct": 1,
+            "uitleg": "Geen rode streep = positief. P = meren."
+          }
+        ]
+      },
+      "bruggen": {
+        "quiz": [
+          {
+            "vraag": "Twee gele ruiten boven brug: betekenis?",
+            "opties": [
+              "Verboden",
+              "Doorvaart, tegenliggers mogelijk",
+              "Doorvaart, géén tegenliggers",
+              "Brug gaat open"
+            ],
+            "correct": 2,
+            "uitleg": "2 ruiten = eenrichting, géén tegenliggers."
+          },
+          {
+            "vraag": "Rood licht bij een brug: betekenis?",
+            "opties": [
+              "Doorvaart toegestaan",
+              "Verboden",
+              "Tegenliggers",
+              "Buiten bedrijf"
+            ],
+            "correct": 1,
+            "uitleg": "Rood = verboden."
+          }
+        ]
+      },
+      "tekens": {
+        "quiz": [
+          {
+            "vraag": "Hoeveel afstand bij 2 blauwe kegels?",
+            "opties": [
+              "10 m",
+              "25 m",
+              "50 m",
+              "100 m"
+            ],
+            "correct": 2,
+            "uitleg": "2 kegels = 50 m."
+          },
+          {
+            "vraag": "Zwarte bol op een schip betekent?",
+            "opties": [
+              "Voor anker",
+              "Sleep",
+              "Gevaarlijk",
+              "Passagier"
+            ],
+            "correct": 0,
+            "uitleg": "Zwarte bol = voor anker."
+          },
+          {
+            "vraag": "Wat betekent één blauwe kegel?",
+            "opties": [
+              "Sleep",
+              "Brandbaar — 10m",
+              "Passagier",
+              "Anker"
+            ],
+            "correct": 1,
+            "uitleg": "1 kegel = brandbaar, 10m afstand."
+          }
+        ]
+      },
+      "kleurcodes": {
+        "quiz": [
+          {
+            "vraag": "Welke kleur hoort bij vlet 294?",
+            "opties": [
+              "Rood",
+              "Geel",
+              "Groen",
+              "Blauw"
+            ],
+            "correct": 1,
+            "uitleg": "294 = geel."
+          },
+          {
+            "vraag": "Welke kleur hoort bij vlet 925?",
+            "opties": [
+              "Bruin",
+              "Paars",
+              "Blauw",
+              "Zwart"
+            ],
+            "correct": 2,
+            "uitleg": "925 = blauw."
+          },
+          {
+            "vraag": "Welke vlet is rood?",
+            "opties": [
+              "294",
+              "419",
+              "687",
+              "925"
+            ],
+            "correct": 1,
+            "uitleg": "419 = rood."
+          },
+          {
+            "vraag": "Welke kleur hoort bij vlet 688?",
+            "opties": [
+              "Bruin",
+              "Groen",
+              "Geel",
+              "Roze"
+            ],
+            "correct": 0,
+            "uitleg": "688 = bruin."
+          }
+        ]
+      },
+      "manoeuvres": {
+        "quiz": [
+          {
+            "vraag": "Scherpe bocht naar bakboord — welk boord stopt af?",
+            "opties": [
+              "Bakboord",
+              "Stuurboord",
+              "Beide",
+              "Geen"
+            ],
+            "correct": 0,
+            "uitleg": "Het boord waar je heen draait werkt tegen. Naar BB → BB stopt."
+          },
+          {
+            "vraag": "Drenkeling binnenhalen aan de hoge kant — waarom?",
+            "opties": [
+              "Makkelijker tillen",
+              "Drijft naar de boot toe",
+              "Stuurman ziet beter",
+              "Willekeurig"
+            ],
+            "correct": 1,
+            "uitleg": "Tegen de wind aan = drenkeling drijft naar de windzijde."
+          },
+          {
+            "vraag": "Wat is een haakvoor?",
+            "opties": [
+              "Voorste roeier",
+              "Persoon die landvasten/stootwillen regelt",
+              "De helmstok",
+              "De roerganger"
+            ],
+            "correct": 1,
+            "uitleg": "De haakvoor regelt de landvasten en duwt af."
+          },
+          {
+            "vraag": "Hoeveel ankerlijn vier je uit?",
+            "opties": [
+              "1× diepte",
+              "2–3× diepte",
+              "5× diepte",
+              "Zoveel mogelijk"
+            ],
+            "correct": 1,
+            "uitleg": "2–3× de waterdiepte is de vuistregel."
+          },
+          {
+            "vraag": "Wanneer ga je tegen de wind in bij ankeren?",
+            "opties": [
+              "Nooit",
+              "Altijd",
+              "Alleen harde wind",
+              "Alleen op zee"
+            ],
+            "correct": 1,
+            "uitleg": "Tegen de wind = boot deinst gecontroleerd achteruit."
+          }
+        ]
+      },
+      "vaartechnieken": {
+        "quiz": [
+          {
+            "vraag": "Welk patroon maakt het riemblad bij wrikken?",
+            "opties": [
+              "Rechte lijn",
+              "Achtje",
+              "Cirkel",
+              "Driehoek"
+            ],
+            "correct": 1,
+            "uitleg": "Polsen draaien per slag 90° → achtje."
+          },
+          {
+            "vraag": "Aan welke zijde zit het wrikgat?",
+            "opties": [
+              "Bakboord",
+              "Stuurboord",
+              "Midden",
+              "Maakt niet uit"
+            ],
+            "correct": 1,
+            "uitleg": "Wrikgat zit aan stuurboord."
+          },
+          {
+            "vraag": "Waar maak je de jaaglijn best vast?",
+            "opties": [
+              "Kikker voorop",
+              "Val in de mast",
+              "Aan het roer",
+              "Achterspring"
+            ],
+            "correct": 1,
+            "uitleg": "Val in mast voorkomt vasthaken langs de kant."
+          },
+          {
+            "vraag": "Hoeveel mensen blijven aan boord bij jagen?",
+            "opties": [
+              "Geen",
+              "1",
+              "Minimaal 2",
+              "Iedereen"
+            ],
+            "correct": 2,
+            "uitleg": "Minimaal 2 voor besturen."
+          },
+          {
+            "vraag": "Welke regel klopt NIET bij slepen?",
+            "opties": [
+              "Niet staan",
+              "Niet in slaapzak",
+              "Wel mogen overlopen",
+              "Lijn voor/achter klaar"
+            ],
+            "correct": 2,
+            "uitleg": "Overlopen mag NIET."
+          }
+        ]
+      },
+      "commando-bouwer": {
+        "quiz": [
+          {
+            "vraag": "Welk commando geef je ALTIJD voor een nieuw commando, behalve 2 uitzonderingen?",
+            "opties": [
+              "Riemen op",
+              "Op riemen",
+              "Riemen toe",
+              "Gelijk"
+            ],
+            "correct": 1,
+            "uitleg": "\"Op riemen\" sluit het vorige commando — behalve stopt af en riemen lopen."
+          },
+          {
+            "vraag": "Wat is een waarschuwingscommando?",
+            "opties": [
+              "Uitvoeringsdeel",
+              "Eerste deel voor de roeiers",
+              "Commando bij gevaar",
+              "\"Stopt af\""
+            ],
+            "correct": 1,
+            "uitleg": "Het waarschuwingsdeel bereidt de roeiers voor, dan volgt na pauze het uitvoeringscommando."
+          },
+          {
+            "vraag": "Welk commando = \"riemen verticaal de lucht in\"?",
+            "opties": [
+              "Riemen op",
+              "Op riemen",
+              "Riemen toe",
+              "Riemen geroeid"
+            ],
+            "correct": 0,
+            "uitleg": "\"Riemen op\" — bij saluut of als eerste stap bij afvaren."
+          }
+        ]
+      },
+      "verlichting": {
+        "quiz": [
+          {
+            "vraag": "'s Nachts alleen groen licht zien naderen: welke koers?",
+            "opties": [
+              "Tegengesteld",
+              "Kruisend (vanuit SB)",
+              "Oplopend",
+              "Voor anker"
+            ],
+            "correct": 1,
+            "uitleg": "1 boordlicht = kruisend. Groen = SB-licht, dus kruist van rechts."
+          },
+          {
+            "vraag": "Rood EN groen naast elkaar naderen: wat doet die boot?",
+            "opties": [
+              "Voor anker",
+              "Oplopend",
+              "Recht op je af (tegengesteld)",
+              "Veerpont"
+            ],
+            "correct": 2,
+            "uitleg": "Beide boordlichten = tegengesteld."
+          },
+          {
+            "vraag": "Welke boot heeft GEEN boordlichten?",
+            "opties": [
+              "Roeiboot",
+              "Klein motorschip 8m",
+              "Groot zeilschip",
+              "Snel motorschip"
+            ],
+            "correct": 0,
+            "uitleg": "Boten &lt;7m hebben geen boordlichten."
+          },
+          {
+            "vraag": "Schip met gevaarlijke stoffen 's nachts?",
+            "opties": [
+              "Rode flikkerlichten",
+              "Blauwe lichten 1/2/3 boven elkaar",
+              "Gele kegels",
+              "Niets"
+            ],
+            "correct": 1,
+            "uitleg": "Blauwe lichten, net als de blauwe kegels overdag."
+          },
+          {
+            "vraag": "Groot schip voor anker: wat zie je?",
+            "opties": [
+              "1 wit licht",
+              "2 witte rondom lichten — voorste hoger",
+              "Rood en groen",
+              "3 witte lichten"
+            ],
+            "correct": 1,
+            "uitleg": "2 witte rondom lichten, voorste hoger. Klein schip = maar 1."
+          }
+        ]
+      },
+      "geluidsseinen": {
+        "quiz": [
+          {
+            "vraag": "Wat betekent \"● ●\" (twee korte stoten)?",
+            "opties": [
+              "Attentie",
+              "Naar stuurboord",
+              "Naar bakboord",
+              "Achteruit"
+            ],
+            "correct": 2,
+            "uitleg": "2 korte = ik ga naar bakboord (twee B in BB)."
+          },
+          {
+            "vraag": "Hoe lang is een lange stoot?",
+            "opties": [
+              "1 sec",
+              "2 sec",
+              "4 sec",
+              "10 sec"
+            ],
+            "correct": 2,
+            "uitleg": "Lange stoot = 4 seconden."
+          },
+          {
+            "vraag": "Wat is het noodsein?",
+            "opties": [
+              "1 lange stoot",
+              "3 korte",
+              "5 lange stoten",
+              "Continu"
+            ],
+            "correct": 2,
+            "uitleg": "Noodsein = 5 lange stoten."
+          },
+          {
+            "vraag": "Wat betekent \"● ● ●\" (drie korte)?",
+            "opties": [
+              "Naar bakboord",
+              "Achteruit",
+              "Attentie",
+              "Noodsein"
+            ],
+            "correct": 1,
+            "uitleg": "3 korte = achteruit (ach-ter-uit = 3 lettergrepen)."
+          }
+        ]
+      },
+      "weer": {
+        "quiz": [
+          {
+            "vraag": "Vanaf welke windkracht KNMI-waarschuwing?",
+            "opties": [
+              "4 Bft",
+              "5 Bft",
+              "6 Bft",
+              "8 Bft"
+            ],
+            "correct": 2,
+            "uitleg": "Vanaf 6 Beaufort."
+          },
+          {
+            "vraag": "Wat betekent ruimende wind?",
+            "opties": [
+              "Met klok mee — slechter",
+              "Met klok mee — mooi weer",
+              "Tegen klok in — mooi",
+              "Wind neemt af"
+            ],
+            "correct": 1,
+            "uitleg": "Ruimende wind = met de klok mee, mooi weer op komst."
+          },
+          {
+            "vraag": "Aan welke wolk herken je onweer?",
+            "opties": [
+              "Sluierwolken",
+              "Donkere stapelwolk met platte bovenkant",
+              "Lage mist",
+              "Cirrus"
+            ],
+            "correct": 1,
+            "uitleg": "Cumulonimbus met aambeeldvorm = onweer."
+          },
+          {
+            "vraag": "Wat doe je als eerste bij naderend onweer?",
+            "opties": [
+              "Mast strijken",
+              "Zo snel mogelijk naar de kant",
+              "Reddingsvest",
+              "Anker"
+            ],
+            "correct": 1,
+            "uitleg": "Eerst naar de kant. Dan vest, dan mast."
+          }
+        ]
+      },
+      "onderhoud": {
+        "quiz": [
+          {
+            "vraag": "Winterbeurt volgorde?",
+            "opties": [
+              "Lakken → primer → grondverf → krabben",
+              "Krabben → primer → grondverf → lakken",
+              "Grondverf → krabben → primer → lakken",
+              "Lakken → krabben → primer → grondverf"
+            ],
+            "correct": 1,
+            "uitleg": "Krabben → primer → grondverf → laklaag."
+          },
+          {
+            "vraag": "Waar hang je nat touw aan?",
+            "opties": [
+              "IJzeren spijker",
+              "Houten pin",
+              "Op de grond",
+              "In de zon"
+            ],
+            "correct": 1,
+            "uitleg": "Houten pin — ijzer roest en tast touw aan."
+          },
+          {
+            "vraag": "Wat is een bokkenpoot?",
+            "opties": [
+              "Knoop",
+              "Speciale kwast voor teren",
+              "Ankertype",
+              "Mastonderdeel"
+            ],
+            "correct": 1,
+            "uitleg": "Speciale kwast om bodem te teren."
+          },
+          {
+            "vraag": "Waarmee kwasten schoonmaken na lakken?",
+            "opties": [
+              "Water",
+              "Terpentine of peut",
+              "Afwasmiddel",
+              "Ammonia"
+            ],
+            "correct": 1,
+            "uitleg": "Terpentine of peut (petroleum)."
+          }
+        ]
+      },
+      "touwen-ankers": {
+        "quiz": [
+          {
+            "vraag": "Waarom geen onnodige knopen in een lijn?",
+            "opties": [
+              "Ziet rommelig uit",
+              "Touw slijt sneller en knopen lossen moeilijk",
+              "Verboden",
+              "Waait weg"
+            ],
+            "correct": 1,
+            "uitleg": "Knopen slijten touw sneller en zijn later moeilijk los te krijgen."
+          },
+          {
+            "vraag": "Welke richting schiet je een lijn op?",
+            "opties": [
+              "Losse naar vaste eind",
+              "Vaste naar losse eind",
+              "Maakt niet uit",
+              "Tegen de klok"
+            ],
+            "correct": 1,
+            "uitleg": "Van vaste naar losse eind, in de touwrichting."
+          },
+          {
+            "vraag": "Welk touw is goed voor een ankerlijn?",
+            "opties": [
+              "Sisal",
+              "Polyamide",
+              "Katoen",
+              "Polytheen"
+            ],
+            "correct": 1,
+            "uitleg": "Polyamide: slijtvast, UV-bestendig, grote breeklast."
+          },
+          {
+            "vraag": "Welk touw drijft op water?",
+            "opties": [
+              "Polyamide",
+              "Polyester",
+              "Polipropyleen",
+              "Hennep"
+            ],
+            "correct": 2,
+            "uitleg": "Polipropyleen drijft — ideaal voor landvasten."
+          }
+        ]
+      },
+      "etiquette": {
+        "quiz": [
+          {
+            "vraag": "Wanneer wordt de Nederlandse vlag gestreken?",
+            "opties": [
+              "Bij zonsopgang",
+              "Vóór zonsondergang",
+              "Na zonsondergang",
+              "Nooit"
+            ],
+            "correct": 1,
+            "uitleg": "Gehesen na zonsopgang, gestreken vóór zonsondergang."
+          },
+          {
+            "vraag": "Wat doe je als eerste als je schip omslaat?",
+            "opties": [
+              "Naar de kant zwemmen",
+              "Koppen tellen, bij boot blijven",
+              "Boot rechttrekken",
+              "Hulp roepen"
+            ],
+            "correct": 1,
+            "uitleg": "Eerst koppen tellen, dan bij het schip blijven."
+          },
+          {
+            "vraag": "Verschil zwem- en reddingsvest?",
+            "opties": [
+              "Geen verschil",
+              "Reddingsvest draait hoofd omhoog",
+              "Zwemvest is duurder",
+              "Reddingsvest alleen voor kinderen"
+            ],
+            "correct": 1,
+            "uitleg": "Reddingsvest heeft kraag die hoofd draait — zelfs bewusteloos."
+          }
+        ]
+      }
+    },
+    "examen": {
+      "roeien1": [
+        {
+          "vraag": "Welke knoop wordt hieronder afgebeeld? En wanneer gebruik je deze knoop?",
+          "opties": [
+            "Achtknoop — stopknoop",
+            "Paalsteek — vaste lus die niet dichttrekt",
+            "Mastworp — aan paal",
+            "Schootsteek — twee lijnen"
+          ],
+          "correct": 1,
+          "uitleg": "Paalsteek: vaste lus die niet dichttrekt.",
+          "afbeelding": "{{svg:knoopsvg:paal:120}}"
+        },
+        {
+          "vraag": "Wat gebeurt er als stuurboord haalt en bakboord strijkt?",
+          "opties": [
+            "Vlet draait naar stuurboord",
+            "Vlet draait naar bakboord",
+            "Vlet stopt af",
+            "Vlet gaat achteruit"
+          ],
+          "correct": 1,
+          "uitleg": "Stuurboord vooruit + bakboord achteruit → voorkant naar bakboord."
+        },
+        {
+          "vraag": "Je vaart achteruit. Je duwt de helmstok naar stuurboord. Welke kant draait de punt op?",
+          "opties": [
+            "Bakboord",
+            "Stuurboord",
+            "Rechtdoor",
+            "Geen beweging"
+          ],
+          "correct": 1,
+          "uitleg": "Bij achteruit werkt het roer omgekeerd: helmstok naar SB → punt naar SB."
+        },
+        {
+          "vraag": "Welk onderdeel is nummer 54?",
+          "opties": [
+            "Spant",
+            "Dolpot",
+            "Grendelbout",
+            "Riem"
+          ],
+          "correct": 2,
+          "uitleg": "54 = grendelbout.",
+          "afbeelding": "{{svg:vletquizsvg:54}}"
+        },
+        {
+          "vraag": "Welk onderdeel is nummer 57?",
+          "opties": [
+            "Dolpot",
+            "Spant",
+            "Spiegel",
+            "Mast"
+          ],
+          "correct": 0,
+          "uitleg": "57 = dolpot.",
+          "afbeelding": "{{svg:vletquizsvg:57}}"
+        },
+        {
+          "vraag": "Welk onderdeel is nummer 84?",
+          "opties": [
+            "Grendelbout",
+            "Dolpot",
+            "Spant",
+            "Roer"
+          ],
+          "correct": 2,
+          "uitleg": "84 = spant.",
+          "afbeelding": "{{svg:vletquizsvg:84}}"
+        },
+        {
+          "vraag": "Welk verbodsbord mag jij met je roeiboot wél passeren?",
+          "opties": [
+            "Verboden voor zeilschepen",
+            "Verboden voor spierkracht",
+            "Verboden voor motorschepen",
+            "Verboden doorvaart"
+          ],
+          "correct": 2,
+          "uitleg": "Roeiboot = spierkracht, geen motor."
+        },
+        {
+          "vraag": "Welke commando's gebruik je om een acht te roeien?",
+          "opties": [
+            "Bakboord/SB halen — Op riemen — SB/BB haalt en strijkt — Op riemen",
+            "Beide boorden halen",
+            "Op riemen — strijken",
+            "Pikhaak voor"
+          ],
+          "correct": 0,
+          "uitleg": "Acht roeien: groot rondje door één boord, dan kleiner rondje met haal+strijk."
+        },
+        {
+          "vraag": "Welke kleur hoort bij vlet 522?",
+          "opties": [
+            "Zwart (zelf inbeelden)",
+            "Wit",
+            "Geel",
+            "Geen kleur"
+          ],
+          "correct": 0,
+          "uitleg": "522 = zwart."
+        }
+      ],
+      "roeien2": [
+        {
+          "vraag": "Hoe weet je of je in de dode hoek zit?",
+          "opties": [
+            "Hij toetert",
+            "Je ziet de schipper niet meer",
+            "Hij komt dichterbij",
+            "Je staat in zijn schaduw"
+          ],
+          "correct": 1,
+          "uitleg": "Zie jij hem niet → hij ziet jou niet."
+        },
+        {
+          "vraag": "Bij een brug zie je 2 gele ruiten. Betekenis?",
+          "opties": [
+            "Verboden",
+            "Doorvaart, géén tegenliggers",
+            "Brug gaat open",
+            "Doorvaart, tegenliggers mogelijk"
+          ],
+          "correct": 1,
+          "uitleg": "2 ruiten = eenrichtingsverkeer."
+        },
+        {
+          "vraag": "Aanleggen op bakboord. Wat is stap 1?",
+          "opties": [
+            "Pikhaak voor",
+            "Op riemen, beide stoppen af",
+            "Stootwillen uit",
+            "Landen vast"
+          ],
+          "correct": 1,
+          "uitleg": "Stap 1 = op riemen, beide stoppen af."
+        },
+        {
+          "vraag": "Splitsingston half groen (boven) half rood (onder). Betekenis?",
+          "opties": [
+            "BB-kant hoofdvaarwater",
+            "Geen doorvaart",
+            "SB kruist BB",
+            "Verboden"
+          ],
+          "correct": 0,
+          "uitleg": "Bovenste kleur geeft BB-kant van hoofdvaarwater aan."
+        },
+        {
+          "vraag": "Noem een situatie waarin reddingsvest verplicht is.",
+          "opties": [
+            "Bij zonneschijn",
+            "Tijdens een sleep",
+            "Als je honger hebt",
+            "Boot stilligt"
+          ],
+          "correct": 1,
+          "uitleg": "Sleep, onweer, harde wind of \"2 van de 3\"-regel."
+        },
+        {
+          "vraag": "Twee schepen recht op elkaar af, beide gelijk. Wat doe jij?",
+          "opties": [
+            "Bakboord uit",
+            "Stuurboord uit",
+            "Rechtdoor",
+            "Stoppen"
+          ],
+          "correct": 1,
+          "uitleg": "Tegengestelde koers: beiden naar stuurboord."
+        },
+        {
+          "vraag": "Onweer op komst, midden op het water. Beste actie?",
+          "opties": [
+            "Mast omhoog",
+            "Op staal blijven",
+            "Naar de kant + vest + mast strijken",
+            "Anker"
+          ],
+          "correct": 2,
+          "uitleg": "Kant, vest, mast strijken, op hout blijven."
+        }
+      ],
+      "bpr": [
+        {
+          "vraag": "Klein zeilbootje (B) en groot vrachtschip (A) kruisend. Wie wijkt?",
+          "opties": [
+            "A wijkt",
+            "B wijkt — Klein voor Groot",
+            "Geen",
+            "De vlet"
+          ],
+          "correct": 1,
+          "uitleg": "Klein wijkt altijd voor Groot.",
+          "diagram": "{{svg:bprsvg:klein-groot}}"
+        },
+        {
+          "vraag": "Spierkrachtboot (B) en zeilboot (A) kruisend. Wie wijkt?",
+          "opties": [
+            "A wijkt",
+            "B wijkt — Spier voor Zeil",
+            "Beiden",
+            "Niemand"
+          ],
+          "correct": 1,
+          "uitleg": "Spier wijkt voor zeil.",
+          "diagram": "{{svg:bprsvg:spier-zeil}}"
+        },
+        {
+          "vraag": "Twee zeilboten kruisen. A: zeil over stuurboord, B: zeil over bakboord. Wie wijkt?",
+          "opties": [
+            "A wijkt — B heeft voorrang (bakboord)",
+            "B wijkt",
+            "Beiden",
+            "Niemand"
+          ],
+          "correct": 0,
+          "uitleg": "B heeft zeil over bakboord = voorrang. A wijkt.",
+          "diagram": "{{svg:bprsvg:bak-stuur}}"
+        },
+        {
+          "vraag": "Twee zeilboten, zelfde wind. A is loef, B is lij. Wie wijkt?",
+          "opties": [
+            "A wijkt — loef voor lij",
+            "B wijkt",
+            "Niemand",
+            "Wind beslist"
+          ],
+          "correct": 0,
+          "uitleg": "Loef wijkt voor lij.",
+          "diagram": "{{svg:bprsvg:loef-lij}}"
+        },
+        {
+          "vraag": "Hoofdvaarwater + nevenvaarwater. A op hoofd, B uit neven. Wie wijkt?",
+          "opties": [
+            "A wijkt",
+            "B wijkt — klein voor groot + hoofd voor neven",
+            "Geen",
+            "Beiden"
+          ],
+          "correct": 1,
+          "uitleg": "B wijkt: klein + uit nevenvaarwater.",
+          "diagram": "{{svg:bprsvg:hoofd-neven}}"
+        },
+        {
+          "vraag": "Twee gelijke schepen kruisen. A van links, B van rechts. Wie wijkt?",
+          "opties": [
+            "A — rechts heeft voorrang",
+            "B",
+            "Beiden",
+            "Niemand"
+          ],
+          "correct": 0,
+          "uitleg": "Rechts heeft voorrang. B komt van rechts → A wijkt.",
+          "diagram": "{{svg:bprsvg:rechts}}"
+        },
+        {
+          "vraag": "Engte. A vaart stroomopwaarts, B met de stroom mee. Wie wijkt?",
+          "opties": [
+            "A wijkt — stroom mee heeft voorrang",
+            "B wijkt",
+            "Niemand",
+            "Beiden"
+          ],
+          "correct": 0,
+          "uitleg": "In engte: stroom mee heeft voorrang.",
+          "diagram": "{{svg:bprsvg:engte}}"
+        }
+      ]
+    }
+  },
+  "zeilen": {
+    "lichtmatroos": {
+      "modules": {
+        "zm-onderdelen": {
+          "quiz": [
+            {
+              "vraag": "Welk onderdeel is de schuine spriet bovenaan het zeil?",
+              "opties": [
+                "Giek",
+                "Gaffel",
+                "Lummelbeslag",
+                "Leuver"
+              ],
+              "correct": 1,
+              "uitleg": "Gaffel = schuine spriet bovenkant zeil.",
+              "afbeelding": "{{svg:zeilVletsvg:6}}"
+            },
+            {
+              "vraag": "Wat verbindt de giek met de mast (onderaan)?",
+              "opties": [
+                "Leuver",
+                "Gaffel",
+                "Lummelbeslag",
+                "Staag"
+              ],
+              "correct": 2,
+              "uitleg": "Lummelbeslag verbindt giek met mast onderaan.",
+              "afbeelding": "{{svg:zeilVletsvg:21}}"
+            },
+            {
+              "vraag": "Wat is een leuver?",
+              "opties": [
+                "Schuine spriet",
+                "Ring/oog in zeil",
+                "Verbindingsbeslag",
+                "Blok voor schoot"
+              ],
+              "correct": 1,
+              "uitleg": "Leuver = ring of oog in het zeil.",
+              "afbeelding": "{{svg:zeilVletsvg:81}}"
+            }
+          ]
+        },
+        "zm-koersen": {
+          "quiz": [
+            {
+              "vraag": "Koers waarbij wind recht van achteren komt?",
+              "opties": [
+                "Aan de wind",
+                "Halve wind",
+                "Voor de wind",
+                "Ruime wind"
+              ],
+              "correct": 2,
+              "uitleg": "Voor de wind = wind recht van achteren (180°)."
+            },
+            {
+              "vraag": "De dode hoek is…",
+              "opties": [
+                "Gebied recht achter de boot",
+                "Gebied recht de wind in",
+                "Blinde hoek bij mast",
+                "Schaduw van het zeil"
+              ],
+              "correct": 1,
+              "uitleg": "Dode hoek = zone recht in de wind, te scherp om te zeilen."
+            },
+            {
+              "vraag": "Wind van bakboord: zeil hangt over…",
+              "opties": [
+                "Bakboord",
+                "Stuurboord",
+                "Beide kanten",
+                "Midden"
+              ],
+              "correct": 1,
+              "uitleg": "Wind van bakboord → zeil over stuurboord."
+            }
+          ]
+        },
+        "zm-knopen": {
+          "quiz": [
+            {
+              "vraag": "Welke knoop geeft een vaste lus die nooit dichttrekt?",
+              "opties": [
+                "Achtknoop",
+                "Mastworp",
+                "Paalsteek",
+                "Platte knoop"
+              ],
+              "correct": 2,
+              "uitleg": "Paalsteek = vaste lus, trekt nooit dicht."
+            },
+            {
+              "vraag": "Waarvoor gebruik je een achtknoop?",
+              "opties": [
+                "Twee lijnen verbinden",
+                "Stopknoop, touw door blok",
+                "Aanleggen",
+                "Sjorren"
+              ],
+              "correct": 1,
+              "uitleg": "Achtknoop = stopknoop, einde van een lijn."
+            },
+            {
+              "vraag": "Wat is een schoot?",
+              "opties": [
+                "Touw voor de mast",
+                "Touw om zeilstand te regelen",
+                "Beslag op de giek",
+                "Ijzeren ring"
+              ],
+              "correct": 1,
+              "uitleg": "Schoot = touw waarmee je het zeil bijtrekt of viert."
+            }
+          ]
+        },
+        "zm-veiligheid": {
+          "quiz": [
+            {
+              "vraag": "Wanneer is reddingsvest verplicht?",
+              "opties": [
+                "Altijd",
+                "Kracht 4+, slecht zicht, nacht, niet-zwemmers",
+                "Alleen bij storm",
+                "Alleen voor kinderen"
+              ],
+              "correct": 1,
+              "uitleg": "Kracht 4+, slechte zicht, nacht, niet-zwemmers."
+            },
+            {
+              "vraag": "Eerste actie bij kapseizen?",
+              "opties": [
+                "Zwem naar kant",
+                "Blijf bij boot, klim op kiel",
+                "Schreeuw",
+                "Duw mast omhoog"
+              ],
+              "correct": 1,
+              "uitleg": "Altijd bij de boot blijven — die drijft en is beter zichtbaar."
+            },
+            {
+              "vraag": "Noodsein met armen?",
+              "opties": [
+                "Eén arm omhoog",
+                "Armen wijd",
+                "Armen omhoog en omlaag zwaaien",
+                "Handen op hoofd"
+              ],
+              "correct": 2,
+              "uitleg": "Noodsein = armen omhoog en omlaag zwaaien."
+            }
+          ]
+        },
+        "zm-betonning": {
+          "quiz": [
+            {
+              "vraag": "Groene ton, varen naar zee: houd ton aan…",
+              "opties": [
+                "Stuurboord",
+                "Bakboord",
+                "Midden",
+                "Maakt niet uit"
+              ],
+              "correct": 1,
+              "uitleg": "Groen = bakboord aanhouden (IALA-A, naar zee)."
+            },
+            {
+              "vraag": "Rode ton heeft welke topmark?",
+              "opties": [
+                "Kegel",
+                "Bol",
+                "Punt/cilinder",
+                "Kruis"
+              ],
+              "correct": 2,
+              "uitleg": "Rode ton = punt/cilinder topmark."
+            },
+            {
+              "vraag": "Splitsingsboei groen boven rood: hoofdvaarwater aan?",
+              "opties": [
+                "Stuurboord",
+                "Bakboord",
+                "Geen",
+                "Beide"
+              ],
+              "correct": 1,
+              "uitleg": "Bovenste kleur groen = bakboord kant hoofdvaarwater."
+            }
+          ]
+        }
+      },
+      "examen": [
+        {
+          "vraag": "Wat is de gaffel?",
+          "opties": [
+            "Horizontale stang onderaan",
+            "Schuine spriet bovenkant zeil",
+            "Ring in zeil",
+            "Verbinding giek-mast"
+          ],
+          "correct": 1,
+          "uitleg": "Gaffel = schuine spriet bovenkant.",
+          "afbeelding": "{{svg:zeilVletsvg:6}}"
+        },
+        {
+          "vraag": "Wat is het lummelbeslag?",
+          "opties": [
+            "Ring in zeil",
+            "Giek-mast verbinding onderaan",
+            "Schuine spriet",
+            "Leuvertouw"
+          ],
+          "correct": 1,
+          "uitleg": "Lummelbeslag verbindt giek met mast.",
+          "afbeelding": "{{svg:zeilVletsvg:21}}"
+        },
+        {
+          "vraag": "Koers \"aan de wind\" is?",
+          "opties": [
+            "Wind recht van achter",
+            "Zo scherp mogelijk tegen de wind in",
+            "Wind dwars",
+            "Wind van achter-schuin"
+          ],
+          "correct": 1,
+          "uitleg": "Aan de wind ≈ 45°, zo scherp mogelijk."
+        },
+        {
+          "vraag": "De dode hoek is?",
+          "opties": [
+            "Achter de boot",
+            "Recht in de wind, niet te zeilen",
+            "Bakboord kwartier",
+            "Onderkant zeil"
+          ],
+          "correct": 1,
+          "uitleg": "Dode hoek = zone recht de wind in."
+        },
+        {
+          "vraag": "Paalsteek gebruik je voor?",
+          "opties": [
+            "Stopknoop",
+            "Twee lijnen verbinden",
+            "Vaste lus die niet trekt",
+            "Lijn aan paal"
+          ],
+          "correct": 2,
+          "uitleg": "Paalsteek = vaste lus."
+        },
+        {
+          "vraag": "Reddingsvest verplicht bij?",
+          "opties": [
+            "Altijd",
+            "Kracht 4+, slecht zicht, nacht",
+            "Alleen wedstrijden",
+            "Nooit verplicht"
+          ],
+          "correct": 1,
+          "uitleg": "Kracht 4+, slechte zicht, nacht, niet-zwemmers."
+        },
+        {
+          "vraag": "Groene ton varen naar zee: houd aan?",
+          "opties": [
+            "Stuurboord",
+            "Bakboord",
+            "Midden",
+            "Maakt niet uit"
+          ],
+          "correct": 1,
+          "uitleg": "Groen = bakboord."
+        },
+        {
+          "vraag": "Wind van bakboord: zeil hangt over?",
+          "opties": [
+            "Bakboord",
+            "Stuurboord",
+            "Beide",
+            "Midden"
+          ],
+          "correct": 1,
+          "uitleg": "Wind van bakboord → zeil over stuurboord."
+        },
+        {
+          "vraag": "Noodsein met armen?",
+          "opties": [
+            "Één arm",
+            "Armen wijd",
+            "Omhoog en omlaag zwaaien",
+            "Handen op hoofd"
+          ],
+          "correct": 2,
+          "uitleg": "Armen omhoog en omlaag = noodsein."
+        },
+        {
+          "vraag": "Kapseizen: eerste actie?",
+          "opties": [
+            "Zwem naar kant",
+            "Blijf bij boot op kiel",
+            "Schreeuw",
+            "Mast optillen"
+          ],
+          "correct": 1,
+          "uitleg": "Blijf altijd bij de boot."
+        }
+      ]
+    },
+    "rood": {
+      "modules": {
+        "zr-koersen": {
+          "quiz": [
+            {
+              "vraag": "Wind van bakboord: dit heet?",
+              "opties": [
+                "Stuurboord aan de wind",
+                "Bakboord aan de wind",
+                "Voor de wind",
+                "Halve wind"
+              ],
+              "correct": 1,
+              "uitleg": "Wind van bakboord = bakboord aan de wind."
+            },
+            {
+              "vraag": "Oploefen betekent?",
+              "opties": [
+                "Van wind af draaien",
+                "Naar wind toe draaien",
+                "Anker",
+                "Schoot vieren"
+              ],
+              "correct": 1,
+              "uitleg": "Oploefen = meer naar de wind draaien."
+            },
+            {
+              "vraag": "Zeil trilt? Wat doe je?",
+              "opties": [
+                "Schoot vieren",
+                "Iets afvallen (van wind af)",
+                "Meer oploefen",
+                "Anker gooien"
+              ],
+              "correct": 1,
+              "uitleg": "Trillen zeil = te hoog aan de wind, iets afvallen."
+            }
+          ]
+        },
+        "zr-manoeuvres": {
+          "quiz": [
+            {
+              "vraag": "Bij overstag gaat … door de wind.",
+              "opties": [
+                "Achterschip",
+                "Boeg",
+                "Giek",
+                "Mast"
+              ],
+              "correct": 1,
+              "uitleg": "Overstag = boeg door de wind."
+            },
+            {
+              "vraag": "Bij gijpen gaat … door de wind.",
+              "opties": [
+                "Boeg",
+                "Giek",
+                "Achterschip",
+                "Mast"
+              ],
+              "correct": 2,
+              "uitleg": "Gijpen = achterschip door de wind."
+            },
+            {
+              "vraag": "Gevaar bij ongecontroleerde gijp?",
+              "opties": [
+                "Zeil scheurt",
+                "Giek slaat over — hoofdletsel",
+                "Boot zinkt",
+                "Schoot knapt"
+              ],
+              "correct": 1,
+              "uitleg": "Giek slaat met kracht over — gevaar voor hoofd en kapseizen."
+            }
+          ]
+        },
+        "zr-betonning": {
+          "quiz": [
+            {
+              "vraag": "Rode ton: topmark?",
+              "opties": [
+                "Kegel",
+                "Bol",
+                "Punt/cilinder",
+                "Kruis"
+              ],
+              "correct": 2,
+              "uitleg": "Rood = punt/cilinder."
+            },
+            {
+              "vraag": "Groene ton: lichtkleur?",
+              "opties": [
+                "Rood",
+                "Groen",
+                "Geel",
+                "Wit"
+              ],
+              "correct": 1,
+              "uitleg": "Groene ton = groen licht."
+            },
+            {
+              "vraag": "Splitsingsboei rood boven groen: hoofdvaarwater aan?",
+              "opties": [
+                "Bakboord",
+                "Stuurboord",
+                "Geen",
+                "Midden"
+              ],
+              "correct": 1,
+              "uitleg": "Rood bovenste = stuurboord kant hoofdvaarwater."
+            }
+          ]
+        },
+        "zr-bpr": {
+          "quiz": [
+            {
+              "vraag": "Zeilboot A (bakboord hals) kruist B (stuurboord hals). Wie wijkt?",
+              "opties": [
+                "A wijkt",
+                "B wijkt",
+                "Beiden",
+                "Niemand"
+              ],
+              "correct": 0,
+              "uitleg": "Bakboord hals wijkt voor stuurboord hals.",
+              "diagram": "{{svg:bprsvg:bak-stuur}}"
+            },
+            {
+              "vraag": "Motorboot en zeilboot kruisen. Wie wijkt?",
+              "opties": [
+                "Zeilboot",
+                "Motorboot",
+                "Beiden",
+                "Niemand"
+              ],
+              "correct": 1,
+              "uitleg": "Spier (motor) wijkt voor zeil.",
+              "diagram": "{{svg:bprsvg:spier-zeil}}"
+            },
+            {
+              "vraag": "Twee zeilboten, zelfde hals, A is loef. Wie wijkt?",
+              "opties": [
+                "A wijkt (loef voor lij)",
+                "B wijkt",
+                "Niemand",
+                "Wind beslist"
+              ],
+              "correct": 0,
+              "uitleg": "Loef wijkt voor lij.",
+              "diagram": "{{svg:bprsvg:loef-lij}}"
+            }
+          ]
+        },
+        "zr-verlichting": {
+          "quiz": [
+            {
+              "vraag": "Rood zijlicht: welke kant, welke hoek?",
+              "opties": [
+                "Stuurboord, 135°",
+                "Bakboord, 112.5°",
+                "Achter, 225°",
+                "Voor, 360°"
+              ],
+              "correct": 1,
+              "uitleg": "Rood = bakboord, 112.5°."
+            },
+            {
+              "vraag": "Kleine motorboot <7m, max 7kn mag?",
+              "opties": [
+                "Geen licht",
+                "Alleen mastlicht",
+                "Één wit rondomlicht",
+                "Alleen heklicht"
+              ],
+              "correct": 2,
+              "uitleg": "Kleine motorboot: één wit rondomlicht volstaat."
+            },
+            {
+              "vraag": "Zeilboot verlichting verplicht?",
+              "opties": [
+                "Alleen heklicht",
+                "Rood BB + groen SB + wit hek",
+                "Mastlicht",
+                "Niets"
+              ],
+              "correct": 1,
+              "uitleg": "Zeilboot: rood BB + groen SB + wit heklicht."
+            }
+          ]
+        }
+      },
+      "examen": [
+        {
+          "vraag": "Wind van bakboord: koers heet?",
+          "opties": [
+            "Stuurboord aan de wind",
+            "Bakboord aan de wind",
+            "Voor de wind",
+            "Halve wind"
+          ],
+          "correct": 1,
+          "uitleg": "Wind van bakboord = bakboord aan de wind."
+        },
+        {
+          "vraag": "Boeg door de wind = ?",
+          "opties": [
+            "Gijpen",
+            "Afvallen",
+            "Overstag",
+            "Oploefen"
+          ],
+          "correct": 2,
+          "uitleg": "Boeg door de wind = overstag."
+        },
+        {
+          "vraag": "Achterschip door de wind = ?",
+          "opties": [
+            "Overstag",
+            "Gijpen",
+            "Afvallen",
+            "Oploefen"
+          ],
+          "correct": 1,
+          "uitleg": "Achterschip door de wind = gijpen."
+        },
+        {
+          "vraag": "Rode ton, naar zee: houd aan…",
+          "opties": [
+            "Bakboord",
+            "Stuurboord",
+            "Midden",
+            "Weg"
+          ],
+          "correct": 1,
+          "uitleg": "Rood = stuurboord aanhouden."
+        },
+        {
+          "vraag": "Groene ton topmark?",
+          "opties": [
+            "Punt",
+            "Cilinder",
+            "Kegel",
+            "Bol"
+          ],
+          "correct": 2,
+          "uitleg": "Groen = kegel."
+        },
+        {
+          "vraag": "Bakboord hals vs stuurboord hals: wie wijkt?",
+          "opties": [
+            "Bakboord hals",
+            "Stuurboord hals",
+            "Beiden",
+            "Niemand"
+          ],
+          "correct": 0,
+          "uitleg": "Bakboord hals wijkt.",
+          "diagram": "{{svg:bprsvg:bak-stuur}}"
+        },
+        {
+          "vraag": "Motor vs zeil: wie wijkt?",
+          "opties": [
+            "Zeilboot",
+            "Motorboot",
+            "Beiden",
+            "Niemand"
+          ],
+          "correct": 1,
+          "uitleg": "Spier wijkt voor zeil."
+        },
+        {
+          "vraag": "Rood navigatielicht: kant + hoek?",
+          "opties": [
+            "SB 135°",
+            "BB 112.5°",
+            "Achter 135°",
+            "Mast 225°"
+          ],
+          "correct": 1,
+          "uitleg": "Rood = BB 112.5°."
+        },
+        {
+          "vraag": "Oploefen = ?",
+          "opties": [
+            "Van wind af",
+            "Naar wind toe",
+            "Anker",
+            "Stoppen"
+          ],
+          "correct": 1,
+          "uitleg": "Oploefen = naar de wind toe draaien."
+        },
+        {
+          "vraag": "Loef vs lij, zelfde hals. Wie wijkt?",
+          "opties": [
+            "Loef",
+            "Lij",
+            "Niemand",
+            "Sterkste"
+          ],
+          "correct": 0,
+          "uitleg": "Loef wijkt voor lij.",
+          "diagram": "{{svg:bprsvg:loef-lij}}"
+        }
+      ]
+    },
+    "groen": {
+      "modules": {
+        "zg-kardinaal": {
+          "quiz": [
+            {
+              "vraag": "Noord-kardinaalton kleur?",
+              "opties": [
+                "Geel boven Zwart",
+                "Zwart boven Geel",
+                "Zw-Ge-Zw",
+                "Ge-Zw-Ge"
+              ],
+              "correct": 1,
+              "uitleg": "Noord = Zwart boven Geel.",
+              "afbeelding": "{{svg:kardinaalsvg:N}}"
+            },
+            {
+              "vraag": "Zuid-kardinaalton topmark?",
+              "opties": [
+                "▲▲",
+                "▼▼",
+                "▲▼",
+                "▼▲"
+              ],
+              "correct": 1,
+              "uitleg": "Zuid = ▼▼ (twee pijlen omlaag).",
+              "afbeelding": "{{svg:kardinaalsvg:Z}}"
+            },
+            {
+              "vraag": "West-kardinaalton kleur?",
+              "opties": [
+                "Zw-Ge-Zw",
+                "Ge-Zw-Ge",
+                "Zw boven Ge",
+                "Ge boven Zw"
+              ],
+              "correct": 1,
+              "uitleg": "West = Geel-Zwart-Geel.",
+              "afbeelding": "{{svg:kardinaalsvg:W}}"
+            },
+            {
+              "vraag": "Oost-kardinaalton licht?",
+              "opties": [
+                "Snel flits",
+                "6+langflits",
+                "3 flitsen",
+                "9 flitsen"
+              ],
+              "correct": 2,
+              "uitleg": "Oost = 3 flitsen (O = 3e kompasrichting)."
+            }
+          ]
+        },
+        "zg-geluid": {
+          "quiz": [
+            {
+              "vraag": "Eén korte stoot = ?",
+              "opties": [
+                "Bakboord",
+                "Stuurboord",
+                "Achteruit",
+                "Attentie"
+              ],
+              "correct": 1,
+              "uitleg": "1 kort = naar stuurboord."
+            },
+            {
+              "vraag": "Drie korte stoten = ?",
+              "opties": [
+                "Stuurboord",
+                "Bakboord",
+                "Achteruit",
+                "Attentie"
+              ],
+              "correct": 2,
+              "uitleg": "3 kort = achteruit."
+            },
+            {
+              "vraag": "Vijf korte stoten = ?",
+              "opties": [
+                "Stuurboord",
+                "Bakboord",
+                "Achteruit",
+                "Gevaarsein"
+              ],
+              "correct": 3,
+              "uitleg": "5 kort = gevaarsein/attentie."
+            }
+          ]
+        },
+        "zg-weer": {
+          "quiz": [
+            {
+              "vraag": "Reddingsvest verplicht vanaf windkracht?",
+              "opties": [
+                "2",
+                "3",
+                "4",
+                "5"
+              ],
+              "correct": 2,
+              "uitleg": "Kracht 4 = matige bries, reddingsvest verplicht."
+            },
+            {
+              "vraag": "Zeebries waait?",
+              "opties": [
+                "Land→zee",
+                "Zee→land",
+                "N→Z",
+                "W→O"
+              ],
+              "correct": 1,
+              "uitleg": "Zeebries: zee naar land (overdag)."
+            },
+            {
+              "vraag": "Onweer op het water: actie?",
+              "opties": [
+                "Mast omhoog",
+                "Naar de kant, mast strijken, op hout",
+                "Doorvaren",
+                "Anker"
+              ],
+              "correct": 1,
+              "uitleg": "Kant, mast strijken, op hout (niet op metaal)."
+            }
+          ]
+        },
+        "zg-mob": {
+          "quiz": [
+            {
+              "vraag": "Eerste actie MOB?",
+              "opties": [
+                "Motor uit",
+                "Schreeuw + reddingsboei",
+                "Ankeren",
+                "Seinen"
+              ],
+              "correct": 1,
+              "uitleg": "Eerst roepen én reddingsboei gooien."
+            },
+            {
+              "vraag": "MOB opnemen aan?",
+              "opties": [
+                "Loefzijde",
+                "Lijzijde",
+                "Bakboord",
+                "Stuurboord"
+              ],
+              "correct": 1,
+              "uitleg": "Lijzijde: boot drijft naar persoon toe."
+            },
+            {
+              "vraag": "Wie wijst de MOB aan?",
+              "opties": [
+                "Stuurman",
+                "Vast aangewezen persoon kijkt continu",
+                "Iedereen om beurt",
+                "Niemand nodig"
+              ],
+              "correct": 1,
+              "uitleg": "Eén persoon wijst continu — oogcontact nooit verliezen."
+            }
+          ]
+        },
+        "zg-navigatie": {
+          "quiz": [
+            {
+              "vraag": "Kompas: Oost = hoeveel graden?",
+              "opties": [
+                "0°",
+                "90°",
+                "180°",
+                "270°"
+              ],
+              "correct": 1,
+              "uitleg": "O = 90°."
+            },
+            {
+              "vraag": "Noorderwind waait?",
+              "opties": [
+                "Z→N",
+                "N→Z",
+                "O→W",
+                "W→O"
+              ],
+              "correct": 1,
+              "uitleg": "Noorderwind = vanuit het noorden, dus naar het zuiden."
+            },
+            {
+              "vraag": "1 zeemijl = ?",
+              "opties": [
+                "1000 m",
+                "1609 m",
+                "1852 m",
+                "2000 m"
+              ],
+              "correct": 2,
+              "uitleg": "1 nm = 1852 meter."
+            }
+          ]
+        }
+      },
+      "examen": [
+        {
+          "vraag": "Noord-kardinaalton kleur?",
+          "opties": [
+            "Ge boven Zw",
+            "Zw boven Ge",
+            "Zw-Ge-Zw",
+            "Ge-Zw-Ge"
+          ],
+          "correct": 1,
+          "uitleg": "Noord = Zwart boven Geel.",
+          "afbeelding": "{{svg:kardinaalsvg:N}}"
+        },
+        {
+          "vraag": "Oost-kardinaalton licht?",
+          "opties": [
+            "Snel",
+            "6+langflits",
+            "3 flitsen",
+            "9 flitsen"
+          ],
+          "correct": 2,
+          "uitleg": "Oost = 3 flitsen."
+        },
+        {
+          "vraag": "West-kardinaalton topmark?",
+          "opties": [
+            "▲▲",
+            "▼▼",
+            "▲▼",
+            "▼▲"
+          ],
+          "correct": 3,
+          "uitleg": "West = ▼▲."
+        },
+        {
+          "vraag": "1 korte stoot = ?",
+          "opties": [
+            "Bakboord",
+            "Stuurboord",
+            "Achteruit",
+            "Attentie"
+          ],
+          "correct": 1,
+          "uitleg": "1 kort = stuurboord."
+        },
+        {
+          "vraag": "5 korte stoten = ?",
+          "opties": [
+            "SB",
+            "BB",
+            "Achteruit",
+            "Gevaarsein"
+          ],
+          "correct": 3,
+          "uitleg": "5 kort = gevaarsein."
+        },
+        {
+          "vraag": "Zeebries: richting?",
+          "opties": [
+            "Land→zee",
+            "Zee→land",
+            "N→Z",
+            "Z→N"
+          ],
+          "correct": 1,
+          "uitleg": "Zeebries = zee naar land."
+        },
+        {
+          "vraag": "Eerste actie MOB?",
+          "opties": [
+            "Motor uit",
+            "Schreeuw + reddingsboei",
+            "Ankeren",
+            "Seinen"
+          ],
+          "correct": 1,
+          "uitleg": "Roepen + reddingsboei."
+        },
+        {
+          "vraag": "MOB opnemen aan?",
+          "opties": [
+            "Loef",
+            "Lij",
+            "BB",
+            "SB"
+          ],
+          "correct": 1,
+          "uitleg": "Lijzijde."
+        },
+        {
+          "vraag": "Kompas Zuid = ?",
+          "opties": [
+            "0°",
+            "90°",
+            "180°",
+            "270°"
+          ],
+          "correct": 2,
+          "uitleg": "Z = 180°."
+        },
+        {
+          "vraag": "Zuid-kardinaalton topmark?",
+          "opties": [
+            "▲▲",
+            "▼▼",
+            "▲▼",
+            "▼▲"
+          ],
+          "correct": 1,
+          "uitleg": "Zuid = ▼▼.",
+          "afbeelding": "{{svg:kardinaalsvg:Z}}"
+        }
+      ]
+    },
+    "kb3": {
+      "modules": {
+        "kb-loefgierig": {
+          "quiz": [
+            {
+              "vraag": "Boot wil naar de wind draaien = ?",
+              "opties": [
+                "Lijgierig",
+                "Loefgierig",
+                "Neutraal",
+                "Stuurloos"
+              ],
+              "correct": 1,
+              "uitleg": "Loefgierig = neigt naar wind toe."
+            },
+            {
+              "vraag": "Correctie loefgierig: helmstok naar?",
+              "opties": [
+                "Loef",
+                "Lij",
+                "Achter",
+                "Voor"
+              ],
+              "correct": 1,
+              "uitleg": "Helmstok lij = boot draait weg van wind."
+            },
+            {
+              "vraag": "Oorzaak loefgierig?",
+              "opties": [
+                "Zwaar achterin",
+                "Zwaar voorin",
+                "Gelijkmatig",
+                "Lege boot"
+              ],
+              "correct": 1,
+              "uitleg": "Zwaar voorin → boeg dieper → loefgierig."
+            }
+          ]
+        },
+        "kb-reven": {
+          "quiz": [
+            {
+              "vraag": "Reven = ?",
+              "opties": [
+                "Ankeren",
+                "Zeil kleiner maken",
+                "Gijpen",
+                "Overstag"
+              ],
+              "correct": 1,
+              "uitleg": "Reven = zeil inkorten bij harde wind."
+            },
+            {
+              "vraag": "Wanneer 1e reef overwegen?",
+              "opties": [
+                "Kracht 2",
+                "Kracht 3",
+                "Kracht 4-5",
+                "Kracht 7"
+              ],
+              "correct": 2,
+              "uitleg": "Kracht 4-5 = overweeg eerste reef."
+            },
+            {
+              "vraag": "Stap 1 bij reven?",
+              "opties": [
+                "Schoot los",
+                "Halve/ruime wind aanhouden",
+                "Ankeren",
+                "Mast neer"
+              ],
+              "correct": 1,
+              "uitleg": "Eerst werkbare koers aanhouden."
+            }
+          ]
+        },
+        "kb-stabiliteit": {
+          "quiz": [
+            {
+              "vraag": "Hoog metacentrum boven zwaartepunt = ?",
+              "opties": [
+                "Instabiel",
+                "Stabiel",
+                "Langzaam",
+                "Slingerend"
+              ],
+              "correct": 1,
+              "uitleg": "Hoog M boven G = meer herstelkracht = stabiel."
+            },
+            {
+              "vraag": "Korte slingerperiode duidt op?",
+              "opties": [
+                "Slingerend schip",
+                "Stijf stabiel schip",
+                "Instabiel",
+                "Langzaam"
+              ],
+              "correct": 1,
+              "uitleg": "Korte slingerperiode = stijf (stabiel) schip."
+            },
+            {
+              "vraag": "Marifoon noodkanaal?",
+              "opties": [
+                "9",
+                "12",
+                "16",
+                "70"
+              ],
+              "correct": 2,
+              "uitleg": "Kanaal 16 = internationaal noodkanaal."
+            }
+          ]
+        },
+        "kb-navigatie": {
+          "quiz": [
+            {
+              "vraag": "Gegist bestek bepaalt positie via?",
+              "opties": [
+                "GPS",
+                "Koers + snelheid + tijd",
+                "Radar",
+                "Sterren"
+              ],
+              "correct": 1,
+              "uitleg": "DR = koers + snelheid + tijd."
+            },
+            {
+              "vraag": "Eb = ?",
+              "opties": [
+                "Getij stijgt",
+                "Getij daalt",
+                "Wind neemt toe",
+                "Wind neemt af"
+              ],
+              "correct": 1,
+              "uitleg": "Eb = getij daalt."
+            },
+            {
+              "vraag": "Stroom van bakboord: stuur boot naar?",
+              "opties": [
+                "Stuurboord",
+                "Bakboord",
+                "Achteruit",
+                "Maakt niet uit"
+              ],
+              "correct": 1,
+              "uitleg": "Stroom van BB → stuur BB om recht te varen."
+            }
+          ]
+        },
+        "kb-zeeweer": {
+          "quiz": [
+            {
+              "vraag": "Navtex is voor?",
+              "opties": [
+                "GPS",
+                "Automatisch scheepvaartweerbericht",
+                "Havenradio",
+                "Sonar"
+              ],
+              "correct": 1,
+              "uitleg": "Navtex = automatisch weerberichtensysteem."
+            },
+            {
+              "vraag": "Deining heeft t.o.v. windgolven?",
+              "opties": [
+                "Kortere steilere golven",
+                "Langere golflengte, regelmatiger",
+                "Hogere golven",
+                "Gevaarlijker golven"
+              ],
+              "correct": 1,
+              "uitleg": "Deining = lang, regelmatig, van ver."
+            },
+            {
+              "vraag": "Kracht 7 met kielboot: actie?",
+              "opties": [
+                "Doorvaren",
+                "Snelheid verminderen",
+                "In haven blijven",
+                "Extra zeil"
+              ],
+              "correct": 2,
+              "uitleg": "Kracht 7 = stormachtig, kielboot blijft in haven."
+            }
+          ]
+        },
+        "kb-samenvatting": {
+          "quiz": [
+            {
+              "vraag": "Marifoon noodkanaal?",
+              "opties": [
+                "9",
+                "12",
+                "16",
+                "70"
+              ],
+              "correct": 2,
+              "uitleg": "Kanaal 16 = nood."
+            },
+            {
+              "vraag": "Stap 1 reven?",
+              "opties": [
+                "Schoot los",
+                "Werkbare koers aanhouden",
+                "Anker",
+                "Mast neer"
+              ],
+              "correct": 1,
+              "uitleg": "Eerst werkbare koers."
+            },
+            {
+              "vraag": "Metacentrum lager dan zwaartepunt = ?",
+              "opties": [
+                "Stabiel",
+                "Instabiel, kapseist snel",
+                "Neutraal",
+                "Snel schip"
+              ],
+              "correct": 1,
+              "uitleg": "M onder G = instabiel."
+            }
+          ]
+        }
+      },
+      "examen": [
+        {
+          "vraag": "Boot wil steeds oploefen = ?",
+          "opties": [
+            "Lijgierig",
+            "Loefgierig",
+            "Neutraal",
+            "Slingerend"
+          ],
+          "correct": 1,
+          "uitleg": "Loefgierig = neigt naar wind."
+        },
+        {
+          "vraag": "Correctie loefgierig: helmstok naar?",
+          "opties": [
+            "Loef",
+            "Lij",
+            "Achter",
+            "Voor"
+          ],
+          "correct": 1,
+          "uitleg": "Helmstok lij."
+        },
+        {
+          "vraag": "Wanneer 1e reef?",
+          "opties": [
+            "Kracht 2",
+            "Kracht 3",
+            "Kracht 4-5",
+            "Kracht 8"
+          ],
+          "correct": 2,
+          "uitleg": "Kracht 4-5."
+        },
+        {
+          "vraag": "Metacentrum boven zwaartepunt = ?",
+          "opties": [
+            "Instabiel",
+            "Stabiel",
+            "Langzaam",
+            "Slingerend"
+          ],
+          "correct": 1,
+          "uitleg": "Hoog M = stabiel."
+        },
+        {
+          "vraag": "Gegist bestek via?",
+          "opties": [
+            "GPS",
+            "Koers+snelheid+tijd",
+            "Radar",
+            "Kaartlezen"
+          ],
+          "correct": 1,
+          "uitleg": "DR = koers+snelheid+tijd."
+        },
+        {
+          "vraag": "Eb = ?",
+          "opties": [
+            "Getij stijgt",
+            "Getij daalt",
+            "Wind toe",
+            "Wind af"
+          ],
+          "correct": 1,
+          "uitleg": "Eb = daalt."
+        },
+        {
+          "vraag": "Navtex is voor?",
+          "opties": [
+            "GPS",
+            "Weerberichten",
+            "Havenradio",
+            "Sonar"
+          ],
+          "correct": 1,
+          "uitleg": "Navtex = scheepvaartweerbericht."
+        },
+        {
+          "vraag": "Marifoon noodkanaal?",
+          "opties": [
+            "9",
+            "12",
+            "16",
+            "70"
+          ],
+          "correct": 2,
+          "uitleg": "Kanaal 16."
+        },
+        {
+          "vraag": "Noord-kardinaalton kleur?",
+          "opties": [
+            "Ge boven Zw",
+            "Zw boven Ge",
+            "Zw-Ge-Zw",
+            "Ge-Zw-Ge"
+          ],
+          "correct": 1,
+          "uitleg": "Noord = Zwart boven Geel."
+        },
+        {
+          "vraag": "Kracht 7 met kielboot = ?",
+          "opties": [
+            "Lichte bries",
+            "Matige wind",
+            "Stormachtig",
+            "Orkaan"
+          ],
+          "correct": 2,
+          "uitleg": "Kracht 7 = stormachtig."
+        }
+      ]
+    }
+  }
+}

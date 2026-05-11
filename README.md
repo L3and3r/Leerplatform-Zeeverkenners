@@ -1,35 +1,39 @@
 # ZV Canisius Leerplatform
 
-Offline leerplatform voor **Roeien** en **Zeilen** bij ZV Canisius Nijmegen.  
-Gebouwd als een zelfstandig HTML-bestand -- geen server, geen installatie nodig.
+Online leerplatform voor **Roeien** en **Zeilen** bij ZV Canisius Nijmegen.
 
 ## Disciplines
 
-- **Roeien** -- 21 modules (examenstof + verdieping) + examen (23 vragen)
-- **Zeilen Lichtmatroos** -- 5 modules + examen
-- **Zeilen Rood (KB I)** -- 5 modules + examen
-- **Zeilen Groen (KB II)** -- 5 modules + examen
-- **Zeilen Kielboot III** -- 6 modules + examen
+- **Roeien** — 21 modules (examenstof + verdieping) + examen
+- **Zeilen Lichtmatroos** — 5 modules + examen
+- **Zeilen Rood (KB I)** — 5 modules + examen
+- **Zeilen Groen (KB II)** — 5 modules + examen
+- **Zeilen Kielboot III** — 6 modules + examen
 
 ## Gebruik
 
-Open  in een browser -- ook volledig offline bruikbaar.
+Open de site via de GitHub Pages-link hieronder. Werkt op telefoon, tablet en laptop.
 
 Instructeursmodus: klik op "Instructeur" op het naamscherm en voer het wachtwoord in.
 
-## Online via GitHub Pages
+## Inhoud aanpassen
 
-1. Zet deze bestanden in een GitHub-repository.
-2. Ga naar **Settings -> Pages**.
-3. Kies bij *Source*: **Deploy from a branch** -- branch  -- map  (root).
-4. Sla op. Na ~1 minuut is het platform bereikbaar op:  
-   
+Zie [INSTRUCTEURS.md](INSTRUCTEURS.md) voor een handleiding in gewoon Nederlands.
+
+De inhoud staat in twee bestanden:
+
+| Bestand | Wat staat erin |
+|---|---|
+| `vragen.json` | Alle quiz- en examenvragen |
+| `modules.json` | Alle lesinhoud (tekst per module) |
 
 ## Bestanden
 
 | Bestand | Doel |
 |---|---|
-|  | De volledige applicatie (~465 KB, alles ingebakken) |
-|  | Doorverwijzing zodat GitHub Pages de juiste pagina opent |
-|  | Schakelt Jekyll-verwerking uit (vereist voor correcte weergave) |
-|  | Dit bestand |
+| `leerplatform.html` | De volledige applicatie |
+| `vragen.json` | Alle vragen (aanpasbaar door instructeurs) |
+| `modules.json` | Alle lesinhoud (aanpasbaar door instructeurs) |
+| `index.html` | Doorverwijzing zodat GitHub Pages de juiste pagina opent |
+| `.nojekyll` | Schakelt Jekyll-verwerking uit (vereist voor correcte weergave) |
+| `INSTRUCTEURS.md` | Handleiding voor instructeurs |

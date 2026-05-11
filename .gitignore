@@ -1,0 +1,9 @@
+# Backups en hulpscripts — niet nodig voor de werkende site
+leerplatform.html.bak
+extract_data.js
+patch_html.py
+patch_zeilvlet3.py
+tasks.md
+
+# Claude Code interne bestanden
+.claude/

@@ -912,689 +912,9 @@ function initVletZoekplaatje(container){
   render();
 }
 
-/* ============ ROEIEN MODULES ============ */
-const ROEIEN_MODULES=[
-  {id:'knopen',section:'exam',icon:'⚓',title:'Knopen',desc:'De 6 belangrijke knopen',
-   lessons:[
-    {title:'De 6 knopen',body:`<p>Voor het roei-examen moet je <strong>6 knopen</strong> kennen.</p>
-      <div class="knot-grid">
-        <div class="knot-card">${knotSvg('acht')}<div class="nm">Achtknoop</div><div class="ds">Stopknoop op het einde</div></div>
-        <div class="knot-card">${knotSvg('paal')}<div class="nm">Paalsteek</div><div class="ds">Vaste lus die niet dichttrekt</div></div>
-        <div class="knot-card">${knotSvg('plat')}<div class="nm">Platte knoop</div><div class="ds">2 lijnen even dik</div></div>
-        <div class="knot-card">${knotSvg('schoot')}<div class="nm">Schootsteek</div><div class="ds">2 lijnen verschillend dik</div></div>
-        <div class="knot-card">${knotSvg('mast')}<div class="nm">Mastworp</div><div class="ds">Lijn aan paal/mast</div></div>
-        <div class="knot-card">${knotSvg('slip')}<div class="nm">Slipsteek halve steek</div><div class="ds">Snel los te trekken</div></div>
-      </div>`},
-    {title:'Achtknoop',body:`<div style="text-align:center;margin:20px 0">${knotSvg('acht',100)}</div>
-      <p>Een <strong>stopknoop</strong>: zorgt dat een lijn niet door een blok of oog kan glippen.</p>
-      <ul><li>Lijkt op het cijfer 8</li><li>Wordt aan het uiteinde van een lijn gelegd</li></ul>`},
-    {title:'Paalsteek',body:`<div style="text-align:center;margin:20px 0">${knotSvg('paal',100)}</div>
-      <p>Een <strong>vaste lus</strong> die niet dichttrekt — zelfs niet onder spanning.</p>
-      <ul><li>Voor vastmaken aan een paal of ring</li><li>Reddingslus om iemand op te trekken</li></ul>
-      <div class="callout"><strong>Examenvraag!</strong> Naam <strong>én</strong> wanneer je hem gebruikt.</div>`},
-    {title:'Platte knoop & Schootsteek',body:`<div class="compare">
-      <div class="compare-col"><h4>Platte knoop</h4>${knotSvg('plat',60)}<p>Voor twee <strong>even dikke</strong> lijnen.</p></div>
-      <div class="compare-col"><h4>Schootsteek</h4>${knotSvg('schoot',60)}<p>Voor twee <strong>verschillende dikke</strong> lijnen.</p></div>
-      </div>`},
-    {title:'Mastworp & Slipsteek',body:`<div class="compare">
-      <div class="compare-col"><h4>Mastworp</h4>${knotSvg('mast',60)}<p>Voor vastmaken aan een <strong>paal of mast</strong>.</p></div>
-      <div class="compare-col"><h4>Slipsteek halve steek</h4>${knotSvg('slip',60)}<p>Snel los te trekken.</p></div>
-      </div>`},
-    {title:'Schootsteek',body:`<p>De <strong>schootsteek</strong> verbindt twee touwen van <em>verschillende</em> dikte. De dunste lijn maakt de meeste bochten. Er is ook een <strong>dubbele schootsteek</strong> — die zit steviger.</p>
-      <div class="callout-tip callout">Platte knoop = gelijke dikte. Schootsteek = verschillende dikte.</div>`},
-    {title:'Kikker beleggen',body:`<p>Een <strong>kikker</strong> is een metalen klem op de boot. Je belegt hem door de lijn in achten eromheen te slaan. De <strong>laatste slag</strong> moet een slipsteek zijn.</p>
-      <p>Naast kikkers heb je ook <strong>klampen</strong> en <strong>nagels</strong> — die beleg je op dezelfde manier.</p>`},
-    {title:'Lijn opschieten & begrippen',body:`<p><strong>Lijn opschieten</strong> = netjes oprollen, van vaste eind naar losse eind, in de draairichting van het touw.</p>
-      <ul><li><strong>Tamp</strong> — het uiteinde van een lijn</li><li><strong>Kardelen</strong> — de strengen (meestal 3 of 4)</li><li><strong>Tieren</strong> — de groeven tussen de kardelen</li></ul>`}
-   ],
-   quiz:[
-    {q:'Welke knoop wordt hieronder afgebeeld?',img:knotSvg('paal',120),opts:['Achtknoop','Paalsteek','Mastworp','Schootsteek'],correct:1,why:'Dit is een paalsteek: vaste lus die niet dichttrekt.'},
-    {q:'Wanneer gebruik je een paalsteek?',opts:['Als stopknoop','Twee even dikke lijnen','Vaste lus die niet dichttrekt','Snel los trekken'],correct:2,why:'De paalsteek maakt een vaste lus die niet dichttrekt.'},
-    {q:'Twee lijnen, één dik en één dun. Welke knoop?',opts:['Platte knoop','Schootsteek','Mastworp','Achtknoop'],correct:1,why:'Schootsteek = verschillende dikte.'},
-    {q:'Welke knoop is een stopknoop op het einde van een lijn?',opts:['Mastworp','Paalsteek','Achtknoop','Slipsteek'],correct:2,why:'De achtknoop zorgt dat een lijn niet door een blok glipt.'}
-   ]},
+// ROEIEN_MODULES loaded from modules.json + vragen.json
 
-  {id:'zeiltermen',section:'exam',icon:'⛵',title:'Zeiltermen',desc:'Bakboord, stuurboord, hogerwal',
-   lessons:[
-    {title:'Bakboord & Stuurboord',body:`<p>De zijkanten van de boot heten niet "links" en "rechts".</p>
-      ${bbsbSvg()}
-      <ul><li><strong>Bakboord</strong> = links</li><li><strong>Stuurboord</strong> = rechts</li></ul>
-      <div class="callout-warn callout"><strong>Let op!</strong> Alleen als je <em>vanaf het achterdek naar voren</em> kijkt.</div>
-      <div class="ezel"><div class="ezel-lbl">Ezelsbruggetje</div><div class="ezel-text">Ba<span class="hl">K</span>boord = Lin<span class="hl">K</span>s</div></div>
-      <p style="margin-top:14px"><strong>Tip:</strong> het wrikgat zit aan stuurboord.</p>`},
-    {title:'Hogerwal & Lagerwal',body:`${wallSvg()}
-      <ul><li><strong>Hogerwal</strong> = waar de wind <em>vandaan</em> komt</li><li><strong>Lagerwal</strong> = waar de wind <em>naartoe</em> waait</li></ul>
-      <div class="callout"><strong>Onthoud:</strong> bij sterke wind raak je sneller op de <em>lagerwal</em>.</div>`},
-    {title:'Rollen op de vlet',body:`<ul>
-      <li><strong>Roerganger</strong> — staat achter het roer, geeft commando's</li>
-      <li><strong>Slagroeier</strong> — stuurboordkant, geeft het tempo aan</li>
-      <li><strong>Midroeiers</strong> — zitten op de middoft</li>
-      <li><strong>Haakvoor</strong> — maakt landvasten los/vast, duwt af</li></ul>
-      <div class="callout"><strong>Casco</strong> = al het vaste staal van de boot.</div>`}
-   ],
-   quiz:[
-    {q:'Wat is bakboord?',opts:['Rechts','Links','Voor','Achter'],correct:1,why:'BaKboord = LinKs.'},
-    {q:'Aan welke zijde zit het wrikgat?',opts:['Bakboord','Stuurboord','Midden','Beide kanten'],correct:1,why:'Het wrikgat zit aan stuurboord.'},
-    {q:'Wat is de hogerwal?',opts:['Waar de wind heen waait','Waar de wind vandaan komt','De hoogste oever','Stroomopwaarts'],correct:1,why:'Hogerwal = de kant waar de wind vandaan komt.'}
-   ]},
-
-  {id:'vlet',section:'exam',icon:'🛶',title:'Vletonderdelen',desc:'Onderdelen 54, 57 en 84',
-   lessons:[
-    {title:'De vlet: drie examennummers',body:`<p>Voor het examen zijn er drie onderdelen <strong>écht</strong> belangrijk:</p>
-      ${vletSvg()}
-      <div class="part-list">
-        <div class="part"><div class="part-num">54</div><div><span class="part-name">Grendelbout</span><br><span class="part-desc">Pen die door de dol gaat zodat hij vast zit</span></div></div>
-        <div class="part"><div class="part-num">57</div><div><span class="part-name">Dolpot</span><br><span class="part-desc">Houder waar de dol in zit op de boord</span></div></div>
-        <div class="part"><div class="part-num">84</div><div><span class="part-name">Spant</span><br><span class="part-desc">Dwarsbalk binnenin die de boot stevigheid geeft</span></div></div>
-      </div>`},
-    {title:'Onthouden trucje',body:`<div class="ezel"><div class="ezel-lbl">Truc</div><div class="ezel-text">Een <span class="hl">spant</span> (84) staat onderin, een <span class="hl">dolpot</span> (57) staat boven op de rand, en de <span class="hl">grendelbout</span> (54) houdt de dol op zijn plek.</div></div>
-      <ul><li><strong>Onderaan</strong> → spanten (84)</li><li><strong>Op de rand</strong> → dolpotten (57)</li><li><strong>Door de dol</strong> → grendelbouten (54)</li></ul>`},
-    {title:'Alle 40 onderdelen',body:`<p>De vlet heeft 40 genummerde onderdelen. Gebruik de naslag hieronder of schakel naar quiz-mode.</p>
-      <div id="vletZoek"></div>`,custom:'vletzoek'}
-   ],
-   quiz:[
-    {q:'Welk onderdeel is nummer 54?',img:vletQuizSvg(54),opts:['Spant','Dolpot','Grendelbout','Riem'],correct:2,why:'54 = grendelbout, de pen die door de dol gaat.'},
-    {q:'Welk onderdeel is nummer 57?',img:vletQuizSvg(57),opts:['Dolpot','Spant','Roer','Helmstok'],correct:0,why:'57 = dolpot, de houder voor de dol op de boord.'},
-    {q:'Welk onderdeel is nummer 84?',img:vletQuizSvg(84),opts:['Grendelbout','Spant','Dolpot','Mast'],correct:1,why:'84 = spant, een dwarsbalk binnenin de boot.'}
-   ]},
-
-  {id:'commandos',section:'exam',icon:'📣',title:"Roeicommando's",desc:'Klaarmaken tot omzetten',
-   lessons:[
-    {title:"Wie geeft de commando's?",body:`<p>Op een Lelievlet roeien we met 2, 4 of 6 personen. Daarnaast is er een <strong>roerganger</strong> die stuurt en de commando's geeft.</p>
-      <ul><li>De roerganger zit achterin</li><li>De roeiers zitten met hun rug naar voren</li><li>De roerganger ziet alles wat eraan komt</li></ul>`},
-    {title:'Klaarmaken om te roeien',body:`<ol>
-      <li><strong>"Klaarmaken om te roeien!"</strong> — roeiers pakken een dol</li>
-      <li><strong>"Dollen in"</strong> — de dollen mogen in de dolpot</li>
-      <li><strong>"Riemen toe"</strong> — riemen in de dollen</li></ol>
-      <div class="callout"><strong>Tip:</strong> het blad van de riem hou je <em>haaks op het water</em>.</div>`},
-    {title:'Een commando opbouwen',body:`<p>Elk commando heeft <strong>4 onderdelen</strong>:</p>
-      <ol><li><strong>"Op riemen!"</strong> — vorige opdracht stoppen</li>
-      <li>Welk boord? — <strong>"Beide boorden"</strong>, <strong>"Bakboord"</strong> of <strong>"Stuurboord"</strong></li>
-      <li>De opdracht — halen, strijken, afstoppen, omzetten...</li>
-      <li>Het tempo — <strong>"Ge-liiiijk"</strong></li></ol>`},
-    {title:'De opdrachten',body:`<ul>
-      <li><strong>Halen</strong> = vooruit roeien</li>
-      <li><strong>Strijken</strong> = andersom roeien — achteruit</li>
-      <li><strong>Afstoppen</strong> = afremmen door riemen in het water te houden</li>
-      <li><strong>Omzetten</strong> = roeiers draaien om en kijken de andere kant op</li></ul>
-      <div class="ezel"><div class="ezel-lbl">Onthoud</div><div class="ezel-text">Halen = vooruit. Strijken = achteruit.</div></div>`},
-    {title:'Op riemen vs. Riemen op',body:`<div class="compare">
-      <div class="compare-col"><h4>Op riemen</h4><p>Stoppen met opdracht. Riem iets uit het water — rustig stilhouden.</p></div>
-      <div class="compare-col"><h4>Riemen op</h4><p>Riemen <strong>verticaal</strong> de lucht in. Recht omhoog.</p></div></div>
-      <div class="callout-warn callout"><strong>Examenvraag!</strong> Het verschil tussen deze twee.</div>`},
-    {title:'Aanleggen met de punt',body:`<ol>
-      <li>"Op riemen!"</li><li>"Beide boorden stoppen af!" <em>(geen "ge-lijk")</em></li>
-      <li>"Pikhaak voor!" — die persoon stapt af met het voorland</li></ol>`},
-    {title:'Aanleggen met de spiegel (R2)',body:`<ol>
-      <li>Leg recht voor de kade</li><li>"Op riemen"</li>
-      <li>"Beide boorden zetten om!" <em>(roeiers draaien)</em></li>
-      <li>"Beide boorden halen" + "Ge-lijk!" <em>(boot gaat achteruit)</em></li>
-      <li>"Op riemen: beide boorden stoppen af"</li><li>"Pikhaak achter!"</li></ol>`},
-    {title:'Drie soorten bochten',body:`<p><strong>Flauwe bocht:</strong> één boord haalt, ander doet niets → minst snelheidsverlies.</p>
-      <p><strong>Scherpe bocht:</strong> één boord haalt, ander stopt af → draait sneller.</p>
-      <p><strong>Zeer scherpe bocht:</strong> één boord haalt, ander strijkt → draait bijna op de plek.</p>
-      <div class="callout"><strong>Hoofdregel:</strong> het boord waar je heen wilt draaien, moet <em>tegenwerken</em>.</div>`},
-    {title:"Speciale commando's",body:`<ul>
-      <li><strong>"Riemen lopen"</strong> — riemen plat langs de boot. GEEN "op riemen" vooraf.</li>
-      <li><strong>"Stopt af"</strong> — noodstop! GEEN "op riemen" vooraf.</li>
-      <li><strong>"Riemen over"</strong> — riemen naar binnen, om te rusten.</li>
-      <li><strong>"Riemen geroeid"</strong> — riemen langs de boord. Klaar met roeien.</li>
-      <li><strong>"Riemen op"</strong> — verticaal omhoog. Bij officiële gelegenheid.</li></ul>
-      <div class="callout-warn callout"><strong>2 uitzonderingen</strong> zonder "op riemen": stopt af en riemen lopen.</div>`}
-   ],
-   quiz:[
-    {q:'Wat gebeurt er als stuurboord haalt en bakboord strijkt?',opts:['Vlet draait naar stuurboord','Vlet draait naar bakboord','Vlet stopt af','Vlet gaat achteruit'],correct:1,why:'Stuurboord vooruit + bakboord achteruit → voorkant draait naar bakboord.'},
-    {q:'Wat betekent "Riemen op"?',opts:['Stoppen, riemen iets uit het water','Riemen verticaal de lucht in','Riemen in de dol','Noodstop'],correct:1,why:'Riemen op = recht omhoog, verticaal. "Op riemen" is iets anders.'},
-    {q:'Wat is de eerste stap bij aanleggen met de spiegel?',opts:['Pikhaak achter','Beide boorden zetten om','Beide boorden halen','Op riemen'],correct:3,why:'Stap 1 is altijd "Op riemen".'}
-   ]},
-
-  {id:'vastleggen',section:'exam',icon:'🪢',title:'Vlet vastleggen',desc:'Voorland, achterland, spring',
-   lessons:[
-    {title:'Altijd 3 lijnen',body:`<p>De vlet leggen we <strong>altijd</strong> vast met 3 lijnen.</p>
-      ${linesSvg()}
-      <ul><li><strong>Voorland</strong> — vooraan vast</li><li><strong>Achterland</strong> — achteraan vast</li><li><strong>Spring</strong> — voorkomt heen en weer schuiven</li></ul>`},
-    {title:'De spring',body:`<div class="callout-warn callout"><strong>Belangrijk!</strong> De spring leg je <em>altijd vanaf de boot tegen de wind in</em>.</div>
-      <p>Als de wind tegen de spring duwt, blijft de boot op zijn plek.</p>`},
-    {title:'Aanleggen op bakboordzijde',body:`<ol>
-      <li><strong>Op riemen</strong>: beide boorden stoppen af.</li>
-      <li><strong>Op riemen</strong>: bakboord haalt en/of stuurboord strijkt.</li>
-      <li><strong>Op riemen</strong>: riemen geroeid en dollen uit.</li>
-      <li><strong>Stootwillen uit; pikhaak voor.</strong></li>
-      <li><strong>Landen vast, spring vast. Zwaard op.</strong></li></ol>
-      <div class="callout-tip callout"><strong>Examenvraag 10 (R2).</strong></div>`},
-    {title:'4 lijnen: land- en springen',body:`<ul>
-      <li><strong>Voorlandvast</strong> — van boeg naar voren</li>
-      <li><strong>Achterlandvast</strong> — van achterschip naar achteren</li>
-      <li><strong>Voorspring</strong> — van boeg naar midden van de wal</li>
-      <li><strong>Achterspring</strong> — van achterschip naar midden van de wal</li></ul>
-      <div class="callout"><strong>Landvasten</strong> lopen naar buiten. <strong>Springen</strong> lopen naar het midden.</div>`},
-    {title:'Wind bij aan- en afleggen',body:`<p><strong>Bij aanleggen:</strong></p>
-      <ul><li>Wind van voren → eerst voorlandvast</li><li>Wind van achteren → eerst achterlandvast</li></ul>
-      <p><strong>Bij wegvaren:</strong> precies omgekeerde volgorde.</p>
-      <div class="callout-tip callout">Kant waar wind vandaan komt = als eerste vastmaken.</div>`}
-   ],
-   quiz:[
-    {q:'Met hoeveel lijnen leggen we de vlet vast?',opts:['1','2','3','4'],correct:2,why:'Altijd 3: voorland, achterland en spring.'},
-    {q:'Hoe leg je de spring?',opts:['Met de wind mee','Tegen de wind in','Loodrecht','Maakt niet uit'],correct:1,why:'Spring = altijd tegen de wind in.'},
-    {q:'Wat is de laatste stap bij aanleggen?',opts:['Pikhaak voor','Op riemen','Landen vast, spring vast, zwaard op','Stootwillen uit'],correct:2,why:'Alles vast, dan zwaard omhoog.'}
-   ]},
-
-  {id:'veiligheid',section:'exam',icon:'🛟',title:'Veiligheid',desc:'Reddingsvest, onweer, dode hoek',
-   lessons:[
-    {title:'Geschikte kleding',body:`<ul>
-      <li>Dichte stevige <strong>schoenen</strong> — geen slippers</li>
-      <li>Crocs zijn goedgekeurd</li>
-      <li>Laarzen mogen, maar dan wel een reddingsvest!</li>
-      <li>Warme en waterdichte kleding</li></ul>`},
-    {title:'Reddingsvest — wanneer?',body:`<p>Je moet een reddingsvest dragen:</p>
-      <ul><li>Bij <strong>onweer</strong></li><li>Tijdens een <strong>sleep</strong></li>
-      <li>Bij <strong>harde wind</strong> / als je gereefd hebt</li>
-      <li>De <strong>"2 van de 3"-regel</strong></li></ul>
-      <div class="callout-warn callout"><strong>Examenvraag 12:</strong> noem 3 situaties.</div>`},
-    {title:'Reddingsvest — hoe dragen?',body:`<ul>
-      <li><strong>Boven</strong> alle kleding</li>
-      <li>Normaal vest: strak</li>
-      <li>Plofvest: precies één vuist tussen vest en ribbenkast</li>
-      <li>Gebruik de <strong>reetveter</strong></li></ul>
-      <div class="callout-warn callout">Plofvest mag alleen als hij gekeurd is.</div>`},
-    {title:'Onweer — wat nu?',body:`<ol>
-      <li>Zo snel mogelijk naar de kant</li><li>Trek je reddingsvest aan</li>
-      <li>Blijf op het hout (niet op het staal!)</li><li>Laat de mast strijken</li></ol>
-      <div class="callout-tip callout">Kom je sneller bij de kant door te zeilen? Doe dat dan eerst.</div>`},
-    {title:'Dode hoek',body:`<p>De <strong>dode hoek</strong> is het gebied rondom een groot schip waar de schipper jou niet kan zien.</p>
-      ${dodeHoekSvg()}
-      <div class="callout-warn callout"><strong>Vuistregel:</strong> zie jij de stuurhut niet → hij ziet jou ook niet.</div>`},
-    {title:'Zuigende & stuwende werking',body:`<p><strong>Stuwende werking</strong> (tegenkomen): boten worden uit elkaar geduwd.</p>
-      <p><strong>Zuigende werking</strong> (inhalen): boten worden naar elkaar getrokken.</p>
-      <div class="callout-warn callout">Hoe groter het schip + hoe ondieper het water = hoe sterker het effect.</div>`},
-    {title:'Reddingsvest vs zwemvest',body:`<p>Een <strong>reddingsvest</strong> draait je hoofd naar boven — ook bewusteloos blijf je ademen.</p>
-      <p>Een <strong>zwemvest</strong> houdt je alleen drijvend.</p>
-      <p>Goed reddingsvest: kraag, voldoende drijfvermogen, CE-keurmerk.</p>`}
-   ],
-   quiz:[
-    {q:'Hoe weet je of je in de dode hoek zit?',opts:['Hij toetert','Boot komt dichterbij','Je ziet de schipper/stuurhut niet meer','Je staat in zijn schaduw'],correct:2,why:'Zie jij de schipper niet → hij ziet jou ook niet.'},
-    {q:'Welke situatie hoort NIET bij reddingsvest-plicht?',opts:['Bij onweer','Tijdens sleep','Harde wind','Als de zon schijnt'],correct:3,why:'Zon schijnen is geen verplichting.'},
-    {q:'Wat doe je als eerste bij onweer op komst?',opts:['Mast strijken','Zo snel mogelijk naar de kant','Reddingsvest aan','Op het hout'],correct:1,why:'Eerst naar de kant, dan vest, dan mast.'},
-    {q:'Mag je met laarzen aan boord?',opts:['Nee nooit','Ja altijd','Ja, maar dan reddingsvest','Alleen op zaterdag'],correct:2,why:'Laarzen lopen vol water — dan moet je een reddingsvest.'}
-   ]},
-
-  {id:'voorrang',section:'exam',icon:'⚖️',title:'BPR Voorrangsregels',desc:'Wie wijkt voor wie?',
-   lessons:[
-    {title:'De volgorde van regels',body:`<p>Bij twijfel: <strong>goed zeemanschap</strong> komt altijd eerst.</p>
-      <ol><li>Goed zeemanschap</li><li>Stuurboordwal heeft voorrang</li><li>Klein wijkt voor Groot</li>
-      <li>Hoofdvaarwater voor Nevenvaarwater</li><li>Motor wijkt voor Spier wijkt voor Zeil</li>
-      <li>Kruisende koers, gelijke schepen → rechts heeft voorrang</li>
-      <li>Recht op elkaar af → beiden naar stuurboord</li>
-      <li>Zeil over bakboord heeft voorrang</li><li>Loef wijkt voor lij</li>
-      <li><em>Stroom mee bij engtes heeft voorrang</em></li></ol>`},
-    {title:'Klein vs. Groot',body:`<p><strong>Groot</strong> schip: langer dan 20 meter, of alle beroepsvaart (ook &lt;20m).</p>
-      <p><strong>Klein</strong> schip: korter dan 20 meter, geen beroepsvaart.</p>
-      <div class="ezel"><div class="ezel-lbl">Regel</div><div class="ezel-text">Klein wijkt <span class="hl">altijd</span> voor Groot</div></div>`},
-    {title:'Motor — Spier — Zeil',body:`<div style="text-align:center;background:var(--gold-soft);padding:14px;border-radius:12px;margin:12px 0;font-size:1.1rem">
-      <strong>Motor</strong> wijkt voor <strong>Spier</strong> wijkt voor <strong>Zeil</strong></div>
-      <ul><li><strong>Motor</strong> wijkt voor alles behalve andere motors</li>
-      <li><strong>Spier</strong> = roeien, peddelen — wijkt voor zeil</li>
-      <li><strong>Zeil</strong> heeft voorrang op spier en motor</li></ul>`},
-    {title:'Tussen twee zeilboten',body:`<p><strong>Zeil over bakboord heeft voorrang</strong> — de giek steekt uit aan de bakboordzijde.</p>
-      <div class="ezel"><div class="ezel-lbl">Onthoud</div><div class="ezel-text">Giek aan <span class="hl">BAKboord</span> → voorrang.</div></div>
-      <p style="margin-top:14px"><strong>Loef wijkt voor lij</strong> — als beide boten op dezelfde wind varen: de loefzijde wijkt.</p>
-      <div class="callout"><strong>Loef</strong> = wind komt hier vandaan. <strong>Lij</strong> = wind waait hier naartoe.</div>`},
-    {title:'Stuurboordwal',body:`<p><strong>Stuurboordwal heeft voorrang.</strong> Vaar je rechts van het vaarwater, dan heb je de stuurboordwal en dus voorrang.</p>`},
-    {title:'Recht op elkaar af',body:`<p>Twee gelijke schepen komen recht op elkaar af: <strong>beiden naar stuurboord</strong> (rechts) — net als auto's.</p>`},
-    {title:'De gradenboog',body:`<p>De drie koersen BPR:</p>
-      ${gradenboogSvg()}
-      <ul><li><strong>Tegengestelde koers</strong> — van voren (0°–112,5°)</li>
-      <li><strong>Kruisende koers</strong> — van opzij</li>
-      <li><strong>Oplopende koers</strong> — van achteren</li></ul>`},
-    {title:'Engtes',body:`<p>Een engte: zo smal dat je niet naast elkaar kunt varen.</p>
-      <ul><li>Wacht voor stroomafvarend schip</li><li>Wacht voor groot schip</li>
-      <li>Zeilboot engte bezeild → zeil gaat voor</li><li>Motorboot wacht voor roeiboot</li></ul>`}
-   ],
-   quiz:[
-    {q:'Wat heeft voorrang: motor of zeil?',opts:['Motor','Zeil','Geen van beide','Grootste'],correct:1,why:'Motor wijkt voor Spier wijkt voor Zeil.'},
-    {q:'Twee gelijke schepen komen recht op elkaar af. Wat doen ze?',opts:['Beiden naar bakboord','Beiden naar stuurboord','Linker wijkt','Rechter wijkt'],correct:1,why:'Tegengestelde koers: beiden naar stuurboord.'},
-    {q:'Vrachtschip 50m en klein zeilbootje varen kruisend. Wie wijkt?',opts:['Zeilbootje','Vrachtschip','Geen van beide','De vlet'],correct:0,why:'Klein wijkt voor Groot — sterker dan motor/zeil.'},
-    {q:'Twee zeilboten: een zeil over bakboord, ander over stuurboord. Wie heeft voorrang?',opts:['Zeil over bakboord','Zeil over stuurboord','Beiden gelijk','Grootste'],correct:0,why:'Zeil over bakboord HEEFT voorrang.'}
-   ]},
-
-  {id:'betonning',section:'exam',icon:'🚥',title:'Betonning',desc:'Rode en groene tonnen',
-   lessons:[
-    {title:'Wat is betonning?',body:`<p>Boeien, tonnen en bakens die vaarwegen en obstakels aangeven.</p>
-      ${betonningSvg()}
-      <div class="compare">
-        <div class="compare-col"><h4>Stuurboord</h4><p style="color:var(--error);font-weight:700">Rood</p><p>Stomp / cilinder / kegel punt omlaag</p></div>
-        <div class="compare-col"><h4>Bakboord</h4><p style="color:var(--success);font-weight:700">Groen</p><p>Spits / kegel punt omhoog</p></div>
-      </div>`},
-    {title:'Ezelsbruggetje',body:`<div class="ezel"><div class="ezel-lbl">Onthoud!</div><div class="ezel-text">Met st<span class="hl">R</span>oom mee zit <span class="hl">R</span>ood altijd stuu<span class="hl">R</span>boord!</div></div>
-      <p>Andersom: tegen de stroom in → Rood aan bakboord.</p>`},
-    {title:'Splitsingen',body:`<p>Bij een splitsing zie je een speciale ton: half rood, half groen.</p>
-      ${splitsingSvg()}
-      <p>De bovenste kleur geeft aan welke kant het hoofdvaarwater op gaat.</p>`},
-    {title:'Scheidingstonnen',body:`<ul>
-      <li>Rood-groen afwisseling = gelijke kruising</li>
-      <li>Nevenvaarwater aan bakboord: bol + kegel</li>
-      <li>Open tak = rood. Geknoopte tak = groen.</li></ul>`}
-   ],
-   quiz:[
-    {q:'Welke kleur ton zit aan stuurboord met stroom mee?',opts:['Groen','Rood','Geel','Wit'],correct:1,why:'stRoom mee → Rood stuuRboord.'},
-    {q:'Welke vorm heeft een bakboordton?',opts:['Stomp','Spits/kegel omhoog','Bol','Vlag'],correct:1,why:'Bakboord = groen + spits.'}
-   ]},
-
-  {id:'borden',section:'exam',icon:'🚫',title:'Borden',desc:'Verbods-, gebods- en informatieborden',
-   lessons:[
-    {title:'Verbodsborden',body:`<p>Wit met rode rand + rode streep = verbod.</p>
-      <div class="borden-grid">
-        ${bordCard('verbod-doorvaart','Verboden doorvaart')}${bordCard('verbod-golf','Geen golfslag')}
-        ${bordCard('verbod-anker','Verboden ligplaats')}${bordCard('verbod-meren','Verboden te meren')}
-        ${bordCard('verbod-motor','Verboden motorschepen')}${bordCard('verbod-zeil','Verboden zeilschepen')}
-        ${bordCard('verbod-spier','Verboden spierkracht')}${bordCard('verbod-klein','Verboden kleine schepen')}
-      </div>`},
-    {title:'Gebodsborden',body:`<p>Blauw met witte symbolen = wat je <em>moet</em> doen.</p>
-      <div class="borden-grid">
-        ${bordCard('gebod-pijl','Varen in richting pijl')}${bordCard('gebod-bb','Bakboordwal houden')}
-        ${bordCard('gebod-sb','Stuurboordwal houden')}${bordCard('gebod-stop','Stilhouden')}
-        ${bordCard('gebod-let','Bijzonder opletten')}
-      </div>`},
-    {title:'Toestemmingsborden',body:`<p>Blauw + wit maar <em>positief</em> — toestemming of aanwijzing.</p>
-      <div class="borden-grid">
-        ${bordCard('info-doorvaart-1','Doorvaart beide richtingen')}${bordCard('info-doorvaart-2','Doorvaart 1 richting')}
-        ${bordCard('info-meer','Toestemming meren')}${bordCard('info-anker','Toestemming ankeren')}
-        ${bordCard('info-keren','Keerplaats')}${bordCard('info-pont','Niet vrij-varende pont')}
-      </div>
-      <div class="callout"><strong>Tip:</strong> 1 ruit = tegenliggers mogelijk. 2 ruiten = géén tegenliggers.</div>`},
-    {title:'Gevaren- & aanbevelingsborden',body:`<p>Driehoek met rode rand = gevaar. Gele driehoek = aanbeveling.</p>
-      <div class="borden-grid">
-        ${bordCard('gevaar-hoogspan','Hoogspanningslijn')}${bordCard('aanbev-pijl','Aanbeveling pijlrichting')}
-        ${bordCard('aanbev-binnen','Aanbeveling binnen begrenzing')}
-      </div>`},
-    {title:'Welk bord mag je WEL onder?',body:`<div class="borden-grid">
-        ${bordCard('verbod-zeil','Verboden zeilschepen ❌')}
-        ${bordCard('verbod-spier','Verboden spierkracht ❌')}
-        ${bordCard('verbod-motor','Verboden motorschepen ✓')}
-      </div>
-      <div class="callout"><strong>Antwoord:</strong> "Verboden voor motorschepen" — een roeiboot is spierkracht, geen motor.</div>`},
-    {title:'Voorbeelden',body:`<p>Een roeiboot is <strong>spierkracht</strong>. Het bord "verboden voor spierkracht" geldt dus voor jou. "Verboden voor motorschepen" geldt niet voor jou.</p>
-      <p><strong>Blauw + witte pijl</strong> = je moet die richting op.</p>
-      <p><strong>Blauw + P zonder rode streep</strong> = toestemming meren.</p>`},
-    {title:'Meer borden',body:`<ul>
-      <li>Verboden op te lopen — bij smalle vaarwegen</li>
-      <li>Hoogteschaal — doorvaarthoogte brug in meters</li>
-      <li>Duikersvlag — duikers onder water!</li>
-      <li>Z bord = zinker (pijpleiding), K = kabel</li>
-      <li>Blauw-wit diagonaal = einde verbod/gebod</li></ul>
-      <div class="callout-tip callout">Rood = verbod. Blauw = gebod/aanwijzing. Geel = aanbeveling.</div>`}
-   ],
-   quiz:[
-    {q:'Rond bord, rode rand, doorgestreept zeilboot: betekenis?',opts:['Verboden motorschepen','Verboden zeilschepen','Verboden spierkracht','Verboden doorvaren'],correct:1,why:'Doorgestreept zeilbootje = verboden zeilschepen.'},
-    {q:'Een roeiboot: welk verbodsbord mag hij negeren?',opts:['Verboden spierkracht','Verboden motorschepen','Verboden meren','Verboden doorvaart'],correct:1,why:'Roeiboot = spierkracht, geen motor.'},
-    {q:'Twee gele ruiten boven een brug: betekenis?',opts:['Verboden','Doorvaart, tegenliggers verwachten','Doorvaart, géén tegenliggers','Brug gaat open'],correct:2,why:'2 ruiten = eenrichtingsverkeer.'},
-    {q:'Blauw vierkant, witte pijl links: betekenis?',opts:['Verboden links','Verplicht die richting','Bakboordwal','Brug links'],correct:1,why:'Blauw + witte pijl = gebod die richting.'},
-    {q:'Blauw bord + P zonder rode streep: wat betekent het?',opts:['Verboden meren','Toestemming meren','Keerplaats','Pont'],correct:1,why:'Geen rode streep = positief. P = meren.'}
-   ]},
-
-  {id:'bruggen',section:'exam',icon:'🌉',title:'Bruggen & Sluizen',desc:'Lichten en tegenliggers',
-   lessons:[
-    {title:'Tegenliggers ja of nee?',body:`<div class="compare">
-      <div class="compare-col"><h4>1 ruit / 1 E</h4><p>Doorvaart beide richtingen → tegenliggers verwachten.</p></div>
-      <div class="compare-col"><h4>2 ruiten / 2 E's</h4><p>Doorvaart één richting → géén tegenliggers.</p></div></div>
-      <div class="callout-warn callout">2 gele ruiten boven brug = doorvaart toegestaan, géén tegenliggers.</div>`},
-    {title:'Brug in bedrijf — lichten',body:`<ul>
-      <li><strong>Rood licht</strong> = verboden</li>
-      <li><strong>Rood + groen samen</strong> = klaarmaken, gaat zo open</li>
-      <li><strong>Groen licht</strong> = doorvaart toegestaan</li>
-      <li><strong>Rood-rood</strong> = verboden tenzij stoppen niet meer kan</li></ul>`},
-    {title:'Brug buiten bedrijf',body:`<ul>
-      <li>Tekens onder brug geven aan of doorvaart mag</li>
-      <li>1 ruit/E → tegenliggers mogelijk</li>
-      <li>2 ruiten/E's → géén tegenliggers</li></ul>`}
-   ],
-   quiz:[
-    {q:'Twee gele ruiten boven brug: betekenis?',opts:['Verboden','Doorvaart, tegenliggers mogelijk','Doorvaart, géén tegenliggers','Brug gaat open'],correct:2,why:'2 ruiten = eenrichting, géén tegenliggers.'},
-    {q:'Rood licht bij een brug: betekenis?',opts:['Doorvaart toegestaan','Verboden','Tegenliggers','Buiten bedrijf'],correct:1,why:'Rood = verboden.'}
-   ]},
-
-  {id:'tekens',section:'exam',icon:'🔺',title:'Tekens van schepen',desc:'Kegels, bollen en sleeptekens',
-   lessons:[
-    {title:'Blauwe kegels — afstand',body:`<p>Blauw = gevaarlijke stoffen. Afstand!</p>
-      ${kegelSvg()}
-      <div class="compare">
-        <div class="compare-col"><h4>1 blauwe kegel</h4><p>Min. <strong>10 m</strong></p><p style="font-size:.78rem">Brandbare stoffen</p></div>
-        <div class="compare-col"><h4>2 blauwe kegels</h4><p>Min. <strong>50 m</strong></p><p style="font-size:.78rem">Gezondheidsschadelijk</p></div>
-      </div>
-      <div style="text-align:center;margin:10px 0;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:10px"><strong>3 blauwe kegels</strong><br>Min. <strong>100 m</strong> — ontplofbaar</div>`},
-    {title:'Andere tekens',body:`<ul>
-      <li><strong>Sleepkegel</strong> (geel, punt omlaag) — voorste schip van een sleep</li>
-      <li><strong>Zwarte bol</strong> — voor anker</li>
-      <li><strong>Gele kegel</strong> — passagiersschip</li>
-      <li><strong>Groene ruit</strong> — doorvaart vrij aan die kant</li></ul>`},
-    {title:'Meer dagtekens',body:`<ul>
-      <li>Gele bol — sleepschip</li>
-      <li>Rood-wit bord — doorvaart vrij, maar geen hinderlijke vaarbeweging</li>
-      <li>Rood bord — doorvaart verboden aan die kant</li></ul>
-      <div class="callout-warn callout">Sleep-tekens (cilinder + gele bol) gelden alleen voor grote schepen.</div>`}
-   ],
-   quiz:[
-    {q:'Hoeveel afstand bij 2 blauwe kegels?',opts:['10 m','25 m','50 m','100 m'],correct:2,why:'2 kegels = 50 m.'},
-    {q:'Zwarte bol op een schip betekent?',opts:['Voor anker','Sleep','Gevaarlijk','Passagier'],correct:0,why:'Zwarte bol = voor anker.'},
-    {q:'Wat betekent één blauwe kegel?',opts:['Sleep','Brandbaar — 10m','Passagier','Anker'],correct:1,why:'1 kegel = brandbaar, 10m afstand.'}
-   ]},
-
-  {id:'kleurcodes',section:'exam',icon:'🎨',title:'Vletten & kleurcodes',desc:'7 vletten, koppel nummers aan kleuren',
-   custom:'memory',
-   lessons:[
-    {title:'Onze 7 vletten',body:`<p>Op het examen: welke nummers en kleuren hebben de vletten gezien vanaf de Zeun?</p>
-      <ul><li><strong>294</strong> — geel</li><li><strong>419</strong> — rood</li><li><strong>495</strong> — paars / roze</li>
-      <li><strong>522</strong> — zwart (zelf inbeelden 😄)</li><li><strong>687</strong> — groen</li>
-      <li><strong>688</strong> — bruin</li><li><strong>925</strong> — blauw</li></ul>
-      <p class="hint">Oefen dit met het memory-spel op de volgende slide!</p>`},
-    {title:'Memoryspel',body:`<div id="memGame"></div><p class="hint">Tik op een kaart om hem om te draaien.</p>`,custom:'memory'}
-   ],
-   quiz:[
-    {q:'Welke kleur hoort bij vlet 294?',opts:['Rood','Geel','Groen','Blauw'],correct:1,why:'294 = geel.'},
-    {q:'Welke kleur hoort bij vlet 925?',opts:['Bruin','Paars','Blauw','Zwart'],correct:2,why:'925 = blauw.'},
-    {q:'Welke vlet is rood?',opts:['294','419','687','925'],correct:1,why:'419 = rood.'},
-    {q:'Welke kleur hoort bij vlet 688?',opts:['Bruin','Groen','Geel','Roze'],correct:0,why:'688 = bruin.'}
-   ]},
-
-  /* CWO Verdieping */
-  {id:'manoeuvres',section:'verdieping',icon:'🎯',title:'Manoeuvres',desc:'Achtje, aanleggen, man overboord, ankeren',
-   lessons:[
-    {title:'Het roeien van een achtje',body:`<p>Oefen commando's met scherpe bochten:</p>
-      <ol><li>Punt X: "op riemen, bakboord stopt af, stuurboord haalt op, gelijk" → bocht naar BB</li>
-      <li>Rondje + terug: rechtdoor</li><li>Verder: "bakboord haalt op, stuurboord stopt af" → bocht SB</li></ol>
-      <div class="callout">Bij scherpe bocht: het boord dat afstopt = de kant waar je heen draait.</div>`},
-    {title:"Afvaren — alle commando's",body:`<ol>
-      <li>"Riemen op"</li><li>"Dollen in"</li><li>"Los voor" + "Los achter"</li>
-      <li>"Zet af"</li><li>"Boeitjes binnen"</li><li>"Riemen toe"</li>
-      <li>"Op riemen, bakboord stuurboord haalt op, gelijk"</li></ol>`},
-    {title:'Aanleggen met de punt',body:`<ol>
-      <li>"Haakvoor, klaar staan om te springen"</li>
-      <li>Op afstand: "Op riemen" — boot remt</li>
-      <li>Vlak voor de kant: "Bakboord, stuurboord, stopt af"</li>
-      <li>"Haakvoor, spring!"</li></ol>`},
-    {title:'Aanleggen met de zijkant',body:`<ol>
-      <li>"Haakvoor, klaar staan"</li><li>"Op riemen"</li><li>"Boeitjes buiten"</li>
-      <li>"Stuurboord riemen lopen, bakboord strijkt"</li>
-      <li>Vlak voor kant: helmstok ver naar stuurboord + "Gelijk!"</li>
-      <li>"Haakvoor, spring"</li></ol>
-      <div class="callout-warn callout">Tegen de wind in aanleggen = meeste controle.</div>`},
-    {title:'Man overboord',body:`<ol>
-      <li>"Man overboord! Zwem! [Naam] wijs!" — iemand wijst de drenkeling</li>
-      <li>Boot vaart eerst weg — bepaal windrichting</li>
-      <li>Grote boog → terugkomen <em>tegen de wind in</em></li>
-      <li>Drenkeling aan de <strong>hoge kant</strong> (windzijde) binnenhalen</li>
-      <li>Vlakbij: "Riemen geroeid" — drenkeling hijsen</li></ol>
-      <div class="callout">Tegen de wind: boot drijft naar de drenkeling toe.</div>`},
-    {title:'Ankeren',body:`<ol>
-      <li>Controleer of anker geborgd is</li><li>Vaar tegen de wind in</li>
-      <li>"Klaarstaan om anker overboord te zetten"</li>
-      <li>"Bakboord, stuurboord stopt af" — stilleggen</li>
-      <li>Boot deinst achteruit: "Zet anker overboord"</li>
-      <li>"Anker houdt" → "Zwaard op" + lijn vastmaken (2–3× waterdiepte)</li></ol>`}
-   ],
-   quiz:[
-    {q:'Scherpe bocht naar bakboord — welk boord stopt af?',opts:['Bakboord','Stuurboord','Beide','Geen'],correct:0,why:'Het boord waar je heen draait werkt tegen. Naar BB → BB stopt.'},
-    {q:'Drenkeling binnenhalen aan de hoge kant — waarom?',opts:['Makkelijker tillen','Drijft naar de boot toe','Stuurman ziet beter','Willekeurig'],correct:1,why:'Tegen de wind aan = drenkeling drijft naar de windzijde.'},
-    {q:'Wat is een haakvoor?',opts:['Voorste roeier','Persoon die landvasten/stootwillen regelt','De helmstok','De roerganger'],correct:1,why:'De haakvoor regelt de landvasten en duwt af.'},
-    {q:'Hoeveel ankerlijn vier je uit?',opts:['1× diepte','2–3× diepte','5× diepte','Zoveel mogelijk'],correct:1,why:'2–3× de waterdiepte is de vuistregel.'},
-    {q:'Wanneer ga je tegen de wind in bij ankeren?',opts:['Nooit','Altijd','Alleen harde wind','Alleen op zee'],correct:1,why:'Tegen de wind = boot deinst gecontroleerd achteruit.'}
-   ]},
-
-  {id:'vaartechnieken',section:'verdieping',icon:'🚣',title:'Wrikken, jagen, slepen',desc:'Andere manieren van voortbewegen',
-   lessons:[
-    {title:'Wrikken',body:`<p><strong>Wrikken</strong> = voortbewegen op één riem via het wrikgat (spiegel, stuurboordzijde).</p>
-      <ol><li>Riem in het wrikgat, blad aan bakboordzijde</li>
-      <li>Handen naar rechts → blad gaat naar links (polsen NIET draaien)</li>
-      <li>Aan einde slag: polsen 90° draaien</li>
-      <li>Handen terug naar links → blad naar rechts</li></ol>
-      <p>Je blad tekent een <strong>achtje</strong> in het water.</p>
-      <div class="callout-warn callout">Wrikgat zit aan stuurboord — dus altijd licht corrigeren.</div>`},
-    {title:'Jagen',body:`<p><strong>Jagen</strong> = boot voorttrekken met een lijn vanaf de wal.</p>
-      <ul><li>Lijn aan de val in de mast (voorkomt vasthaken aan oever)</li>
-      <li>Niet ineens veel kracht — mast is breekbaar</li>
-      <li>Twee mensen blijven aan boord</li></ul>`},
-    {title:'Slepen',body:`<p><strong>Slepen</strong> = een sleepboot trekt jullie.</p>
-      <ul><li>Boten achter elkaar, sleeplijnen om en om BB/SB</li>
-      <li>Alle boten behalve de achterste: zwaard omhoog</li></ul>
-      <p><strong>Regels:</strong> niet staan, niet in slaapzak, niet overlopen, reddingsvest als gevraagd.</p>
-      <div class="callout">Afremmen: achterste boot gooit band/emmer overboord.</div>`}
-   ],
-   quiz:[
-    {q:'Welk patroon maakt het riemblad bij wrikken?',opts:['Rechte lijn','Achtje','Cirkel','Driehoek'],correct:1,why:'Polsen draaien per slag 90° → achtje.'},
-    {q:'Aan welke zijde zit het wrikgat?',opts:['Bakboord','Stuurboord','Midden','Maakt niet uit'],correct:1,why:'Wrikgat zit aan stuurboord.'},
-    {q:'Waar maak je de jaaglijn best vast?',opts:['Kikker voorop','Val in de mast','Aan het roer','Achterspring'],correct:1,why:'Val in mast voorkomt vasthaken langs de kant.'},
-    {q:'Hoeveel mensen blijven aan boord bij jagen?',opts:['Geen','1','Minimaal 2','Iedereen'],correct:2,why:'Minimaal 2 voor besturen.'},
-    {q:'Welke regel klopt NIET bij slepen?',opts:['Niet staan','Niet in slaapzak','Wel mogen overlopen','Lijn voor/achter klaar'],correct:2,why:'Overlopen mag NIET.'}
-   ]},
-
-  {id:'commando-bouwer',section:'verdieping',icon:'🧩',title:"Commando-bouwer",desc:"Bouw zelf de juiste commando's",
-   custom:'commandobouwer',
-   lessons:[
-    {title:'Speel: bouw het commando',body:`<p>Bouw het juiste commando door bouwstenen te combineren!</p>
-      <p class="hint">Tip: vrijwel elk commando begint met "Op riemen", behalve de 2 uitzonderingen.</p>
-      <div id="commandoBouwer"></div>`,custom:'commandobouwer'}
-   ],
-   quiz:[
-    {q:'Welk commando geef je ALTIJD voor een nieuw commando, behalve 2 uitzonderingen?',opts:['Riemen op','Op riemen','Riemen toe','Gelijk'],correct:1,why:'"Op riemen" sluit het vorige commando — behalve stopt af en riemen lopen.'},
-    {q:'Wat is een waarschuwingscommando?',opts:['Uitvoeringsdeel','Eerste deel voor de roeiers','Commando bij gevaar','"Stopt af"'],correct:1,why:'Het waarschuwingsdeel bereidt de roeiers voor, dan volgt na pauze het uitvoeringscommando.'},
-    {q:'Welk commando = "riemen verticaal de lucht in"?',opts:['Riemen op','Op riemen','Riemen toe','Riemen geroeid'],correct:0,why:'"Riemen op" — bij saluut of als eerste stap bij afvaren.'}
-   ]},
-
-  {id:'verlichting',section:'verdieping',icon:'💡',title:'Scheepsverlichting',desc:"Welk schip is dit 's nachts?",
-   lessons:[
-    {title:'De lichten-sectoren',body:`<p>Aan de lichten kun je zien hoe een schip vaart.</p>
-      ${lichtCirkelSvg()}
-      <ul><li><strong>Toplicht (wit, 225°)</strong> — voor en zijwaarts</li>
-      <li><strong>Bakboordlicht (rood, 112,5°)</strong> — alleen BB-zijde</li>
-      <li><strong>Stuurboordlicht (groen, 112,5°)</strong> — alleen SB-zijde</li>
-      <li><strong>Heklicht (wit, 135°)</strong> — achterkant</li></ul>
-      <div class="callout-tip callout">1 boordlicht → kruisend. Heklicht → jij loopt op. Groen+rood naast elkaar → tegengesteld.</div>`},
-    {title:'Schepen kleiner dan 7 meter',body:`<p>Geen boordlichten — alleen 1 wit rondom schijnend licht.</p>
-      <ul><li>Roeiboot, kano, klein motorbootje (&lt;13 km/u)</li></ul>`},
-    {title:'Schepen 7–20 meter',body:`<p><strong>Klein zeilschip</strong>: boordlichten + wit heklicht (geen toplicht)</p>
-      <p><strong>Klein motorschip</strong>: boordlichten + wit toplicht + wit heklicht</p>`},
-    {title:'Grote schepen (>20m)',body:`<ul>
-      <li><strong>Groot motorschip</strong>: boordlichten + toplicht + heklicht</li>
-      <li><strong>Groot zeilschip</strong>: boordlichten + heklicht + <span style="color:#C44536">rood</span> boven <span style="color:#2D6A4F">groen</span> in mast</li>
-      <li><strong>Snel motorschip</strong>: + 2 gele flikkerlichten</li></ul>`},
-    {title:'Sleper, sleep, veerpont',body:`<p><strong>Sleper</strong>: boordlichten + 2 of 3 toplichten boven elkaar + geel heklicht</p>
-      <p><strong>Sleep</strong>: 1 wit rondom licht. Achterste ook heklicht.</p>
-      <p><strong>Veerpont vrij varend</strong>: boordlichten + heklicht + <span style="color:#2D6A4F">groen</span> boven wit</p>
-      <div class="callout-warn callout">Gevaarlijke stoffen: blauwe lichten (1/2/3 = 10m/50m/100m).</div>`},
-    {title:'Stilliggende schepen',body:`<ul>
-      <li>Klein schip voor anker: 1 wit rondom licht</li>
-      <li>Groot schip voor anker: 2 witte rondom lichten — voorste hoger</li></ul>`}
-   ],
-   quiz:[
-    {q:"'s Nachts alleen groen licht zien naderen: welke koers?",opts:['Tegengesteld','Kruisend (vanuit SB)','Oplopend','Voor anker'],correct:1,why:'1 boordlicht = kruisend. Groen = SB-licht, dus kruist van rechts.'},
-    {q:'Rood EN groen naast elkaar naderen: wat doet die boot?',opts:['Voor anker','Oplopend','Recht op je af (tegengesteld)','Veerpont'],correct:2,why:'Beide boordlichten = tegengesteld.'},
-    {q:'Welke boot heeft GEEN boordlichten?',opts:['Roeiboot','Klein motorschip 8m','Groot zeilschip','Snel motorschip'],correct:0,why:'Boten &lt;7m hebben geen boordlichten.'},
-    {q:"Schip met gevaarlijke stoffen 's nachts?",opts:['Rode flikkerlichten','Blauwe lichten 1/2/3 boven elkaar','Gele kegels','Niets'],correct:1,why:'Blauwe lichten, net als de blauwe kegels overdag.'},
-    {q:'Groot schip voor anker: wat zie je?',opts:['1 wit licht','2 witte rondom lichten — voorste hoger','Rood en groen','3 witte lichten'],correct:1,why:'2 witte rondom lichten, voorste hoger. Klein schip = maar 1.'}
-   ]},
-
-  {id:'geluidsseinen',section:'verdieping',icon:'📢',title:'Geluidsseinen',desc:'Korte en lange stoten',
-   lessons:[
-    {title:'Geluidsseinen — basis',body:`<ul><li>● <strong>Korte stoot</strong> = 1 seconde</li><li>━ <strong>Lange stoot</strong> = 4 seconden</li></ul>`},
-    {title:'Te kunnen GEVEN (klein schip)',body:`<div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;margin:10px 0">
-      <p><strong>━</strong> &nbsp;= Attentie</p>
-      <p><strong>━ ● ● ●</strong> &nbsp;= Ik kan niet manoeuvreren</p>
-      <p><strong>━ ━ ━ ━ ━</strong> &nbsp;= Noodsein (5 lange stoten)</p></div>`},
-    {title:'Te kunnen HERKENNEN',body:`<div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;margin:10px 0">
-      <p><strong>●</strong> &nbsp;= Ik ga naar stuurboord</p>
-      <p><strong>● ●</strong> &nbsp;= Ik ga naar bakboord</p>
-      <p><strong>● ● ●</strong> &nbsp;= Ik ga achteruit</p>
-      <p><strong>━ ●</strong> &nbsp;= Verzoek bediening sluis/brug</p>
-      <p><strong>● ━ ● ━ ● ━ ●</strong> &nbsp;= Blijf weg!</p></div>
-      <div class="ezel"><div class="ezel-lbl">Ezelsbruggetje</div><div class="ezel-text">"Ik ga naar S<span class="hl">B</span>" = 1 punt<br>"Ik ga naar <span class="hl">B B</span>" = 2 punten<br>"<span class="hl">A</span>chter<span class="hl">u</span>it" = 3 lettergrepen = 3 punten</div></div>`}
-   ],
-   quiz:[
-    {q:'Wat betekent "● ●" (twee korte stoten)?',opts:['Attentie','Naar stuurboord','Naar bakboord','Achteruit'],correct:2,why:'2 korte = ik ga naar bakboord (twee B in BB).'},
-    {q:'Hoe lang is een lange stoot?',opts:['1 sec','2 sec','4 sec','10 sec'],correct:2,why:'Lange stoot = 4 seconden.'},
-    {q:'Wat is het noodsein?',opts:['1 lange stoot','3 korte','5 lange stoten','Continu'],correct:2,why:'Noodsein = 5 lange stoten.'},
-    {q:'Wat betekent "● ● ●" (drie korte)?',opts:['Naar bakboord','Achteruit','Attentie','Noodsein'],correct:1,why:'3 korte = achteruit (ach-ter-uit = 3 lettergrepen).'}
-   ]},
-
-  {id:'weer',section:'verdieping',icon:'🌤️',title:'Het weer',desc:'Beaufort, wind, onweer',
-   custom:'beaufort',
-   lessons:[
-    {title:'De Beaufort-schaal',body:`<p>Windkracht 0–12. Schuif de slider:</p>
-      <div id="beaufort"></div>
-      <div class="callout-warn callout">KNMI-waarschuwing vanaf <strong>6 Beaufort</strong>.</div>`,custom:'beaufort'},
-    {title:'Ruimende vs krimpende wind',body:`<div class="compare">
-      <div class="compare-col"><h4>Ruimende wind</h4><p>Met de klok mee. Oost om. <strong>Mooi weer op komst.</strong></p></div>
-      <div class="compare-col"><h4>Krimpende wind</h4><p>Tegen de klok in. West om. <strong>Slechter weer.</strong></p></div></div>`},
-    {title:'Luchtdruk',body:`<ul>
-      <li>Hoge luchtdruk (&gt;1020) → mooi, stabiel weer</li>
-      <li>Dalende luchtdruk → slechter weer aankomst</li>
-      <li>Onder 990 bar → heel laag, vaak storm</li></ul>`},
-    {title:'Onweer herkennen',body:`<p>Signalen: donkere stapelwolken (aambeeldvorm), wolken uit andere richting, stilte voor de storm.</p>
-      <p><strong>Wat doe je?</strong></p>
-      <ol><li>Zo snel mogelijk naar de kant</li><li>Reddingsvest aan</li>
-      <li>Mast strijken</li><li>Niet onder boom</li><li>Op het hout, weg van staal</li></ol>`},
-    {title:'Winddraaiing',body:`<p>Bij een naderende depressie: wind gaat eerst liggen, steekt op, valt weg bij kern, dan tegenovergesteld.</p>`}
-   ],
-   quiz:[
-    {q:'Vanaf welke windkracht KNMI-waarschuwing?',opts:['4 Bft','5 Bft','6 Bft','8 Bft'],correct:2,why:'Vanaf 6 Beaufort.'},
-    {q:'Wat betekent ruimende wind?',opts:['Met klok mee — slechter','Met klok mee — mooi weer','Tegen klok in — mooi','Wind neemt af'],correct:1,why:'Ruimende wind = met de klok mee, mooi weer op komst.'},
-    {q:'Aan welke wolk herken je onweer?',opts:['Sluierwolken','Donkere stapelwolk met platte bovenkant','Lage mist','Cirrus'],correct:1,why:'Cumulonimbus met aambeeldvorm = onweer.'},
-    {q:'Wat doe je als eerste bij naderend onweer?',opts:['Mast strijken','Zo snel mogelijk naar de kant','Reddingsvest','Anker'],correct:1,why:'Eerst naar de kant. Dan vest, dan mast.'}
-   ]},
-
-  {id:'onderhoud',section:'verdieping',icon:'🛠️',title:'Boot onderhouden',desc:'Dagelijks en winteronderhoud',
-   lessons:[
-    {title:'Dagelijks onderhoud',body:`<ul>
-      <li>Riemen recht of overeind opbergen</li>
-      <li>Boot uithozen en droog houden</li>
-      <li>Beschadigingen bijwerken: schuren, meniën, lakken</li>
-      <li>Nat touw aan houten pin (niet ijzeren spijker — roest!)</li></ul>`},
-    {title:'Winteronderhoud — 6 stappen',body:`<ol>
-      <li>Algen en vuil verwijderen</li>
-      <li>Krabben + staalborstel — roestplekken kaal</li>
-      <li>Bodem teren met een <em>bokkenpoot</em></li>
-      <li>Roestplekken in primer</li>
-      <li>Grondverf</li>
-      <li>Laklaag</li></ol>`},
-    {title:'Verftips',body:`<ul>
-      <li>Oude laag licht opschuren</li>
-      <li>Afnemen met vochtige doek met <strong>ammonia</strong></li>
-      <li>Kwast schoon met <strong>terpentine</strong> of <strong>peut</strong>, daarna in water</li></ul>
-      <div class="callout">Volgorde: krabben → primer → grondverf → laklaag.</div>`},
-    {title:'Soorten ankers',body:`<div class="anker-grid">
-        <div class="anker-card">${ankerSvg('pool')}<div class="anker-name">Pool-anker</div></div>
-        <div class="anker-card">${ankerSvg('danforth')}<div class="anker-name">Danforth</div></div>
-        <div class="anker-card">${ankerSvg('stok')}<div class="anker-name">Stok-anker</div></div>
-        <div class="anker-card">${ankerSvg('dreg')}<div class="anker-name">Dreg</div></div>
-      </div>`}
-   ],
-   quiz:[
-    {q:'Winterbeurt volgorde?',opts:['Lakken → primer → grondverf → krabben','Krabben → primer → grondverf → lakken','Grondverf → krabben → primer → lakken','Lakken → krabben → primer → grondverf'],correct:1,why:'Krabben → primer → grondverf → laklaag.'},
-    {q:'Waar hang je nat touw aan?',opts:['IJzeren spijker','Houten pin','Op de grond','In de zon'],correct:1,why:'Houten pin — ijzer roest en tast touw aan.'},
-    {q:'Wat is een bokkenpoot?',opts:['Knoop','Speciale kwast voor teren','Ankertype','Mastonderdeel'],correct:1,why:'Speciale kwast om bodem te teren.'},
-    {q:'Waarmee kwasten schoonmaken na lakken?',opts:['Water','Terpentine of peut','Afwasmiddel','Ammonia'],correct:1,why:'Terpentine of peut (petroleum).'}
-   ]},
-
-  {id:'touwen-ankers',section:'verdieping',icon:'🪢',title:'Touwen & ankers',desc:'Welk touw, welk anker?',
-   custom:'touwtabel',
-   lessons:[
-    {title:'Met touw goed omgaan',body:`<ul>
-      <li>Geen onnodige knopen</li>
-      <li>Lijnen uithangen aan houten pin</li>
-      <li>Opschieten: van vaste naar losse eind, in touwrichting</li></ul>`},
-    {title:'Begrippen',body:`<ul>
-      <li><strong>Tamp</strong> — uiteinde van een lijn</li>
-      <li><strong>Kardelen</strong> — de strengen (meestal 3 of 4)</li>
-      <li><strong>Tieren</strong> — groeven tussen de kardelen</li></ul>`},
-    {title:'Soorten touw — interactief',body:`<p>Druk op een filter om te vergelijken:</p>
-      <div id="touwTabel"></div>
-      <div class="callout">In de praktijk: bijna alleen kunstvezel — natuurvezels rotten te snel.</div>`,custom:'touwtabel'},
-    {title:'Vier ankertypes',body:`<div class="anker-grid">
-        <div class="anker-card">${ankerSvg('pool')}<div class="anker-name">Pool</div><div class="anker-desc">Graaft goed in</div></div>
-        <div class="anker-card">${ankerSvg('danforth')}<div class="anker-name">Danforth</div><div class="anker-desc">Plat, zachte bodem</div></div>
-        <div class="anker-card">${ankerSvg('stok')}<div class="anker-name">Stok</div><div class="anker-desc">Klassiek</div></div>
-        <div class="anker-card">${ankerSvg('dreg')}<div class="anker-name">Dreg</div><div class="anker-desc">4 haken, kleine boot</div></div>
-      </div>`}
-   ],
-   quiz:[
-    {q:'Waarom geen onnodige knopen in een lijn?',opts:['Ziet rommelig uit','Touw slijt sneller en knopen lossen moeilijk','Verboden','Waait weg'],correct:1,why:'Knopen slijten touw sneller en zijn later moeilijk los te krijgen.'},
-    {q:'Welke richting schiet je een lijn op?',opts:['Losse naar vaste eind','Vaste naar losse eind','Maakt niet uit','Tegen de klok'],correct:1,why:'Van vaste naar losse eind, in de touwrichting.'},
-    {q:'Welk touw is goed voor een ankerlijn?',opts:['Sisal','Polyamide','Katoen','Polytheen'],correct:1,why:'Polyamide: slijtvast, UV-bestendig, grote breeklast.'},
-    {q:'Welk touw drijft op water?',opts:['Polyamide','Polyester','Polipropyleen','Hennep'],correct:2,why:'Polipropyleen drijft — ideaal voor landvasten.'}
-   ]},
-
-  {id:'etiquette',section:'verdieping',icon:'🎌',title:'Etiquette aan boord',desc:'Goed zeemanschap & vlagvoering',
-   lessons:[
-    {title:'Gedragsregels',body:`<ul>
-      <li>Schip schoon en opgeruimd houden</li>
-      <li>Geen lawaai</li>
-      <li>Niet ongvraagd aan boord van andermans schip</li>
-      <li>Aan paal vastmaken: jouw lijn <em>onder</em> een al bevestigde lijn</li>
-      <li>Niet te dicht bij in/uitvaart aanleggen</li>
-      <li>Hulp bieden als het kan</li>
-      <li>Geen afval overboord</li></ul>`},
-    {title:'Vlagvoering',body:`<ul>
-      <li>Hijsen <em>na</em> zonsopgang</li>
-      <li>Strijken <em>vóór</em> zonsondergang</li>
-      <li>Uitzondering: vlag goed belicht door schijnwerper</li></ul>
-      <div class="callout-warn callout">Geen reclamevlaggen! Scouting is geen commerciële organisatie.</div>`},
-    {title:'Bij omslaan: koppen tellen',body:`<ol>
-      <li><strong>Eerst koppen tellen</strong> — is iedereen er nog?</li>
-      <li><strong>Blijf bij het schip</strong> — niet wegzwemmen!</li></ol>
-      <p>Zwemmen kost energie → afkoelen en kramp. Omgeslagen schip drijft en is makkelijker te vinden.</p>
-      <div class="callout">Reddingsvest: kraag, drijfvermogen, CE-keurmerk. Draait hoofd omhoog — ook bewusteloos.</div>`}
-   ],
-   quiz:[
-    {q:'Wanneer wordt de Nederlandse vlag gestreken?',opts:['Bij zonsopgang','Vóór zonsondergang','Na zonsondergang','Nooit'],correct:1,why:'Gehesen na zonsopgang, gestreken vóór zonsondergang.'},
-    {q:'Wat doe je als eerste als je schip omslaat?',opts:['Naar de kant zwemmen','Koppen tellen, bij boot blijven','Boot rechttrekken','Hulp roepen'],correct:1,why:'Eerst koppen tellen, dan bij het schip blijven.'},
-    {q:'Verschil zwem- en reddingsvest?',opts:['Geen verschil','Reddingsvest draait hoofd omhoog','Zwemvest is duurder','Reddingsvest alleen voor kinderen'],correct:1,why:'Reddingsvest heeft kraag die hoofd draait — zelfs bewusteloos.'}
-   ]}
-];
-
-/* ============ ROEIEN EXAMEN ============ */
-const ROEIEN_EXAMEN={
-  roeien1:[
-    {q:'Welke knoop wordt hieronder afgebeeld? En wanneer gebruik je deze knoop?',img:knotSvg('paal',120),
-     opts:['Achtknoop — stopknoop','Paalsteek — vaste lus die niet dichttrekt','Mastworp — aan paal','Schootsteek — twee lijnen'],correct:1,
-     why:'Paalsteek: vaste lus die niet dichttrekt.'},
-    {q:'Wat gebeurt er als stuurboord haalt en bakboord strijkt?',
-     opts:['Vlet draait naar stuurboord','Vlet draait naar bakboord','Vlet stopt af','Vlet gaat achteruit'],correct:1,
-     why:'Stuurboord vooruit + bakboord achteruit → voorkant naar bakboord.'},
-    {q:'Je vaart achteruit. Je duwt de helmstok naar stuurboord. Welke kant draait de punt op?',
-     opts:['Bakboord','Stuurboord','Rechtdoor','Geen beweging'],correct:1,
-     why:'Bij achteruit werkt het roer omgekeerd: helmstok naar SB → punt naar SB.'},
-    {q:'Welk onderdeel is nummer 54?',img:vletQuizSvg(54),
-     opts:['Spant','Dolpot','Grendelbout','Riem'],correct:2,why:'54 = grendelbout.'},
-    {q:'Welk onderdeel is nummer 57?',img:vletQuizSvg(57),
-     opts:['Dolpot','Spant','Spiegel','Mast'],correct:0,why:'57 = dolpot.'},
-    {q:'Welk onderdeel is nummer 84?',img:vletQuizSvg(84),
-     opts:['Grendelbout','Dolpot','Spant','Roer'],correct:2,why:'84 = spant.'},
-    {q:'Welk verbodsbord mag jij met je roeiboot wél passeren?',
-     opts:['Verboden voor zeilschepen','Verboden voor spierkracht','Verboden voor motorschepen','Verboden doorvaart'],correct:2,
-     why:'Roeiboot = spierkracht, geen motor.'},
-    {q:"Welke commando's gebruik je om een acht te roeien?",
-     opts:["Bakboord/SB halen — Op riemen — SB/BB haalt en strijkt — Op riemen",'Beide boorden halen','Op riemen — strijken','Pikhaak voor'],correct:0,
-     why:'Acht roeien: groot rondje door één boord, dan kleiner rondje met haal+strijk.'},
-    {q:'Welke kleur hoort bij vlet 522?',opts:['Zwart (zelf inbeelden)','Wit','Geel','Geen kleur'],correct:0,why:'522 = zwart.'}
-  ],
-  roeien2:[
-    {q:'Hoe weet je of je in de dode hoek zit?',opts:['Hij toetert','Je ziet de schipper niet meer','Hij komt dichterbij','Je staat in zijn schaduw'],correct:1,why:'Zie jij hem niet → hij ziet jou niet.'},
-    {q:'Bij een brug zie je 2 gele ruiten. Betekenis?',opts:['Verboden','Doorvaart, géén tegenliggers','Brug gaat open','Doorvaart, tegenliggers mogelijk'],correct:1,why:'2 ruiten = eenrichtingsverkeer.'},
-    {q:'Aanleggen op bakboord. Wat is stap 1?',opts:['Pikhaak voor','Op riemen, beide stoppen af','Stootwillen uit','Landen vast'],correct:1,why:'Stap 1 = op riemen, beide stoppen af.'},
-    {q:'Splitsingston half groen (boven) half rood (onder). Betekenis?',opts:['BB-kant hoofdvaarwater','Geen doorvaart','SB kruist BB','Verboden'],correct:0,why:'Bovenste kleur geeft BB-kant van hoofdvaarwater aan.'},
-    {q:'Noem een situatie waarin reddingsvest verplicht is.',opts:['Bij zonneschijn','Tijdens een sleep','Als je honger hebt','Boot stilligt'],correct:1,why:'Sleep, onweer, harde wind of "2 van de 3"-regel.'},
-    {q:'Twee schepen recht op elkaar af, beide gelijk. Wat doe jij?',opts:['Bakboord uit','Stuurboord uit','Rechtdoor','Stoppen'],correct:1,why:'Tegengestelde koers: beiden naar stuurboord.'},
-    {q:'Onweer op komst, midden op het water. Beste actie?',opts:['Mast omhoog','Op staal blijven','Naar de kant + vest + mast strijken','Anker'],correct:2,why:'Kant, vest, mast strijken, op hout blijven.'}
-  ],
-  bpr:[
-    {q:'Klein zeilbootje (B) en groot vrachtschip (A) kruisend. Wie wijkt?',svg:bprSvg('klein-groot'),opts:['A wijkt','B wijkt — Klein voor Groot','Geen','De vlet'],correct:1,why:'Klein wijkt altijd voor Groot.'},
-    {q:'Spierkrachtboot (B) en zeilboot (A) kruisend. Wie wijkt?',svg:bprSvg('spier-zeil'),opts:['A wijkt','B wijkt — Spier voor Zeil','Beiden','Niemand'],correct:1,why:'Spier wijkt voor zeil.'},
-    {q:'Twee zeilboten kruisen. A: zeil over stuurboord, B: zeil over bakboord. Wie wijkt?',svg:bprSvg('bak-stuur'),opts:['A wijkt — B heeft voorrang (bakboord)','B wijkt','Beiden','Niemand'],correct:0,why:'B heeft zeil over bakboord = voorrang. A wijkt.'},
-    {q:'Twee zeilboten, zelfde wind. A is loef, B is lij. Wie wijkt?',svg:bprSvg('loef-lij'),opts:['A wijkt — loef voor lij','B wijkt','Niemand','Wind beslist'],correct:0,why:'Loef wijkt voor lij.'},
-    {q:'Hoofdvaarwater + nevenvaarwater. A op hoofd, B uit neven. Wie wijkt?',svg:bprSvg('hoofd-neven'),opts:['A wijkt','B wijkt — klein voor groot + hoofd voor neven','Geen','Beiden'],correct:1,why:'B wijkt: klein + uit nevenvaarwater.'},
-    {q:'Twee gelijke schepen kruisen. A van links, B van rechts. Wie wijkt?',svg:bprSvg('rechts'),opts:['A — rechts heeft voorrang','B','Beiden','Niemand'],correct:0,why:'Rechts heeft voorrang. B komt van rechts → A wijkt.'},
-    {q:'Engte. A vaart stroomopwaarts, B met de stroom mee. Wie wijkt?',svg:bprSvg('engte'),opts:['A wijkt — stroom mee heeft voorrang','B wijkt','Niemand','Beiden'],correct:0,why:'In engte: stroom mee heeft voorrang.'}
-  ]
-};
+// ROEIEN_EXAMEN loaded from vragen.json
 
 function koersenSvg(){
   return `<svg viewBox="0 0 300 300" style="width:100%;max-width:300px;display:block;margin:10px auto" xmlns="http://www.w3.org/2000/svg">
@@ -1623,289 +943,7 @@ function koersenSvg(){
   </svg>`;
 }
 
-// ── ZEILEN DATA ───────────────────────────────────────────────────────────────
-const ZEILEN_DATA={
-  lichtmatroos:{
-    name:'Lichtmatroos',icon:'⛵',color:'#2D6A4F',
-    modules:[
-      {id:'zm-onderdelen',section:'zeilen',icon:'🔩',title:'Onderdelen zeilboot',desc:'Gaffel, lummelbeslag, leuver',
-       lessons:[
-        {title:'De zeilende lelievlet',body:`<div style="text-align:center">${zeilVletSvg()}</div><p style="margin-top:10px">Herken de drie gemarkeerde examenonderdelen op de afbeelding.</p>`},
-        {title:'Gaffel (6)',body:`<div style="text-align:center">${zeilVletSvg(6)}</div><p>De <strong>gaffel</strong> is de schuine spriet aan de <em>bovenkant</em> van het zeil. Hij steugt de bovenkant van het grootzeil omhoog.</p>`},
-        {title:'Lummelbeslag (21)',body:`<div style="text-align:center">${zeilVletSvg(21)}</div><p>Het <strong>lummelbeslag</strong> zit <em>onderaan</em> de mast en verbindt de giek met de mast. Het zorgt dat de giek op en neer kan draaien.</p>`},
-        {title:'Leuver (81)',body:`<div style="text-align:center">${zeilVletSvg(81)}</div><p>Een <strong>leuver</strong> is een ring of oog in het zeil waardoor een touw (leuvertouw) of de mast loopt. Leuvers hangen het zeil aan de mast of giek.</p>`}
-       ],
-       quiz:[
-        {q:'Welk onderdeel is de schuine spriet bovenaan het zeil?',img:zeilVletSvg(6),opts:['Giek','Gaffel','Lummelbeslag','Leuver'],correct:1,why:'Gaffel = schuine spriet bovenkant zeil.'},
-        {q:'Wat verbindt de giek met de mast (onderaan)?',img:zeilVletSvg(21),opts:['Leuver','Gaffel','Lummelbeslag','Staag'],correct:2,why:'Lummelbeslag verbindt giek met mast onderaan.'},
-        {q:'Wat is een leuver?',img:zeilVletSvg(81),opts:['Schuine spriet','Ring/oog in zeil','Verbindingsbeslag','Blok voor schoot'],correct:1,why:'Leuver = ring of oog in het zeil.'}
-       ]},
-      {id:'zm-koersen',section:'zeilen',icon:'🧭',title:'Koersen & Wind',desc:'Aan de wind, halve wind, voor de wind',
-       lessons:[
-        {title:'Koersen t.o.v. de wind',body:`<div style="text-align:center">${koersenSvg()}</div><ul><li><strong>Aan de wind</strong>: zo scherp mogelijk tegen de wind in (~45°)</li><li><strong>Halve wind</strong>: wind dwars (~90°)</li><li><strong>Ruime wind</strong>: wind van achter-schuin (~135°)</li><li><strong>Voor de wind</strong>: wind recht van achteren (180°)</li></ul>`},
-        {title:'Dode hoek & halsverandering',body:`<p>De <strong>dode hoek</strong> is het gebied recht de wind in — je kunt er niet zeilen (zeil bolt niet meer).</p><p style="margin-top:8px"><strong>Bakboord aan de wind</strong>: wind van bakboord, zeil over stuurboord.<br><strong>Stuurboord aan de wind</strong>: wind van stuurboord, zeil over bakboord.</p>`}
-       ],
-       quiz:[
-        {q:'Koers waarbij wind recht van achteren komt?',opts:['Aan de wind','Halve wind','Voor de wind','Ruime wind'],correct:2,why:'Voor de wind = wind recht van achteren (180°).'},
-        {q:'De dode hoek is…',opts:['Gebied recht achter de boot','Gebied recht de wind in','Blinde hoek bij mast','Schaduw van het zeil'],correct:1,why:'Dode hoek = zone recht in de wind, te scherp om te zeilen.'},
-        {q:'Wind van bakboord: zeil hangt over…',opts:['Bakboord','Stuurboord','Beide kanten','Midden'],correct:1,why:'Wind van bakboord → zeil over stuurboord.'}
-       ]},
-      {id:'zm-knopen',section:'zeilen',icon:'🪢',title:'Knopen (zeilen)',desc:'Paalsteek, mastworp, achtknoop',
-       lessons:[
-        {title:'Basisknopen',body:`<p>Dezelfde knopen als bij roeien zijn ook bij zeilen essentieel:</p><ul><li><strong>Paalsteek</strong>: vaste lus, nooit vasttrekt — voor aanleggen</li><li><strong>Mastworp</strong>: snel aan paal of ring</li><li><strong>Achtknoop</strong>: stopknoop, voorkomt doorschieten door blok</li><li><strong>Platte knoop</strong>: twee touwen even dik</li><li><strong>Schootsteek</strong>: twee touwen verschillende dikte</li></ul>`},
-        {title:'Kikker & schoot beleggen',body:`<p>De <strong>schoot</strong> is het touw waarmee je de stand van het zeil bepaalt. Beleggen op de kikker: in achten omheen met een sliplachetje als laatste slag.</p><p style="margin-top:8px">Bij plotseling harde wind: schoot vieren (losgooien) om zeil los te zetten.</p>`}
-       ],
-       quiz:[
-        {q:'Welke knoop geeft een vaste lus die nooit dichttrekt?',opts:['Achtknoop','Mastworp','Paalsteek','Platte knoop'],correct:2,why:'Paalsteek = vaste lus, trekt nooit dicht.'},
-        {q:'Waarvoor gebruik je een achtknoop?',opts:['Twee lijnen verbinden','Stopknoop, touw door blok','Aanleggen','Sjorren'],correct:1,why:'Achtknoop = stopknoop, einde van een lijn.'},
-        {q:'Wat is een schoot?',opts:['Touw voor de mast','Touw om zeilstand te regelen','Beslag op de giek','Ijzeren ring'],correct:1,why:'Schoot = touw waarmee je het zeil bijtrekt of viert.'}
-       ]},
-      {id:'zm-veiligheid',section:'zeilen',icon:'🦺',title:'Veiligheid zeilen',desc:'Reddingsvest, kapseizen, noodseinen',
-       lessons:[
-        {title:'Reddingsvest',body:`<p>Een reddingsvest is verplicht bij: windkracht 4 of meer, slechte zichtbaarheid, duisternis, voor niet-zwemmers altijd.</p><div class="callout-warn callout"><strong>Kapseizen:</strong> blijf bij de boot, klim op de kiel, trek de boot op. Nooit weggaan van de boot.</div>`},
-        {title:'Noodseinen',body:`<ul><li>Armen omhoog en omlaag zwaaien</li><li>Oranje rooksignaal</li><li>SOS met fluit: <strong>· · · — — — · · ·</strong></li><li>Mayday via marifoon (VHF kanaal 16)</li></ul><p style="margin-top:8px"><strong>Veiligheidsregels:</strong> nooit onder giek zonder te kijken, gewicht laag houden, boot niet overladen.</p>`}
-       ],
-       quiz:[
-        {q:'Wanneer is reddingsvest verplicht?',opts:['Altijd','Kracht 4+, slecht zicht, nacht, niet-zwemmers','Alleen bij storm','Alleen voor kinderen'],correct:1,why:'Kracht 4+, slechte zicht, nacht, niet-zwemmers.'},
-        {q:'Eerste actie bij kapseizen?',opts:['Zwem naar kant','Blijf bij boot, klim op kiel','Schreeuw','Duw mast omhoog'],correct:1,why:'Altijd bij de boot blijven — die drijft en is beter zichtbaar.'},
-        {q:'Noodsein met armen?',opts:['Eén arm omhoog','Armen wijd','Armen omhoog en omlaag zwaaien','Handen op hoofd'],correct:2,why:'Noodsein = armen omhoog en omlaag zwaaien.'}
-       ]},
-      {id:'zm-betonning',section:'zeilen',icon:'🔴',title:'Betonning basis',desc:'Rood en groen, lateraal stelsel',
-       lessons:[
-        {title:'Laterale betonning',body:`${betonningSvg()}<ul style="margin-top:10px"><li><strong>Rood</strong>: houd aan stuurboord bij varen naar zee</li><li><strong>Groen</strong>: houd aan bakboord bij varen naar zee</li></ul><div class="callout">Ezelsbruggetje: <strong>GroenBakboord</strong> (G en B beginnen met verschillende klanken maar zijn allebei "tweede kleur").</div>`},
-        {title:'Splitsingsboei',body:`${splitsingSvg()}<p style="margin-top:10px">Splitsingsboei: bovenste kleur = bakboord kant van het hoofdvaarwater.</p>`}
-       ],
-       quiz:[
-        {q:'Groene ton, varen naar zee: houd ton aan…',opts:['Stuurboord','Bakboord','Midden','Maakt niet uit'],correct:1,why:'Groen = bakboord aanhouden (IALA-A, naar zee).'},
-        {q:'Rode ton heeft welke topmark?',opts:['Kegel','Bol','Punt/cilinder','Kruis'],correct:2,why:'Rode ton = punt/cilinder topmark.'},
-        {q:'Splitsingsboei groen boven rood: hoofdvaarwater aan?',opts:['Stuurboord','Bakboord','Geen','Beide'],correct:1,why:'Bovenste kleur groen = bakboord kant hoofdvaarwater.'}
-       ]}
-    ],
-    examen:[
-      {q:'Wat is de gaffel?',img:zeilVletSvg(6),opts:['Horizontale stang onderaan','Schuine spriet bovenkant zeil','Ring in zeil','Verbinding giek-mast'],correct:1,why:'Gaffel = schuine spriet bovenkant.'},
-      {q:'Wat is het lummelbeslag?',img:zeilVletSvg(21),opts:['Ring in zeil','Giek-mast verbinding onderaan','Schuine spriet','Leuvertouw'],correct:1,why:'Lummelbeslag verbindt giek met mast.'},
-      {q:'Koers "aan de wind" is?',opts:['Wind recht van achter','Zo scherp mogelijk tegen de wind in','Wind dwars','Wind van achter-schuin'],correct:1,why:'Aan de wind ≈ 45°, zo scherp mogelijk.'},
-      {q:'De dode hoek is?',opts:['Achter de boot','Recht in de wind, niet te zeilen','Bakboord kwartier','Onderkant zeil'],correct:1,why:'Dode hoek = zone recht de wind in.'},
-      {q:'Paalsteek gebruik je voor?',opts:['Stopknoop','Twee lijnen verbinden','Vaste lus die niet trekt','Lijn aan paal'],correct:2,why:'Paalsteek = vaste lus.'},
-      {q:'Reddingsvest verplicht bij?',opts:['Altijd','Kracht 4+, slecht zicht, nacht','Alleen wedstrijden','Nooit verplicht'],correct:1,why:'Kracht 4+, slechte zicht, nacht, niet-zwemmers.'},
-      {q:'Groene ton varen naar zee: houd aan?',opts:['Stuurboord','Bakboord','Midden','Maakt niet uit'],correct:1,why:'Groen = bakboord.'},
-      {q:'Wind van bakboord: zeil hangt over?',opts:['Bakboord','Stuurboord','Beide','Midden'],correct:1,why:'Wind van bakboord → zeil over stuurboord.'},
-      {q:'Noodsein met armen?',opts:['Één arm','Armen wijd','Omhoog en omlaag zwaaien','Handen op hoofd'],correct:2,why:'Armen omhoog en omlaag = noodsein.'},
-      {q:'Kapseizen: eerste actie?',opts:['Zwem naar kant','Blijf bij boot op kiel','Schreeuw','Mast optillen'],correct:1,why:'Blijf altijd bij de boot.'}
-    ]
-  },
-
-  rood:{
-    name:'Zeilen Rood (KB I)',icon:'🔴',color:'#C44536',
-    modules:[
-      {id:'zr-koersen',section:'zeilen',icon:'🧭',title:'Koersen zeilen',desc:'Aan de wind, halve wind, ruime wind',
-       lessons:[
-        {title:'Koersen herhaling',body:`<div style="text-align:center">${koersenSvg()}</div><p><strong>Oploefen</strong>: draaien naar de wind toe (zeil trilt = loslopen).<br><strong>Afvallen</strong>: van de wind af draaien (zeil boller).</p>`},
-        {title:'Schootkant',body:`<p><strong>Bakboord aan de wind</strong> (wind van links): zeil over stuurboord = <em>stuurboord schoot</em>.</p><p style="margin-top:8px"><strong>Stuurboord aan de wind</strong> (wind van rechts): zeil over bakboord = <em>bakboord schoot</em>.</p><div class="callout-tip callout">Hals = kant van de wind. Schoot = kant van het zeil.</div>`}
-       ],
-       quiz:[
-        {q:'Wind van bakboord: dit heet?',opts:['Stuurboord aan de wind','Bakboord aan de wind','Voor de wind','Halve wind'],correct:1,why:'Wind van bakboord = bakboord aan de wind.'},
-        {q:'Oploefen betekent?',opts:['Van wind af draaien','Naar wind toe draaien','Anker','Schoot vieren'],correct:1,why:'Oploefen = meer naar de wind draaien.'},
-        {q:'Zeil trilt? Wat doe je?',opts:['Schoot vieren','Iets afvallen (van wind af)','Meer oploefen','Anker gooien'],correct:1,why:'Trillen zeil = te hoog aan de wind, iets afvallen.'}
-       ]},
-      {id:'zr-manoeuvres',section:'zeilen',icon:'↩️',title:'Overstag & Gijpen',desc:'Boeg of achterschip door de wind',
-       lessons:[
-        {title:'Overstag gaan',body:`<p>De <strong>boeg</strong> gaat door de wind. Wind wisselt van de ene naar de andere kant via voor.</p><ol style="padding-left:18px;margin-top:8px"><li>"Klaar voor wenden?"</li><li>"Ja, klaar!"</li><li>"Ree!" of "Overstag!"</li><li>Helmstok naar de wind toe</li><li>Schoot losgooien, nieuwe schoot aanhalen</li></ol>`},
-        {title:'Gijpen',body:`<p>Het <strong>achterschip</strong> gaat door de wind. De giek slaat over — gevaarlijker dan overstag.</p><ol style="padding-left:18px;margin-top:8px"><li>"Klaar voor gijpen?"</li><li>"Ja, klaar!"</li><li>"Gijp!"</li><li>Actief gijpen: giek controlled laten overgaan</li></ol><div class="callout-warn callout"><strong>Gevaar:</strong> ongecontroleerde gijp → giek slaat met kracht = hoofdletsel!</div>`}
-       ],
-       quiz:[
-        {q:'Bij overstag gaat … door de wind.',opts:['Achterschip','Boeg','Giek','Mast'],correct:1,why:'Overstag = boeg door de wind.'},
-        {q:'Bij gijpen gaat … door de wind.',opts:['Boeg','Giek','Achterschip','Mast'],correct:2,why:'Gijpen = achterschip door de wind.'},
-        {q:'Gevaar bij ongecontroleerde gijp?',opts:['Zeil scheurt','Giek slaat over — hoofdletsel','Boot zinkt','Schoot knapt'],correct:1,why:'Giek slaat met kracht over — gevaar voor hoofd en kapseizen.'}
-       ]},
-      {id:'zr-betonning',section:'zeilen',icon:'🟢',title:'Betonning lateraal',desc:'Volledig lateraal stelsel',
-       lessons:[
-        {title:'Lateraal stelsel',body:`${betonningSvg()}<table style="width:100%;font-size:.83rem;border-collapse:collapse;margin-top:10px"><tr style="background:var(--gold-soft)"><th style="padding:6px;text-align:left">Kleur</th><th>Kant (naar zee)</th><th>Topmark</th><th>Licht</th></tr><tr><td style="padding:5px">Rood</td><td>Stuurboord</td><td>Punt/cilinder</td><td>Rood</td></tr><tr style="background:#f5f5f5"><td style="padding:5px">Groen</td><td>Bakboord</td><td>Kegel</td><td>Groen</td></tr></table>`},
-        {title:'Splitsingsboei',body:`${splitsingSvg()}<p style="margin-top:8px">Bovenste kleur = bakboord kant hoofdvaarwater. Houd toch aan die kant. Licht: afwisselend rood-groen of wit.</p>`}
-       ],
-       quiz:[
-        {q:'Rode ton: topmark?',opts:['Kegel','Bol','Punt/cilinder','Kruis'],correct:2,why:'Rood = punt/cilinder.'},
-        {q:'Groene ton: lichtkleur?',opts:['Rood','Groen','Geel','Wit'],correct:1,why:'Groene ton = groen licht.'},
-        {q:'Splitsingsboei rood boven groen: hoofdvaarwater aan?',opts:['Bakboord','Stuurboord','Geen','Midden'],correct:1,why:'Rood bovenste = stuurboord kant hoofdvaarwater.'}
-       ]},
-      {id:'zr-bpr',section:'zeilen',icon:'⚖️',title:'BPR voor zeilers',desc:'Bakboord-stuurboord, loef-lij',
-       lessons:[
-        {title:'Voorrangsregels',body:`<ul><li><strong>Klein voor Groot</strong></li><li><strong>Spier voor Zeil</strong> (motor wijkt)</li><li><strong>Bakboord hals wijkt</strong> voor stuurboord hals</li><li><strong>Loef voor Lij</strong> (zelfde hals)</li></ul><div class="callout">Ezelsbruggetje bakboord hals: <em>B</em>akboord = <em>B</em>lame — jij bent schuldig, jij wijkt.</div>`},
-        {title:'Situaties',body:`${bprSvg('bak-stuur')}<p>A heeft zeil over bakboord, B over stuurboord. A wijkt voor B.</p>`}
-       ],
-       quiz:[
-        {q:'Zeilboot A (bakboord hals) kruist B (stuurboord hals). Wie wijkt?',svg:bprSvg('bak-stuur'),opts:['A wijkt','B wijkt','Beiden','Niemand'],correct:0,why:'Bakboord hals wijkt voor stuurboord hals.'},
-        {q:'Motorboot en zeilboot kruisen. Wie wijkt?',svg:bprSvg('spier-zeil'),opts:['Zeilboot','Motorboot','Beiden','Niemand'],correct:1,why:'Spier (motor) wijkt voor zeil.'},
-        {q:'Twee zeilboten, zelfde hals, A is loef. Wie wijkt?',svg:bprSvg('loef-lij'),opts:['A wijkt (loef voor lij)','B wijkt','Niemand','Wind beslist'],correct:0,why:'Loef wijkt voor lij.'}
-       ]},
-      {id:'zr-verlichting',section:'zeilen',icon:'💡',title:'Navigatieverlichting',desc:'Rood, groen, heklicht',
-       lessons:[
-        {title:'Lichten zeilboot',body:`${schipLichtSvg()}<ul style="margin-top:10px"><li><strong>Rood</strong>: bakboord, 112.5°</li><li><strong>Groen</strong>: stuurboord, 112.5°</li><li><strong>Wit heklicht</strong>: achter, 135°</li></ul><p style="margin-top:8px">Kleine zeilboot: combinatielantaarn (treilicht) = rood+groen+wit in één.</p>`},
-        {title:'Motorboot verlichting',body:`<ul><li>Mastlicht (wit, 225°, voor)</li><li>Rood BB + groen SB zijlichten</li><li>Wit heklicht (135°)</li></ul><p style="margin-top:8px"><em>Kleine motorboot &lt;7m, max 7kn</em>: mag volstaan met één wit rondomlicht.</p>`}
-       ],
-       quiz:[
-        {q:'Rood zijlicht: welke kant, welke hoek?',opts:['Stuurboord, 135°','Bakboord, 112.5°','Achter, 225°','Voor, 360°'],correct:1,why:'Rood = bakboord, 112.5°.'},
-        {q:'Kleine motorboot <7m, max 7kn mag?',opts:['Geen licht','Alleen mastlicht','Één wit rondomlicht','Alleen heklicht'],correct:2,why:'Kleine motorboot: één wit rondomlicht volstaat.'},
-        {q:'Zeilboot verlichting verplicht?',opts:['Alleen heklicht','Rood BB + groen SB + wit hek','Mastlicht','Niets'],correct:1,why:'Zeilboot: rood BB + groen SB + wit heklicht.'}
-       ]}
-    ],
-    examen:[
-      {q:'Wind van bakboord: koers heet?',opts:['Stuurboord aan de wind','Bakboord aan de wind','Voor de wind','Halve wind'],correct:1,why:'Wind van bakboord = bakboord aan de wind.'},
-      {q:'Boeg door de wind = ?',opts:['Gijpen','Afvallen','Overstag','Oploefen'],correct:2,why:'Boeg door de wind = overstag.'},
-      {q:'Achterschip door de wind = ?',opts:['Overstag','Gijpen','Afvallen','Oploefen'],correct:1,why:'Achterschip door de wind = gijpen.'},
-      {q:'Rode ton, naar zee: houd aan…',opts:['Bakboord','Stuurboord','Midden','Weg'],correct:1,why:'Rood = stuurboord aanhouden.'},
-      {q:'Groene ton topmark?',opts:['Punt','Cilinder','Kegel','Bol'],correct:2,why:'Groen = kegel.'},
-      {q:'Bakboord hals vs stuurboord hals: wie wijkt?',svg:bprSvg('bak-stuur'),opts:['Bakboord hals','Stuurboord hals','Beiden','Niemand'],correct:0,why:'Bakboord hals wijkt.'},
-      {q:'Motor vs zeil: wie wijkt?',opts:['Zeilboot','Motorboot','Beiden','Niemand'],correct:1,why:'Spier wijkt voor zeil.'},
-      {q:'Rood navigatielicht: kant + hoek?',opts:['SB 135°','BB 112.5°','Achter 135°','Mast 225°'],correct:1,why:'Rood = BB 112.5°.'},
-      {q:'Oploefen = ?',opts:['Van wind af','Naar wind toe','Anker','Stoppen'],correct:1,why:'Oploefen = naar de wind toe draaien.'},
-      {q:'Loef vs lij, zelfde hals. Wie wijkt?',svg:bprSvg('loef-lij'),opts:['Loef','Lij','Niemand','Sterkste'],correct:0,why:'Loef wijkt voor lij.'}
-    ]
-  },
-
-  groen:{
-    name:'Zeilen Groen (KB II)',icon:'🟢',color:'#3A7D44',
-    modules:[
-      {id:'zg-kardinaal',section:'zeilen',icon:'🧭',title:'Kardinale betonning',desc:'Noord, Zuid, Oost, West',
-       lessons:[
-        {title:'Kardinale betonning',body:`<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:4px">${kardinaalSvg('N')}${kardinaalSvg('Z')}${kardinaalSvg('O')}${kardinaalSvg('W')}</div><p style="margin-top:8px">Een kardinale ton geeft aan aan <strong>welke kant je veilig water vindt</strong>.</p>`},
-        {title:'Schema',body:`<table style="width:100%;font-size:.82rem;border-collapse:collapse"><tr style="background:var(--gold-soft)"><th style="padding:6px;text-align:left">Richting</th><th>Kleur</th><th>Topmark</th><th>Licht</th></tr><tr><td style="padding:5px">Noord</td><td>Zwart boven Geel</td><td>▲▲</td><td>Snel flits</td></tr><tr style="background:#f5f5f5"><td>Zuid</td><td>Geel boven Zwart</td><td>▼▼</td><td>6+langflits</td></tr><tr><td>Oost</td><td>Zwart-Geel-Zwart</td><td>▲▼</td><td>3 flitsen</td></tr><tr style="background:#f5f5f5"><td>West</td><td>Geel-Zwart-Geel</td><td>▼▲</td><td>9 flitsen</td></tr></table>`}
-       ],
-       quiz:[
-        {q:'Noord-kardinaalton kleur?',img:kardinaalSvg('N'),opts:['Geel boven Zwart','Zwart boven Geel','Zw-Ge-Zw','Ge-Zw-Ge'],correct:1,why:'Noord = Zwart boven Geel.'},
-        {q:'Zuid-kardinaalton topmark?',img:kardinaalSvg('Z'),opts:['▲▲','▼▼','▲▼','▼▲'],correct:1,why:'Zuid = ▼▼ (twee pijlen omlaag).'},
-        {q:'West-kardinaalton kleur?',img:kardinaalSvg('W'),opts:['Zw-Ge-Zw','Ge-Zw-Ge','Zw boven Ge','Ge boven Zw'],correct:1,why:'West = Geel-Zwart-Geel.'},
-        {q:'Oost-kardinaalton licht?',opts:['Snel flits','6+langflits','3 flitsen','9 flitsen'],correct:2,why:'Oost = 3 flitsen (O = 3e kompasrichting).'}
-       ]},
-      {id:'zg-geluid',section:'zeilen',icon:'📯',title:'Geluidsseinen',desc:'Korte en lange stoten',
-       lessons:[
-        {title:'Manoeuvreerseinen',body:`<table style="width:100%;font-size:.83rem;border-collapse:collapse"><tr style="background:var(--gold-soft)"><th style="padding:6px">Sein</th><th>Betekenis</th></tr><tr><td style="padding:5px">• (1 kort)</td><td>Ik ga naar stuurboord</td></tr><tr style="background:#f5f5f5"><td>•• (2 kort)</td><td>Ik ga naar bakboord</td></tr><tr><td>••• (3 kort)</td><td>Ik sla achteruit</td></tr><tr style="background:#f5f5f5"><td>••••• (5 kort)</td><td>Gevaarsein / attentie</td></tr><tr><td>— (1 lang)</td><td>Aandachtssein (nadering sluis/brug)</td></tr><tr style="background:#f5f5f5"><td>— • (lang+kort)</td><td>Wil langs stuurboord passeren</td></tr><tr><td>— •• (lang+2 kort)</td><td>Wil langs bakboord passeren</td></tr></table>`}
-       ],
-       quiz:[
-        {q:'Eén korte stoot = ?',opts:['Bakboord','Stuurboord','Achteruit','Attentie'],correct:1,why:'1 kort = naar stuurboord.'},
-        {q:'Drie korte stoten = ?',opts:['Stuurboord','Bakboord','Achteruit','Attentie'],correct:2,why:'3 kort = achteruit.'},
-        {q:'Vijf korte stoten = ?',opts:['Stuurboord','Bakboord','Achteruit','Gevaarsein'],correct:3,why:'5 kort = gevaarsein/attentie.'}
-       ]},
-      {id:'zg-weer',section:'zeilen',icon:'⛈️',title:'Weerkunde',desc:'Beaufort, zeebries, onweer',
-       lessons:[
-        {title:'Beaufort & wind',type:'game',game:'beaufort',body:`<p>Oefen de Beaufort-schaal met de slider hieronder.</p><div id="gameContainer"></div>`},
-        {title:'Weersverschijnselen',body:`<ul><li><strong>Zeebries</strong>: overdag zee → land (land warmt op)</li><li><strong>Landbries</strong>: 's nachts land → zee</li><li><strong>Thermiekwind</strong>: door opwarming land, overdag</li><li><strong>Bui/squall</strong>: donkere wolken, plotselinge windtoename</li></ul><div class="callout-warn callout">Onweer: naar de kant, mast strijken, op hout blijven!</div>`}
-       ],
-       quiz:[
-        {q:'Reddingsvest verplicht vanaf windkracht?',opts:['2','3','4','5'],correct:2,why:'Kracht 4 = matige bries, reddingsvest verplicht.'},
-        {q:'Zeebries waait?',opts:['Land→zee','Zee→land','N→Z','W→O'],correct:1,why:'Zeebries: zee naar land (overdag).'},
-        {q:'Onweer op het water: actie?',opts:['Mast omhoog','Naar de kant, mast strijken, op hout','Doorvaren','Anker'],correct:1,why:'Kant, mast strijken, op hout (niet op metaal).'}
-       ]},
-      {id:'zg-mob',section:'zeilen',icon:'🆘',title:'Man Over Boord',desc:'MOB procedure',
-       lessons:[
-        {title:'MOB procedure',body:`<p><strong>Direct:</strong></p><ol style="padding-left:18px;margin-top:6px"><li>Schreeuw "Man over boord!"</li><li>Gooi reddingsboei</li><li>Wijs persoon aan — oogcontact niet verliezen</li><li>Breng boot tot stilstand</li></ol><p style="margin-top:10px"><strong>Opnemen:</strong> altijd aan de <em>lijzijde</em> — boot drijft naar de persoon toe, windstil voor opnemen.</p>`}
-       ],
-       quiz:[
-        {q:'Eerste actie MOB?',opts:['Motor uit','Schreeuw + reddingsboei','Ankeren','Seinen'],correct:1,why:'Eerst roepen én reddingsboei gooien.'},
-        {q:'MOB opnemen aan?',opts:['Loefzijde','Lijzijde','Bakboord','Stuurboord'],correct:1,why:'Lijzijde: boot drijft naar persoon toe.'},
-        {q:'Wie wijst de MOB aan?',opts:['Stuurman','Vast aangewezen persoon kijkt continu','Iedereen om beurt','Niemand nodig'],correct:1,why:'Eén persoon wijst continu — oogcontact nooit verliezen.'}
-       ]},
-      {id:'zg-navigatie',section:'zeilen',icon:'🗺️',title:'Navigatie basis',desc:'Kompas, koers, afstand',
-       lessons:[
-        {title:'Kompas',body:`${gradenboogSvg()}<p style="margin-top:8px"><strong>Kompasroos</strong>: N=0°, O=90°, Z=180°, W=270°.<br><strong>Windrichting</strong>: van waar de wind <em>komt</em>. Noorderwind = van het noorden.</p>`},
-        {title:'Koers & afstand',body:`<p><strong>Koers</strong>: richting in graden die je vaart.<br><strong>Afstand</strong>: in zeemijlen (nm) — 1 nm = 1852 m.<br><strong>Peil</strong>: richting naar een object (met peilcompas).</p><div class="callout-tip callout">Gegist bestek: positie schatten via koers + snelheid + tijd.</div>`}
-       ],
-       quiz:[
-        {q:'Kompas: Oost = hoeveel graden?',opts:['0°','90°','180°','270°'],correct:1,why:'O = 90°.'},
-        {q:'Noorderwind waait?',opts:['Z→N','N→Z','O→W','W→O'],correct:1,why:'Noorderwind = vanuit het noorden, dus naar het zuiden.'},
-        {q:'1 zeemijl = ?',opts:['1000 m','1609 m','1852 m','2000 m'],correct:2,why:'1 nm = 1852 meter.'}
-       ]}
-    ],
-    examen:[
-      {q:'Noord-kardinaalton kleur?',img:kardinaalSvg('N'),opts:['Ge boven Zw','Zw boven Ge','Zw-Ge-Zw','Ge-Zw-Ge'],correct:1,why:'Noord = Zwart boven Geel.'},
-      {q:'Oost-kardinaalton licht?',opts:['Snel','6+langflits','3 flitsen','9 flitsen'],correct:2,why:'Oost = 3 flitsen.'},
-      {q:'West-kardinaalton topmark?',opts:['▲▲','▼▼','▲▼','▼▲'],correct:3,why:'West = ▼▲.'},
-      {q:'1 korte stoot = ?',opts:['Bakboord','Stuurboord','Achteruit','Attentie'],correct:1,why:'1 kort = stuurboord.'},
-      {q:'5 korte stoten = ?',opts:['SB','BB','Achteruit','Gevaarsein'],correct:3,why:'5 kort = gevaarsein.'},
-      {q:'Zeebries: richting?',opts:['Land→zee','Zee→land','N→Z','Z→N'],correct:1,why:'Zeebries = zee naar land.'},
-      {q:'Eerste actie MOB?',opts:['Motor uit','Schreeuw + reddingsboei','Ankeren','Seinen'],correct:1,why:'Roepen + reddingsboei.'},
-      {q:'MOB opnemen aan?',opts:['Loef','Lij','BB','SB'],correct:1,why:'Lijzijde.'},
-      {q:'Kompas Zuid = ?',opts:['0°','90°','180°','270°'],correct:2,why:'Z = 180°.'},
-      {q:'Zuid-kardinaalton topmark?',img:kardinaalSvg('Z'),opts:['▲▲','▼▼','▲▼','▼▲'],correct:1,why:'Zuid = ▼▼.'}
-    ]
-  },
-
-  kb3:{
-    name:'Kielboot III',icon:'⛵',color:'#0B2545',
-    modules:[
-      {id:'kb-loefgierig',section:'zeilen',icon:'↔️',title:'Loef- & lijgierig',desc:'Stuurgedrag van het schip',
-       lessons:[
-        {title:'Loef- en lijgierig',body:`<p><strong>Loefgierig</strong>: boot wil automatisch naar de wind draaien (oploefen). Correctie: helmstok naar lij.</p><p style="margin-top:8px"><strong>Lijgierig</strong>: boot wil van de wind af draaien. Correctie: helmstok naar loef.</p><p style="margin-top:8px"><strong>Oorzaak loefgierig</strong>: zwaar gewicht voorin, mast te ver voor.</p>`}
-       ],
-       quiz:[
-        {q:'Boot wil naar de wind draaien = ?',opts:['Lijgierig','Loefgierig','Neutraal','Stuurloos'],correct:1,why:'Loefgierig = neigt naar wind toe.'},
-        {q:'Correctie loefgierig: helmstok naar?',opts:['Loef','Lij','Achter','Voor'],correct:1,why:'Helmstok lij = boot draait weg van wind.'},
-        {q:'Oorzaak loefgierig?',opts:['Zwaar achterin','Zwaar voorin','Gelijkmatig','Lege boot'],correct:1,why:'Zwaar voorin → boeg dieper → loefgierig.'}
-       ]},
-      {id:'kb-reven',section:'zeilen',icon:'⬇️',title:'Reven',desc:'Zeil kleiner maken bij harde wind',
-       lessons:[
-        {title:'Reven',body:`<p><strong>Reven</strong> = het zeil inkorten bij harde wind om controle te houden.</p><ol style="padding-left:18px;margin-top:8px"><li>Halve wind of ruime wind aanhouden</li><li>Vang losviering (houd zeil op)</li><li>Reefpunten vastmaken aan de giek</li><li>Valhalzen en schoten opnieuw stellen</li></ol><div class="callout-tip callout">Kracht 4-5: overweeg 1e reef. Kracht 5-6: 2e reef.</div>`}
-       ],
-       quiz:[
-        {q:'Reven = ?',opts:['Ankeren','Zeil kleiner maken','Gijpen','Overstag'],correct:1,why:'Reven = zeil inkorten bij harde wind.'},
-        {q:'Wanneer 1e reef overwegen?',opts:['Kracht 2','Kracht 3','Kracht 4-5','Kracht 7'],correct:2,why:'Kracht 4-5 = overweeg eerste reef.'},
-        {q:'Stap 1 bij reven?',opts:['Schoot los','Halve/ruime wind aanhouden','Ankeren','Mast neer'],correct:1,why:'Eerst werkbare koers aanhouden.'}
-       ]},
-      {id:'kb-stabiliteit',section:'zeilen',icon:'⚖️',title:'Stabiliteit',desc:'Metacentrum, slingerperiode',
-       lessons:[
-        {title:'Stabiliteit',body:`<p><strong>Metacentrum</strong> (M): punt waartegen boot kantelt. Hoe hoger M boven het zwaartepunt (G), hoe stabieler.</p><p style="margin-top:8px"><strong>Slingerperiode</strong>: korte periode = stijf schip. Lange periode = slingerend schip.</p>`},
-        {title:'Veiligheidsuitrusting kielboot',body:`<ul><li>Reddingsvesten voor allen</li><li>Marifoon (VHF kanaal 16)</li><li>Seinkist (noodraketten)</li><li>Anker + lijn</li><li>Navigatieverlichting werkend</li><li>Kaart + kompas</li><li>EHBO-kit</li></ul>`}
-       ],
-       quiz:[
-        {q:'Hoog metacentrum boven zwaartepunt = ?',opts:['Instabiel','Stabiel','Langzaam','Slingerend'],correct:1,why:'Hoog M boven G = meer herstelkracht = stabiel.'},
-        {q:'Korte slingerperiode duidt op?',opts:['Slingerend schip','Stijf stabiel schip','Instabiel','Langzaam'],correct:1,why:'Korte slingerperiode = stijf (stabiel) schip.'},
-        {q:'Marifoon noodkanaal?',opts:['9','12','16','70'],correct:2,why:'Kanaal 16 = internationaal noodkanaal.'}
-       ]},
-      {id:'kb-navigatie',section:'zeilen',icon:'🗺️',title:'Navigatie gevorderd',desc:'Gegist bestek, getijden, stroming',
-       lessons:[
-        {title:'Gegist bestek & getijden',body:`<p><strong>Gegist bestek</strong> (DR): positie bepalen via koers + snelheid + tijd. Formule: <em>afstand = snelheid × tijd</em>.</p><p style="margin-top:8px"><strong>Eb</strong>: waterpeil daalt. <strong>Vloed</strong>: waterpeil stijgt. Invloed op vaardiepte en stroming.</p>`},
-        {title:'Stroming compenseren',body:`<p>Stroom duwt de boot van de koers. Compenseer door <em>schuin in de stroom te sturen</em>.</p><p style="margin-top:8px">Voorbeeld: stroom van bakboord → stuur naar bakboord om rechte koers te houden.</p>`}
-       ],
-       quiz:[
-        {q:'Gegist bestek bepaalt positie via?',opts:['GPS','Koers + snelheid + tijd','Radar','Sterren'],correct:1,why:'DR = koers + snelheid + tijd.'},
-        {q:'Eb = ?',opts:['Getij stijgt','Getij daalt','Wind neemt toe','Wind neemt af'],correct:1,why:'Eb = getij daalt.'},
-        {q:'Stroom van bakboord: stuur boot naar?',opts:['Stuurboord','Bakboord','Achteruit','Maakt niet uit'],correct:1,why:'Stroom van BB → stuur BB om recht te varen.'}
-       ]},
-      {id:'kb-zeeweer',section:'zeilen',icon:'🌊',title:'Zeeweer',desc:'Navtex, golven, deining',
-       lessons:[
-        {title:'Weerberichten & Beaufort op zee',type:'game',game:'beaufort',body:`<div id="gameContainer"></div><p style="margin-top:8px"><strong>Weerberichten</strong>: Navtex (automatisch), KNMI zeeweeroverzicht, GRIB-bestanden online.</p>`},
-        {title:'Golven & deining',body:`<p><strong>Windgolven</strong>: plaatselijk, kort en steil.<br><strong>Deining</strong>: van ver, lang en regelmatig.</p><p style="margin-top:8px">Extra gevaar bij: ondiep water, stroom tegen wind, plotselinge buien.</p><div class="callout-warn callout">Kracht 7 = stormachtig → kielboot in de haven!</div>`}
-       ],
-       quiz:[
-        {q:'Navtex is voor?',opts:['GPS','Automatisch scheepvaartweerbericht','Havenradio','Sonar'],correct:1,why:'Navtex = automatisch weerberichtensysteem.'},
-        {q:'Deining heeft t.o.v. windgolven?',opts:['Kortere steilere golven','Langere golflengte, regelmatiger','Hogere golven','Gevaarlijker golven'],correct:1,why:'Deining = lang, regelmatig, van ver.'},
-        {q:'Kracht 7 met kielboot: actie?',opts:['Doorvaren','Snelheid verminderen','In haven blijven','Extra zeil'],correct:2,why:'Kracht 7 = stormachtig, kielboot blijft in haven.'}
-       ]},
-      {id:'kb-samenvatting',section:'zeilen',icon:'📋',title:'Samenvatting KB III',desc:'Kernpunten kielboot',
-       lessons:[
-        {title:'Kernpunten',body:`<ul><li>Loefgierig / lijgierig begrijpen en corrigeren</li><li>Reven bij kracht 4-5</li><li>Stabiliteit: metacentrum boven zwaartepunt</li><li>Gegist bestek: koers + snelheid + tijd</li><li>Weerberichten: Navtex, KNMI</li><li>MOB procedure aan de lijzijde</li></ul>`},
-        {title:'Veiligheidscheck',body:`<ul><li>✓ Reddingsvesten voor alle opvarenden</li><li>✓ Marifoon VHF kanaal 16 bereikbaar</li><li>✓ Noodseinkist</li><li>✓ Anker + voldoende lijn</li><li>✓ Navigatieverlichting werkend</li><li>✓ Kaart + kompas</li></ul>`}
-       ],
-       quiz:[
-        {q:'Marifoon noodkanaal?',opts:['9','12','16','70'],correct:2,why:'Kanaal 16 = nood.'},
-        {q:'Stap 1 reven?',opts:['Schoot los','Werkbare koers aanhouden','Anker','Mast neer'],correct:1,why:'Eerst werkbare koers.'},
-        {q:'Metacentrum lager dan zwaartepunt = ?',opts:['Stabiel','Instabiel, kapseist snel','Neutraal','Snel schip'],correct:1,why:'M onder G = instabiel.'}
-       ]}
-    ],
-    examen:[
-      {q:'Boot wil steeds oploefen = ?',opts:['Lijgierig','Loefgierig','Neutraal','Slingerend'],correct:1,why:'Loefgierig = neigt naar wind.'},
-      {q:'Correctie loefgierig: helmstok naar?',opts:['Loef','Lij','Achter','Voor'],correct:1,why:'Helmstok lij.'},
-      {q:'Wanneer 1e reef?',opts:['Kracht 2','Kracht 3','Kracht 4-5','Kracht 8'],correct:2,why:'Kracht 4-5.'},
-      {q:'Metacentrum boven zwaartepunt = ?',opts:['Instabiel','Stabiel','Langzaam','Slingerend'],correct:1,why:'Hoog M = stabiel.'},
-      {q:'Gegist bestek via?',opts:['GPS','Koers+snelheid+tijd','Radar','Kaartlezen'],correct:1,why:'DR = koers+snelheid+tijd.'},
-      {q:'Eb = ?',opts:['Getij stijgt','Getij daalt','Wind toe','Wind af'],correct:1,why:'Eb = daalt.'},
-      {q:'Navtex is voor?',opts:['GPS','Weerberichten','Havenradio','Sonar'],correct:1,why:'Navtex = scheepvaartweerbericht.'},
-      {q:'Marifoon noodkanaal?',opts:['9','12','16','70'],correct:2,why:'Kanaal 16.'},
-      {q:'Noord-kardinaalton kleur?',opts:['Ge boven Zw','Zw boven Ge','Zw-Ge-Zw','Ge-Zw-Ge'],correct:1,why:'Noord = Zwart boven Geel.'},
-      {q:'Kracht 7 met kielboot = ?',opts:['Lichte bries','Matige wind','Stormachtig','Orkaan'],correct:2,why:'Kracht 7 = stormachtig.'}
-    ]
-  }
-};
+// ZEILEN_DATA loaded from modules.json + vragen.json
 
 // ── CONFIG ────────────────────────────────────────────────────────────────────
 const APP_VERSION = '1.0.0';
@@ -1913,11 +951,109 @@ const STORAGE_KEY  = 'zvcanisius_v2';
 const PASS_RATE    = 0.70;            // 70 % drempel voor slagen
 const INSTR_PASS   = 'instructeur';   // instructeurswachtwoord
 
-// Compute roeien exam total once so it never goes stale
-const ROEIEN_EXAM_TOTAL = ['roeien1','roeien2','bpr'].reduce((s,k)=>s+ROEIEN_EXAMEN[k].length, 0);
+let ROEIEN_EXAM_TOTAL; // set in initApp() after JSON load
 
 // Safe HTML escape — prevents XSS when inserting user-supplied strings into innerHTML
 function esc(s){ const d=document.createElement('div'); d.textContent=String(s); return d.innerHTML; }
+
+// ── SVG RESOLVER ──────────────────────────────────────────────────────────────
+// Converts "{{svg:functionname:arg1:arg2}}" placeholders (stored in JSON) back
+// to the actual SVG strings produced by the helper functions defined above.
+function resolveSvgRef(match, inner){
+  const parts=inner.split(':');
+  const fn=parts[0], args=parts.slice(1);
+  switch(fn){
+    case 'knoopsvg':       return knotSvg(args[0], args[1]?parseInt(args[1]):undefined);
+    case 'bbsbsvg':        return bbsbSvg();
+    case 'wallsvg':        return wallSvg();
+    case 'vletsvg':        return vletSvg();
+    case 'vletquizsvg':    return vletQuizSvg(parseInt(args[0]));
+    case 'linessvg':       return linesSvg();
+    case 'dodehoeksvg':    return dodeHoekSvg();
+    case 'gradenboogsvg':  return gradenboogSvg();
+    case 'betonningsvg':   return betonningSvg();
+    case 'splitsingsvg':   return splitsingSvg();
+    case 'kegelsvg':       return kegelSvg();
+    case 'lichtcirkelsvg': return lichtCirkelSvg();
+    case 'ankersvg':       return ankerSvg(args[0]);
+    case 'zeilVletsvg':    return zeilVletSvg(args[0]&&args[0]!==''?parseInt(args[0]):undefined);
+    case 'koersensvg':     return koersenSvg();
+    case 'kardinaalsvg':   return kardinaalSvg(args[0]);
+    case 'bprsvg':         return bprSvg(args[0]);
+    case 'schiplichtsvg':  return schipLichtSvg();
+    case 'bordcard':       return bordCard(args[0], args.slice(1).join(':'));
+    default: return match;
+  }
+}
+function resolveBody(html){ return html?html.replace(/\{\{svg:([^}]*)\}\}/g,resolveSvgRef):''; }
+function resolveQuestion(q){
+  return {
+    q:q.vraag, opts:q.opties, correct:q.correct, why:q.uitleg||'',
+    ...(q.afbeelding?{img:resolveBody(q.afbeelding)}:{}),
+    ...(q.diagram   ?{svg:resolveBody(q.diagram)   }:{}),
+  };
+}
+function buildModule(mod, quizArr){
+  return {
+    id:mod.id, section:mod.sectie, icon:mod.icoon, title:mod.titel, desc:mod.beschrijving,
+    lessons:(mod.lessen||[]).map(les=>({
+      title:les.titel, body:resolveBody(les.inhoud||''),
+      ...(les.type  ?{type:les.type}:{}),
+      ...(les.spel  ?{game:les.spel}:{}),
+      ...(les.custom?{custom:les.custom}:{}),
+    })),
+    quiz:(quizArr||[]).map(resolveQuestion),
+    ...(mod.custom?{custom:mod.custom}:{}),
+  };
+}
+
+// ── INIT (async data load) ─────────────────────────────────────────────────────
+function freshStudentState(){
+  return {roeien:{modules:{}},zeilen:Object.fromEntries(Object.keys(ZEILEN_DATA).map(k=>[k,{modules:{}}]))};
+}
+
+async function initApp(){
+  $main().innerHTML='<div style="padding:80px 20px;text-align:center"><p style="font-size:1.1rem;color:var(--muted)">Inhoud laden…</p></div>';
+  try{
+    const [vr,mo]=await Promise.all([
+      fetch('vragen.json').then(r=>{if(!r.ok)throw new Error('vragen.json niet gevonden');return r.json();}),
+      fetch('modules.json').then(r=>{if(!r.ok)throw new Error('modules.json niet gevonden');return r.json();}),
+    ]);
+
+    // Rebuild ROEIEN_MODULES
+    ROEIEN_MODULES=(mo.roeien||[]).map(mod=>
+      buildModule(mod, ((vr.roeien.modules||{})[mod.id]||{}).quiz)
+    );
+
+    // Rebuild ROEIEN_EXAMEN
+    ROEIEN_EXAMEN={};
+    for(const[k,arr]of Object.entries(vr.roeien.examen||{})) ROEIEN_EXAMEN[k]=arr.map(resolveQuestion);
+    ROEIEN_EXAM_TOTAL=['roeien1','roeien2','bpr'].reduce((s,k)=>s+(ROEIEN_EXAMEN[k]||[]).length,0);
+
+    // Rebuild ZEILEN_DATA
+    ZEILEN_DATA={};
+    for(const[lk,lv]of Object.entries(mo.zeilen||{})){
+      const zvq=(vr.zeilen||{})[lk]||{modules:{},examen:[]};
+      ZEILEN_DATA[lk]={
+        name:lv.naam, icon:lv.icoon, color:lv.kleur,
+        modules:(lv.modules||[]).map(mod=>buildModule(mod,((zvq.modules||{})[mod.id]||{}).quiz)),
+        examen:(zvq.examen||[]).map(resolveQuestion),
+      };
+    }
+
+    loadState();
+    renderStudentEntry();
+  }catch(err){
+    $main().innerHTML=`<div style="padding:40px 20px;text-align:center">
+      <p style="color:var(--error);font-weight:700;font-size:1.05rem">Kan inhoud niet laden</p>
+      <p style="color:var(--muted);font-size:.85rem;margin-top:8px">${esc(err.message)}</p>
+      <p style="color:var(--muted);font-size:.8rem;margin-top:6px">Zorg dat vragen.json en modules.json naast dit bestand staan, of open via een webserver.</p>
+    </div>`;
+  }
+}
+
+
+let ROEIEN_MODULES, ROEIEN_EXAMEN, ZEILEN_DATA; // populated by initApp()
 
 // ── STATE ─────────────────────────────────────────────────────────────────────
 let state={};
@@ -1930,7 +1066,7 @@ function loadState(){
 
 function studentData(){
   const s=currentStudent;
-  if(!state.students[s]) state.students[s]={roeien:{modules:{}},zeilen:{lichtmatroos:{modules:{}},rood:{modules:{}},groen:{modules:{}},kb3:{modules:{}}}};
+  if(!state.students[s]) state.students[s]=freshStudentState();
   return state.students[s];
 }
 
@@ -1999,7 +1135,7 @@ function submitName(){
   const v=document.getElementById('nameInput').value.trim();
   if(!v) return;
   currentStudent=v;
-  if(!state.students[v]){ state.students[v]={roeien:{modules:{}},zeilen:{lichtmatroos:{modules:{}},rood:{modules:{}},groen:{modules:{}},kb3:{modules:{}}}}; saveState(); }
+  if(!state.students[v]){ state.students[v]=freshStudentState(); } saveState(); }
   renderHome();
 }
 
@@ -2403,7 +1539,7 @@ document.getElementById('backBtn').addEventListener('click',()=>{
 document.getElementById('resetBtn').addEventListener('click',()=>{
   if(!currentStudent){ renderStudentEntry(); return; }
   if(confirm('Reset alle voortgang voor '+currentStudent+'? Dit kan niet ongedaan worden gemaakt.')){
-    state.students[currentStudent]={roeien:{modules:{}},zeilen:{lichtmatroos:{modules:{}},rood:{modules:{}},groen:{modules:{}},kb3:{modules:{}}}};
+    state.students[currentStudent]=freshStudentState();
     saveState(); renderHome();
   }
 });
@@ -2414,9 +1550,8 @@ document.getElementById('instructeurBtn').addEventListener('click',()=>{
   else if(pw!==null) alert('Onjuist wachtwoord.');
 });
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
-loadState();
-renderStudentEntry();
+// ── INIT ────────────────────────────────────────────────────────────────────
+initApp();
 </script>
 </body>
 </html>
