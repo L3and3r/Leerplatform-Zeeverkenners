@@ -1008,6 +1008,9 @@ function buildModule(mod, quizArr){
 }
 
 // ── INIT (async data load) ─────────────────────────────────────────────────────
+function shuffleArr(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function shuffleQuestion(q){ const order=shuffleArr([0,1,2,3]); return {...q, opts:order.map(i=>q.opts[i]), correct:order.indexOf(q.correct)}; }
+
 function freshStudentState(){
   return {roeien:{modules:{}},zeilen:Object.fromEntries(Object.keys(ZEILEN_DATA).map(k=>[k,{modules:{}}]))};
 }
@@ -1096,7 +1099,7 @@ function setExamenDone(disc,level,score,total){
 let currentStudent='',currentView='entry',currentDiscipline='',currentLevel='';
 let currentModules=[],currentModuleDisc='',currentModuleLevel='';
 let currentModuleIdx=0,currentLessonIdx=0,currentMode='learn';
-let currentQuizIdx=0,currentScore=0;
+let currentQuizIdx=0,currentScore=0,currentShuffledQuiz=[];
 let examenQuestions=[],examenAnswers=[],examenIdx=0;
 
 function $main(){ return document.getElementById('main'); }
@@ -1257,6 +1260,7 @@ function openZeilModule(idx){
 
 function _startModule(){
   currentView='lesson'; currentLessonIdx=0; currentMode='learn'; currentQuizIdx=0; currentScore=0;
+  currentShuffledQuiz=shuffleArr(currentModules[currentModuleIdx].quiz||[]).map(shuffleQuestion);
   renderLesson();
 }
 
@@ -1305,7 +1309,7 @@ function prevLesson(){ if(currentLessonIdx>0){ currentLessonIdx--; renderLesson(
 // ── QUIZ ──────────────────────────────────────────────────────────────────────
 function renderQuiz(){
   const mod=currentModules[currentModuleIdx];
-  const qs=mod.quiz||[];
+  const qs=currentShuffledQuiz;
   if(currentQuizIdx>=qs.length){ renderModuleResult(); return; }
   const q=qs[currentQuizIdx];
   const lessons=mod.lessons||[]; const total=lessons.length+qs.length;
@@ -1329,7 +1333,7 @@ function renderQuiz(){
 }
 
 function answerQuiz(chosen){
-  const mod=currentModules[currentModuleIdx]; const q=mod.quiz[currentQuizIdx];
+  const mod=currentModules[currentModuleIdx]; const q=currentShuffledQuiz[currentQuizIdx];
   const right=chosen===q.correct; if(right) currentScore++;
   document.querySelectorAll('.quiz-opt').forEach((b,i)=>{
     b.style.pointerEvents='none';
@@ -1373,13 +1377,13 @@ function renderModuleResult(){
 function startRoeiExamen(){
   currentDiscipline='roeien'; currentLevel='';
   examenQuestions=[]; ['roeien1','roeien2','bpr'].forEach(s=>ROEIEN_EXAMEN[s].forEach(q=>examenQuestions.push({...q,_section:s})));
-  examenQuestions=examenQuestions.sort(()=>Math.random()-.5);
+  examenQuestions=examenQuestions.sort(()=>Math.random()-.5).map(shuffleQuestion);
   examenIdx=0; examenAnswers=[]; renderExamenQuestion();
 }
 
 function startZeilExamen(){
   currentDiscipline='zeilen';
-  examenQuestions=[...ZEILEN_DATA[currentLevel].examen].sort(()=>Math.random()-.5);
+  examenQuestions=[...ZEILEN_DATA[currentLevel].examen].sort(()=>Math.random()-.5).map(shuffleQuestion);
   examenIdx=0; examenAnswers=[]; renderExamenQuestion();
 }
 
